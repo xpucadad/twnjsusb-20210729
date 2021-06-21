@@ -1,5 +1,5 @@
 created: 20210621233800326
-modified: 20210621233929495
+modified: 20210621235724770
 tags: [[Change Tracking]]
 title: 2021-06-21 Changes
 type: text/vnd.tiddlywiki
@@ -7,3 +7,4 @@ type: text/vnd.tiddlywiki
 * Imported the `Change Tracking` tiddler from my experimental TiddlyWIki.
 * Testing that the same tiddler is used for each day's changes.
 * Yup. That's working correctly!
+* Removed all traces (hopefully) of the dummy helloworld plugin I tried to create.
