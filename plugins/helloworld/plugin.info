@@ -1,0 +1,10 @@
+{
+	"title": "$:/plugins/xpucadad/helloworld",
+	"discription": "It says hello to the world.",
+	"author": "xpucadad",
+	"version": "0.0.1",
+	"core-version": ">=5.0.8",
+	"source": "https://github.com/xpucadad/helloworld",
+	"list": "readme license",
+	"plugin-type": "plugin"
+}

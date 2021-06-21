@@ -141,11 +141,23 @@ Error message and password prompt
 
 <p>This <a class="tc-tiddlylink-external" href="https://tiddlywiki.com" rel="noopener noreferrer" target="_blank">TiddlyWiki</a> contains the following tiddlers:</p><p><ul>
 
+<li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/more-page-actions</li>
+
+<li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/refresh</li>
+
 <li>$:/core</li>
+
+<li>$:/DefaultTiddlers</li>
 
 <li>$:/isEncrypted</li>
 
 <li>$:/plugins/tiddlywiki/highlight</li>
+
+<li>$:/plugins/xpucadad/helloworld</li>
+
+<li>$:/plugins/xpucadad/helloworld/license</li>
+
+<li>$:/plugins/xpucadad/helloworld/readme</li>
 
 <li>$:/status/RequireReloadDueToPluginChange</li>
 
@@ -177,6 +189,12 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
+<div created="20210621164804663" modified="20210621164804679" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/more-page-actions" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>show</pre>
+</div>
+<div created="20210621164040129" modified="20210621164040143" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/refresh" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>show</pre>
+</div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="" description="TiddlyWiki5 core" list="readme" name="Core" plugin-priority="0" plugin-type="plugin" title="$:/core" type="application/json" version="5.1.23" revision="0" bag="default">
 <pre>{
     &quot;tiddlers&quot;: {
@@ -10041,6 +10059,10 @@ Error message and password prompt
     }
 }</pre>
 </div>
+<div created="20210621164720465" modified="20210621164723383" title="$:/DefaultTiddlers" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>GettingStarted
+[[$:/plugins/xpucadad/helloworld]]</pre>
+</div>
 <div title="$:/isEncrypted" revision="0" bag="default">
 <pre>no</pre>
 </div>
@@ -10114,10 +10136,30 @@ Error message and password prompt
     }
 }</pre>
 </div>
+<div author="xpucadad" core-version="&gt;=5.0.8" dependents="" discription="It says hello to the world." list="readme license" plugin-type="plugin" source="https://github.com/xpucadad/helloworld" title="$:/plugins/xpucadad/helloworld" type="application/json" version="0.0.1" revision="0" bag="default">
+<pre>{
+    &quot;tiddlers&quot;: {
+        &quot;HelloWorld&quot;: {
+            &quot;title&quot;: &quot;HelloWorld&quot;,
+            &quot;created&quot;: &quot;20210621162554926&quot;,
+            &quot;modified&quot;: &quot;20210621162626019&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;type&quot;: &quot;text/vnd.tiddlywiki&quot;,
+            &quot;text&quot;: &quot;This is a tiddler for my first try at creating a plugin.&quot;
+        }
+    }
+}</pre>
+</div>
+<div created="20210621164500288" modified="20210621164541178" tags="" title="$:/plugins/xpucadad/helloworld/license" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>This would be the license.</pre>
+</div>
+<div created="20210621163915725" modified="20210621163958360" tags="" title="$:/plugins/xpucadad/helloworld/readme" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>This is the readme tiddler.</pre>
+</div>
 <div title="$:/status/RequireReloadDueToPluginChange" revision="0" bag="default">
 <pre>no</pre>
 </div>
-<div list="GettingStarted" title="$:/StoryList" revision="1" bag="default">
+<div list="GettingStarted $:/plugins/xpucadad/helloworld" title="$:/StoryList" revision="1" bag="default">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.23" revision="0" bag="default">
