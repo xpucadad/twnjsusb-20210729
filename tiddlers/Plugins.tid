@@ -1,0 +1,11 @@
+created: 20210621165608740
+modified: 20210621165915686
+tags: Contents
+title: Plugins
+type: text/vnd.tiddlywiki
+
+If I want to develop a plugin, I'm going to need to do more research. 
+
+In my simple try ([[$:/plugins/xpucadad/helloworld]]) my readme and license tiddlers are not showing up under the tags. 
+
+I don't really want to devote any more time to this until I am actually ready to create a plug in.
