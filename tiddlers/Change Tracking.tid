@@ -1,0 +1,33 @@
+created: 20210510183531261
+modified: 20210621233551525
+tags: Meta
+title: Change Tracking
+type: text/vnd.tiddlywiki
+
+\define concatenate_title() 
+$(dateNow)$ Changes
+\end
+
+To record changes, click the button.
+
+<$vars 
+  dateNow = <<now "YYYY-0MM-0DD">>
+>
+<$button>
+<$action-sendmessage
+  $message="tm-new-tiddler"
+  tags="[[Change Tracking]]"
+  title = <<concatenate_title>>
+  />
+<$action-sendmessage
+  $message="tm-close-tiddler"
+  $param="Change Tracking"
+/>
+Record New Changes
+</$button>
+</$vars>
+
+!! Previous Changes
+<<list-links "[tag[Change Tracking]!sort[]]">>
+
+
