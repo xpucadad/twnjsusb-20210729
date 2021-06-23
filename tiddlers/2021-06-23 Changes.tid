@@ -1,0 +1,7 @@
+created: 20210623144441251
+modified: 20210623144550974
+tags: [[Change Tracking]]
+title: 2021-06-23 Changes
+type: text/vnd.tiddlywiki
+
+Oops! Looks like deleting a tiddler doesn't necessarily delete the file from the file system. Or maybe it works differently for plugins.
