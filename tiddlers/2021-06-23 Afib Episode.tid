@@ -1,0 +1,12 @@
+created: 20210626150402206
+date: 2021-06-23
+modified: 20210626152039528
+notes: Detected by phone.
+tags: [[Afib Episodes]]
+time: 1024
+title: 2021-06-23 Afib Episode
+type: text/vnd.tiddlywiki
+
+|! Date|{{!!date}}|
+|! Time|{{!!time}}|
+|! Notes|{{!!notes}}|

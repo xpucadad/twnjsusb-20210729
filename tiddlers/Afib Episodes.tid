@@ -1,0 +1,19 @@
+created: 20210626150012195
+modified: 20210626153052822
+tags: Contents
+title: Afib Episodes
+type: text/vnd.tiddlywiki
+
+!! Using fields
+
+<table>
+<tr><th>Date</th><th>Time</th><th>Notes</th></tr>
+<$list filter="[tag[Afib Episodes]!sort[]]">
+<tr>
+  <td>{{!!date}}</td>
+  <td>{{!!time}}</td>
+  <td>{{!!notes}}</td>
+</tr>
+</$list>
+</table>
+
