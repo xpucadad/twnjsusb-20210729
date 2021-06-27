@@ -1,0 +1,13 @@
+created: 20210627193902122
+modified: 20210627201755710
+tags: $:/tags/Macro
+title: $:/kmr/macros/afib-tracking
+type: text/vnd.tiddlywiki
+
+\define make-link(date, title)
+[[$date$|$title$]]
+\end
+
+\define make-title()
+$(date)$ $(time)$ Afib Detection
+\end

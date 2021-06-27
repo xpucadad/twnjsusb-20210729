@@ -1,0 +1,22 @@
+created: 20210627194727407
+modified: 20210627195822360
+tags: 
+title: AfibDetectionTable
+type: text/vnd.tiddlywiki
+
+\import $:/kmr/macros/afib-tracking
+
+<!-- Show all the detections -->
+<!-- would be nice to provide tabs for the years; maybe later -->
+
+
+<table>
+<tr><th>Date</th><th>Time</th><th>Notes</th></tr>
+<$list filter="[tag[Afib Detections]!sort[]]">
+<tr>
+  <td><$macrocall $name="make-link" date={{!!date}} title={{!!title}} /></td>
+  <td>{{!!time}}</td>
+  <td>{{!!text}}</td>
+</tr>
+</$list>
+</table>

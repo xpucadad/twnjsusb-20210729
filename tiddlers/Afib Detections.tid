@@ -1,16 +1,10 @@
 created: 20210626150012195
-modified: 20210627183943262
+modified: 20210627201819817
 tags: Contents
 title: Afib Detections
 type: text/vnd.tiddlywiki
 
-\define make-link(d, t)
-[[$d$|$t$]]
-\end
-
-\define make-title()
-$(date)$ $(time)$ Afib Detection
-\end
+\import $:/kmr/macros/afib-tracking
 
 <style>
   .border {
@@ -74,24 +68,11 @@ default=<<now-time>>
     $message="tm-delete-tiddler"
     $param="$:/temp/NewAfibInfo"
   />
-Add New Afib Episode
+Add New Afib Detection
 </$button>
 </$set>
 </$set>
 </$vars>
 
 ---
-<!-- Show all the detections -->
-<!-- would be nice to provide tabs for the years; maybe later -->
-
-
-<table>
-<tr><th>Date</th><th>Time</th><th>Notes</th></tr>
-<$list filter="[tag[Afib Detections]!sort[]]">
-<tr>
-  <td><$macrocall $name="make-link" d={{!!date}} t={{!!title}} /></td>
-  <td>{{!!time}}</td>
-  <td>{{!!text}}</td>
-</tr>
-</$list>
-</table>
+{{AfibDetectionTable}}
