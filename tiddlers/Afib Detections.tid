@@ -1,15 +1,15 @@
 created: 20210626150012195
-modified: 20210627143813650
+modified: 20210627183943262
 tags: Contents
-title: Afib Episodes
+title: Afib Detections
 type: text/vnd.tiddlywiki
-
-\define make-title()
-$(date)$ $(time)$ Afib Episode
-\end
 
 \define make-link(d, t)
 [[$d$|$t$]]
+\end
+
+\define make-title()
+$(date)$ $(time)$ Afib Detection
 \end
 
 <style>
@@ -37,7 +37,6 @@ tiddler="$:/temp/NewAfibInfo"
 field="date"
 placeholder=<<now-date>>
 default=<<now-date>>
-xfocus=yes
 /></td>
 </tr>
 
@@ -66,7 +65,7 @@ default=<<now-time>>
 <$button>
   <$action-sendmessage
     $message="tm-new-tiddler"
-    tags="[[Afib Episodes]]"
+    tags="[[Afib Detections]]"
     date=<<date>>
     time=<<time>>
     title=<<make-title>>
@@ -82,14 +81,13 @@ Add New Afib Episode
 </$vars>
 
 ---
-!! Existing Episodes
-
-<!-- Show all the episodes -->
+<!-- Show all the detections -->
 <!-- would be nice to provide tabs for the years; maybe later -->
+
 
 <table>
 <tr><th>Date</th><th>Time</th><th>Notes</th></tr>
-<$list filter="[tag[Afib Episodes]!sort[]]">
+<$list filter="[tag[Afib Detections]!sort[]]">
 <tr>
   <td><$macrocall $name="make-link" d={{!!date}} t={{!!title}} /></td>
   <td>{{!!time}}</td>
