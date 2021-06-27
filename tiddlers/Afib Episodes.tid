@@ -1,19 +1,74 @@
 created: 20210626150012195
-modified: 20210626153052822
+modified: 20210627004344270
 tags: Contents
 title: Afib Episodes
 type: text/vnd.tiddlywiki
 
-!! Using fields
+\define make-title()
+$(date)$ $(time)$ Afib Episode
+\end
+
+<style>
+  .border {
+    border-width: medium;
+  }
+</style>
+
+Fill in the fields below and click the button to create a new office visit tiddler. The fields ``date`` and ``time`` are required to create a good title.
+
+<table>
+<tr><th>Date</th>
+<td><$edit-text class="border"
+tiddler="$:/temp/NewAfibInfo"
+field="date"
+placeholder="Date"
+xfocus=yes
+/></td>
+</tr>
+
+<tr>
+<th>Time</th>
+<td><$edit-text class="border"
+tiddler="$:/temp/NewAfibInfo"
+field="time"
+placeholder="time"
+/>
+</td>
+</tr>
+
+<tr><th>Notes</th>
+<td><$edit-text class="border"
+tiddler="$:/temp/NewAfibInfo"
+field="notes" tag="textarea"
+placeholder="Notes"
+/></td></tr>
+
+</table>
+
+<$vars 
+  date={{$:/temp/NewAfibInfo!!date}}
+  time={{$:/temp/NewAfibInfo!!time}}
+  notes={{$:/temp/NewAfibInfo!!notes}}
+>
+
+<$button>
+  <$action-sendmessage
+    $message="tm-new-tiddler"
+    tags="[[Afib Episodes]]"
+    date=<<date>>
+    time=<<time>>
+    notes=<<notes>>
+    title=<<make-title>>
+  />
+New Afib Episode
+</$button>
+</$vars>
 
 <table>
 <tr><th>Date</th><th>Time</th><th>Notes</th></tr>
 <$list filter="[tag[Afib Episodes]!sort[]]">
 <tr>
-  <td>{{!!date}}</td>
-  <td>{{!!time}}</td>
-  <td>{{!!notes}}</td>
+  <td>{{!!date}}</td><td>{{!!time}}</td><td>{{!!notes}}</td>
 </tr>
 </$list>
 </table>
-

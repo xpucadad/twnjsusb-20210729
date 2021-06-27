@@ -1,0 +1,92 @@
+created: 20210102162400268
+modified: 20210627004532641
+tags: [[Can Delete]]
+title: 2021 Office Visits
+type: text/vnd.tiddlywiki
+
+\define concatenate()
+$(p1)$ $(p2)$ - $(p3)$
+\end
+\define make_with_link()
+[[$(p3)$]]
+\end
+
+<style>
+  .border {
+    border-width: medium;
+  }
+</style>
+
+Fill in the fields below and click the button to create a new office visit tiddler. The fields ``date`` and ``purpose`` are required to create a good title.
+
+<table>
+<tr><th>With</th>
+<td><$edit-text class="border"
+tiddler="$:/temp/NewVisitInfo"
+field="with"
+placeholder="Who the Visit is With"
+xfocus=yes
+/></td>
+</tr>
+
+<tr>
+<th>Date</th>
+<td><$edit-text class="border"
+tiddler="$:/temp/NewVisitInfo"
+field="date"
+placeholder="Date of the Visit"
+/>
+</td>
+</tr>
+
+<tr><th>Time</th>
+<td><$edit-text class="border"
+tiddler="$:/temp/NewVisitInfo"
+field="time"
+placeholder="Time of the Visit"
+/></td></tr>
+
+<tr><th>Where</th>
+<td><$edit-text class="border"
+tiddler="$:/temp/NewVisitInfo"
+field="where"
+placeholder="Where is the Visit"
+/></td></tr>
+
+<tr><th>Purpose</th>
+<td><$edit-text class="border" tiddler="$:/temp/NewVisitInfo"
+field="purpose"
+placeholder="Purpose of the Visit"
+/></td></tr>
+</table>
+
+<$vars 
+  p1={{$:/temp/NewVisitInfo!!date}}
+  p2={{$:/temp/NewVisitInfo!!purpose}}
+  p3={{$:/temp/NewVisitInfo!!with}}
+>
+<$button>
+<$action-sendmessage
+  $message="tm-new-tiddler"
+  title=<<concatenate>>
+  tags="[[2021 Office Visits]] #listOnWith"
+  with={{$:/temp/NewVisitInfo!!with}}
+  with-link=<<make_with_link>>
+  date={{$:/temp/NewVisitInfo!!date}}
+  time={{$:/temp/NewVisitInfo!!time}}
+  where={{$:/temp/NewVisitInfo!!where}}
+  purpose={{$:/temp/NewVisitInfo!!purpose}}
+/> 
+
+<$action-deletetiddler
+  $tiddler="$:/temp/NewVisitInfo"
+/>
+
+<$action-sendmessage
+  $message="tm-close-tiddler"
+  param="2021 Office Visits"
+/>
+Create Office Visit
+</$button>
+</$vars>
+

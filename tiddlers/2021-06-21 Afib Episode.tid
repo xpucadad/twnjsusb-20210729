@@ -1,9 +1,0 @@
-created: 20210626151018908
-modified: 20210626160819140
-notes: Detected by watch.
-tags: [[Afib Episodes]]
-time: 202106211045
-title: 2021-06-21 Afib Episode
-type: text/vnd.tiddlywiki
-
-<$view field="time" format="date" template="YYYY-0MM-0DD 0hh:0mm"/>
