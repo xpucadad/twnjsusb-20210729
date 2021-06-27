@@ -1,5 +1,5 @@
 created: 20210626150012195
-modified: 20210627004344270
+modified: 20210627143813650
 tags: Contents
 title: Afib Episodes
 type: text/vnd.tiddlywiki
@@ -8,20 +8,35 @@ type: text/vnd.tiddlywiki
 $(date)$ $(time)$ Afib Episode
 \end
 
+\define make-link(d, t)
+[[$d$|$t$]]
+\end
+
 <style>
   .border {
     border-width: medium;
   }
 </style>
 
+!! New Episode
+
 Fill in the fields below and click the button to create a new office visit tiddler. The fields ``date`` and ``time`` are required to create a good title.
 
+<!-- Get default values -->
+
+<$vars
+  now-date=<<now "YYYY-0MM-0DD">>
+  now-time=<<now "0hh:0mm">>
+>
+
+<!-- Get user input for new episode -->
 <table>
 <tr><th>Date</th>
 <td><$edit-text class="border"
 tiddler="$:/temp/NewAfibInfo"
 field="date"
-placeholder="Date"
+placeholder=<<now-date>>
+default=<<now-date>>
 xfocus=yes
 /></td>
 </tr>
@@ -31,25 +46,22 @@ xfocus=yes
 <td><$edit-text class="border"
 tiddler="$:/temp/NewAfibInfo"
 field="time"
-placeholder="time"
+placeholder=<<now-time>>
+default=<<now-time>>
 />
 </td>
 </tr>
 
-<tr><th>Notes</th>
-<td><$edit-text class="border"
-tiddler="$:/temp/NewAfibInfo"
-field="notes" tag="textarea"
-placeholder="Notes"
-/></td></tr>
-
 </table>
 
-<$vars 
-  date={{$:/temp/NewAfibInfo!!date}}
-  time={{$:/temp/NewAfibInfo!!time}}
-  notes={{$:/temp/NewAfibInfo!!notes}}
->
+<!-- retrieve the values or set to defaullts -->
+<$set name="date" value={{$:/temp/NewAfibInfo!!date}} emptyValue=<<now-date>> >
+<$set name="time" value={{$:/temp/NewAfibInfo!!time}} emptyValue=<<now-time>> >
+
+<!-- The button
+  1) creates a new tiddler
+  2) deletes the temp tiddler
+-->
 
 <$button>
   <$action-sendmessage
@@ -57,18 +69,31 @@ placeholder="Notes"
     tags="[[Afib Episodes]]"
     date=<<date>>
     time=<<time>>
-    notes=<<notes>>
     title=<<make-title>>
   />
-New Afib Episode
+  <$action-sendmessage
+    $message="tm-delete-tiddler"
+    $param="$:/temp/NewAfibInfo"
+  />
+Add New Afib Episode
 </$button>
+</$set>
+</$set>
 </$vars>
+
+---
+!! Existing Episodes
+
+<!-- Show all the episodes -->
+<!-- would be nice to provide tabs for the years; maybe later -->
 
 <table>
 <tr><th>Date</th><th>Time</th><th>Notes</th></tr>
 <$list filter="[tag[Afib Episodes]!sort[]]">
 <tr>
-  <td>{{!!date}}</td><td>{{!!time}}</td><td>{{!!notes}}</td>
+  <td><$macrocall $name="make-link" d={{!!date}} t={{!!title}} /></td>
+  <td>{{!!time}}</td>
+  <td>{{!!text}}</td>
 </tr>
 </$list>
 </table>

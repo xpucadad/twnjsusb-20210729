@@ -6,7 +6,7 @@
 <meta name="tiddlywiki-version" content="5.1.23" />
 <meta name="format-detection" content="telephone=no">
 <link id="faviconLink" rel="shortcut icon" href="favicon.ico">
-<title>My TiddlyWiki — a non-linear personal web notebook</title>
+<title>My node.js Based TiddlyWiki — for playing with tw on node.js</title>
 <div id="styleArea">
 <style data-tiddler-title="$:/boot/boot.css" data-tiddler-type="text/css" data-tiddler-revision="0" data-tiddler-bag="default" type="text/css">/*
 Basic styles used before we boot up the parsing engine
@@ -85,7 +85,7 @@ Error message and password prompt
 <style type="text/css">
 
 .tc-sidebar-header {
-	text-shadow: 0 1px 0 rgba(255,255,255, 0.8);
+	text-shadow: 0 1px 0 transparent;
 }.tc-tiddler-info {
 	
   -webkit-box-shadow: inset 1px 2px 3px rgba(0,0,0,0.1);
@@ -541,8 +541,8 @@ summary {
   outline-offset: initial;
 }html button {
 	line-height: 1.2;
-	color: ;
-	fill: ;
+	color: #282828;
+	fill: #282828;
 	background: ;
 	border-color: ;
 }/*
@@ -553,7 +553,7 @@ summary {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }html:-webkit-full-screen {
-	background-color: #f4f4f4;
+	background-color: #282828;
 }body.tc-body {
 	font-size: 14px;
 	line-height: 20px;
@@ -561,9 +561,9 @@ summary {
 	
 
 
-	color: #333333;
-	background-color: #f4f4f4;
-	fill: #333333;
+	color: #fbf1c7;
+	background-color: #282828;
+	fill: #fbf1c7;
 }/**
  * Correct the font size and margin on `h1` elements within `section` and
  * `article` contexts in Chrome, Firefox, and Safari.
@@ -579,21 +579,21 @@ summary {
 	word-break: normal;
 	word-wrap: break-word;
 	white-space: pre-wrap;
-	background-color: #f5f5f5;
-	border: 1px solid #cccccc;
+	background-color: #504945;
+	border: 1px solid #504945;
 	padding: 0 3px 2px;
 	border-radius: 3px;
 	font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace;
 }code {
-	color: #dd1144;
-	background-color: #f7f7f9;
-	border: 1px solid #e1e1e8;
+	color: #fb4934;
+	background-color: #504945;
+	border: 1px solid #504945;
 	white-space: pre-wrap;
 	padding: 0 3px 2px;
 	border-radius: 3px;
 	font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace;
 }blockquote {
-	border-left: 5px solid #bbb;
+	border-left: 5px solid #d5c4a1;
 	margin-left: 25px;
 	padding-left: 10px;
 	quotes: "\201C""\201D""\2018""\2019";
@@ -603,7 +603,7 @@ summary {
 }blockquote.tc-big-quote {
 	font-family: Georgia, serif;
 	position: relative;
-	background: #f5f5f5;
+	background: #504945;
 	border-left: none;
 	margin-left: 50px;
 	margin-right: 50px;
@@ -613,7 +613,7 @@ summary {
 	content: "\2014 \2009";
 }blockquote.tc-big-quote:before {
 	font-family: Georgia, serif;
-	color: #bbb;
+	color: #d5c4a1;
 	content: open-quote;
 	font-size: 8em;
 	line-height: 0.1em;
@@ -624,7 +624,7 @@ summary {
     top: 42px;
 }blockquote.tc-big-quote:after {
 	font-family: Georgia, serif;
-	color: #bbb;
+	color: #d5c4a1;
 	content: close-quote;
 	font-size: 8em;
 	line-height: 0.1em;
@@ -637,14 +637,14 @@ summary {
 	font-weight: bold;
 	margin-top: 6px;
 }button, textarea, input, select {
-	outline-color: #5778d8;
+	outline-color: #d79921;
 }textarea,
 input[type=text],
 input[type=search],
 input[type=""],
 input:not([type]) {
-	color: #333333;
-	background: #ffffff;
+	color: #fbf1c7;
+	background: #3c3836;
 }input[type="checkbox"] {
   vertical-align: middle;
 }input[type="search"]::-webkit-search-decoration,
@@ -653,7 +653,7 @@ input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
 	-webkit-appearance:none;
 }.tc-muted {
-	color: #bbb;
+	color: #d5c4a1;
 }svg.tc-image-button {
 	padding: 0px 1px 1px 0px;
 }.tc-icon-wrapper > svg {
@@ -664,18 +664,18 @@ input[type="search"]::-webkit-search-results-decoration {
 	padding: 3px 5px;
 	font-size: 0.8em;
 	line-height: 1.2;
-	color: #333333;
+	color: #fbf1c7;
 	vertical-align: middle;
-	background-color: #ffffff;
-	border: solid 1px #bbb;
-	border-bottom-color: #bbb;
+	background-color: #3c3836;
+	border: solid 1px #d5c4a1;
+	border-bottom-color: #d5c4a1;
 	border-radius: 3px;
-	box-shadow: inset 0 -1px 0 #bbb;
+	box-shadow: inset 0 -1px 0 #d5c4a1;
 }::selection {
 	background-color: Highlight;
 	color: HighlightText;
-	background-color: ;
-	color: ;
+	background-color: #458588;
+	color: #fbf1c7;
 }/*
 Markdown likes putting code elements inside pre elements
 */
@@ -685,7 +685,7 @@ pre > code {
 	background-color: inherit;
 	color: inherit;
 }table {
-	border: 1px solid #dddddd;
+	border: 1px solid #7c6f64;
 	width: auto;
 	max-width: 100%;
 	caption-side: bottom;
@@ -696,13 +696,13 @@ pre > code {
 	border-spacing: 0;
 }table th, table td {
 	padding: 0 7px 0 7px;
-	border-top: 1px solid #dddddd;
-	border-left: 1px solid #dddddd;
+	border-top: 1px solid #7c6f64;
+	border-left: 1px solid #7c6f64;
 }table thead tr td, table th {
-	background-color: #f0f0f0;
+	background-color: #504945;
 	font-weight: bold;
 }table tfoot tr td {
-	background-color: #a8a8a8;
+	background-color: #665c54;
 }.tc-csv-table {
 	white-space: nowrap;
 }.tc-tiddler-frame img,
@@ -721,12 +721,12 @@ pre > code {
 a.tc-tiddlylink {
 	text-decoration: none;
 	font-weight: 500;
-	color: #5778d8;
+	color: #d79921;
 	-webkit-user-select: inherit; /* Otherwise the draggable attribute makes links impossible to select */
 }.tc-sidebar-lists a.tc-tiddlylink {
-	color: #999999;
+	color: #98971a;
 }.tc-sidebar-lists a.tc-tiddlylink:hover {
-	color: #444444;
+	color: #458588;
 }button.tc-tiddlylink:hover,
 a.tc-tiddlylink:hover {
 	text-decoration: underline;
@@ -739,16 +739,16 @@ a.tc-tiddlylink:hover {
 	font-style: italic;
 }a.tc-tiddlylink-external {
 	text-decoration: underline;
-	color: #0000ee;
+	color: #8ec07c;
 	background-color: inherit;
 }a.tc-tiddlylink-external:visited {
-	color: #0000aa;
+	color: #d3869b;
 	background-color: inherit;
 }a.tc-tiddlylink-external:hover {
 	color: inherit;
 	background-color: inherit;
 }.tc-drop-down a.tc-tiddlylink:hover {
-	color: #ffffff;
+	color: #3c3836;
 }/*
 ** Drag and drop styles
 */.tc-tiddler-dragger {
@@ -763,15 +763,15 @@ a.tc-tiddlylink:hover {
 	font-size: 16.9px;
 	font-weight: bold;
 	line-height: 20px;
-	color: #ffffff;
+	color: #3c3836;
 	text-shadow: 0 1px 0 rgba(0, 0, 0, 1);
 	white-space: nowrap;
 	vertical-align: baseline;
-	background-color: #333333;
+	background-color: #fbf1c7;
 	border-radius: 20px;
 }.tc-tiddler-dragger-cover {
 	position: absolute;
-	background-color: #f4f4f4;
+	background-color: #282828;
 }.tc-dropzone {
 	position: relative;
 }.tc-dropzone.tc-dragover:before {
@@ -781,14 +781,14 @@ a.tc-tiddlylink:hover {
 	top: 0;
 	left: 0;
 	right: 0;
-	background: rgba(0,200,0,0.7);
+	background: #98971a;
 	text-align: center;
 	content: "Drop here (or use the 'Escape' key to cancel)";
 }.tc-droppable > .tc-droppable-placeholder {
 	display: none;
 }.tc-droppable.tc-dragover > .tc-droppable-placeholder {
 	display: block;
-	border: 2px dashed rgba(0,200,0,0.7);
+	border: 2px dashed #98971a;
 }.tc-draggable {
 	cursor: move;
 }.tc-sidebar-tab-open .tc-droppable-placeholder, .tc-tagged-draggable-list .tc-droppable-placeholder,
@@ -799,7 +799,7 @@ a.tc-tiddlylink:hover {
 	position: relative;
 }.tc-sidebar-tab-open .tc-btn-invisible.tc-btn-mini svg {
 	font-size: 0.7em;
-	fill: #bbb;
+	fill: #d5c4a1;
 }/*
 ** Plugin reload warning
 */.tc-plugin-reload-warning {
@@ -809,7 +809,7 @@ a.tc-tiddlylink:hover {
 	top: 0;
 	left: 0;
 	right: 0;
-	background: #ffe476;
+	background: #cc241d;
 	text-align: center;
 }/*
 ** Buttons
@@ -821,44 +821,44 @@ a.tc-tiddlylink:hover {
 	background: none;
 	border: none;
 	cursor: pointer;
-	color: #333333;
-	fill: #333333;
+	color: #fbf1c7;
+	fill: #fbf1c7;
 }.tc-btn-boxed {
 	font-size: 0.6em;
 	padding: 0.2em;
 	margin: 1px;
 	background: none;
-	border: 1px solid #cccccc;
+	border: 1px solid #665c54;
 	border-radius: 0.25em;
 }html body.tc-body .tc-btn-boxed svg {
 	font-size: 1.6666em;
 }.tc-btn-boxed:hover {
-	background: #bbb;
-	color: #ffffff;
+	background: #d5c4a1;
+	color: #3c3836;
 }html body.tc-body .tc-btn-boxed:hover svg {
-	fill: #ffffff;
+	fill: #3c3836;
 }.tc-btn-rounded {
 	font-size: 0.5em;
 	line-height: 2;
 	padding: 0em 0.3em 0.2em 0.4em;
 	margin: 1px;
-	border: 1px solid #bbb;
-	background: #bbb;
-	color: #ffffff;
+	border: 1px solid #d5c4a1;
+	background: #d5c4a1;
+	color: #3c3836;
 	border-radius: 2em;
 }html body.tc-body .tc-btn-rounded svg {
 	font-size: 1.6666em;
-	fill: #ffffff;
+	fill: #3c3836;
 }.tc-btn-rounded:hover {
-	border: 1px solid #bbb;
-	background: #ffffff;
-	color: #bbb;
+	border: 1px solid #d5c4a1;
+	background: #3c3836;
+	color: #d5c4a1;
 }html body.tc-body .tc-btn-rounded:hover svg {
-	fill: #bbb;
+	fill: #d5c4a1;
 }.tc-btn-icon svg {
 	height: 1em;
 	width: 1em;
-	fill: #bbb;
+	fill: #d5c4a1;
 }.tc-btn-text {
 	padding: 0;
 	margin: 0;
@@ -874,9 +874,9 @@ a.tc-tiddlylink:hover {
 	display: inline-block;
 	padding: 8px;
 	margin: 4px 8px 4px 8px;
-	background: #34c734;
-	color: #ffffff;
-	fill: #ffffff;
+	background: #b8bb26;
+	color: #3c3836;
+	fill: #3c3836;
 	border: none;
 	border-radius: 2px;
 	font-size: 1.2em;
@@ -887,20 +887,20 @@ a.tc-tiddlylink:hover {
 	height: 2em;
 	width: 2em;
 	vertical-align: middle;
-	fill: #ffffff;
+	fill: #3c3836;
 }.tc-primary-btn {
- 	background: #5778d8;
+ 	background: #d79921;
 }.tc-sidebar-lists input {
-	color: #333333;
+	color: #fbf1c7;
 }.tc-sidebar-lists button {
-	color: #333333;
-	fill: #333333;
+	color: #282828;
+	fill: #282828;
 }.tc-sidebar-lists button.tc-btn-mini {
-	color: #c0c0c0;
+	color: #504945;
 }.tc-sidebar-lists button.tc-btn-mini:hover {
-	color: #444444;
+	color: #7c6f64;
 }.tc-sidebar-lists button small {
-	color: #333333;
+	color: #fbf1c7;
 }button svg.tc-image-button, button .tc-image-button img {
 	height: 1em;
 	width: 1em;
@@ -914,16 +914,16 @@ a.tc-tiddlylink:hover {
 	width: calc(100% + 2px);
 	margin-left: -43px;
 	text-align: center;
-	border-top: 2px solid #f8f8f8;
+	border-top: 2px solid #32302f;
 	margin-top: 4px;
 }.tc-unfold-banner:hover {
-	background: #f8f8f8;
-	border-top: 2px solid #dddddd;
+	background: #32302f;
+	border-top: 2px solid #ebdbb2;
 }.tc-unfold-banner svg, .tc-fold-banner svg {
 	height: 0.75em;
-	fill: #cccccc;
+	fill: #665c54;
 }.tc-unfold-banner:hover svg, .tc-fold-banner:hover svg {
-	fill: #888888;
+	fill: #7c6f64;
 }.tc-fold-banner {
 	position: absolute;
 	padding: 0;
@@ -936,7 +936,7 @@ a.tc-tiddlylink:hover {
 	top: 6px;
 	bottom: 6px;
 }.tc-fold-banner:hover {
-	background: #f8f8f8;
+	background: #32302f;
 }@media (max-width: 959px) {.tc-unfold-banner {
 		position: static;
 		width: calc(100% + 59px);
@@ -961,17 +961,17 @@ a.tc-tiddlylink:hover {
 	white-space: nowrap;
 	vertical-align: baseline;
 }.tc-block-tags-dropdown > .tc-btn-invisible:hover {
-	background-color: #5778d8;
+	background-color: #d79921;
 }button.tc-tag-label, span.tc-tag-label {
 	display: inline-block;
 	padding: 0.16em 0.7em;
 	font-size: 0.9em;
 	font-weight: 400;
 	line-height: 1.2em;
-	color: #ffffff;
+	color: #282828;
 	white-space: nowrap;
 	vertical-align: baseline;
-	background-color: #ec6;
+	background-color: #d3869b;
 	border-radius: 1em;
 }.tc-sidebar-scrollable .tc-tag-label {
 	text-shadow: none;
@@ -981,9 +981,9 @@ a.tc-tiddlylink:hover {
 	margin-left: 0;
 	border: 0;
 	height: 1px;
-	background: #d8d8d8;
+	background: #bdae93;
 }button.tc-untagged-label {
-	background-color: #999999;
+	background-color: #504945;
 }.tc-tag-label svg, .tc-tag-label img {
 	height: 1em;
 	width: 1em;
@@ -1001,8 +1001,8 @@ a.tc-tiddlylink:hover {
 	outline: none;
 }.tc-tag-button-selected,
 .tc-list-item-selected a.tc-tiddlylink, a.tc-list-item-selected {
-	background-color: #5778d8;
-	color: #ffffff;
+	background-color: #d79921;
+	color: #3c3836;
 }/*
 ** Page layout
 */.tc-topbar {
@@ -1019,21 +1019,21 @@ a.tc-tiddlylink:hover {
 	}}.tc-topbar button {
 	padding: 8px;
 }.tc-topbar svg {
-	fill: #bbb;
+	fill: #d5c4a1;
 }.tc-topbar button:hover svg {
-	fill: #333333;
+	fill: #fbf1c7;
 }@media (max-width: 959px) {.tc-show-sidebar-btn svg.tc-image-chevron-left, .tc-hide-sidebar-btn svg.tc-image-chevron-right {
 		transform: rotate(-90deg);
 	}}.tc-sidebar-header {
-	color: #acacac;
-	fill: #acacac;
+	color: #fbf1c7;
+	fill: #fbf1c7;
 }.tc-sidebar-header .tc-title a.tc-tiddlylink-resolves {
 	font-weight: 300;
 }.tc-sidebar-header .tc-sidebar-lists p {
 	margin-top: 3px;
 	margin-bottom: 3px;
 }.tc-sidebar-header .tc-missing-tiddler-label {
-	color: #acacac;
+	color: #fbf1c7;
 }.tc-advanced-search input {
 	width: 60%;
 }.tc-search a svg {
@@ -1052,9 +1052,9 @@ a.tc-tiddlylink:hover {
 }.tc-page-controls img {
 	width: 1em;
 }.tc-page-controls svg {
-	fill: #aaaaaa;
+	fill: #504945;
 }.tc-page-controls button:hover svg, .tc-page-controls a:hover svg {
-	fill: #000000;
+	fill: #7c6f64;
 }.tc-sidebar-lists .tc-menu-list-item {
 	white-space: nowrap;
 }.tc-menu-list-count {
@@ -1116,20 +1116,20 @@ a.tc-tiddlylink:hover {
 */.tc-tiddler-frame {
 	position: relative;
 	margin-bottom: 28px;
-	background-color: #ffffff;
-	border: 1px solid #ffffff;
+	background-color: #3c3836;
+	border: 1px solid #3c3836;
 }
 .tc-tiddler-info {
 	padding: 14px 42px 14px 42px;
-	background-color: #f8f8f8;
-	border-top: 1px solid #dddddd;
-	border-bottom: 1px solid #dddddd;
+	background-color: #32302f;
+	border-top: 1px solid #ebdbb2;
+	border-bottom: 1px solid #ebdbb2;
 }.tc-tiddler-info p {
 	margin-top: 3px;
 	margin-bottom: 3px;
 }.tc-tiddler-info .tc-tab-buttons button.tc-tab-selected {
-	background-color: #f8f8f8;
-	border-bottom: 1px solid #f8f8f8;
+	background-color: #ebdbb2;
+	border-bottom: 1px solid #ebdbb2;
 }@media (max-width: 959px) {.tc-tiddler-info {
 		padding: 14px 14px 14px 14px;
 	}}.tc-view-field-table {
@@ -1160,15 +1160,15 @@ a.tc-tiddlylink:hover {
 	font-weight: 300;
 	font-size: 2.35em;
 	line-height: 1.35em;
-	color: #182955;
+	color: #a89984;
 	margin: 0;
 }.tc-site-title {
-	color: #182955;
+	color: #a89984;
 }.tc-tiddler-title-icon {
 	vertical-align: middle;
 	margin-right: .1em;
 }.tc-system-title-prefix {
-	color: #bbb;
+	color: #d5c4a1;
 }.tc-titlebar h2 {
 	font-size: 1em;
 	display: inline;
@@ -1176,7 +1176,7 @@ a.tc-tiddlylink:hover {
 	height: 1em;
 }.tc-subtitle {
 	font-size: 0.9em;
-	color: #c0c0c0;
+	color: #7c6f64;
 	font-weight: 300;
 }.tc-subtitle .tc-tiddlylink {
 	margin-right: .3em;
@@ -1196,7 +1196,7 @@ a.tc-tiddlylink:hover {
 	margin-left:5px;
 }.tc-tiddler-controls button svg, .tc-tiddler-controls button img,
 .tc-search button svg, .tc-search a svg {
-	fill: #cccccc;
+	fill: #665c54;
 }.tc-tiddler-controls button svg, .tc-tiddler-controls button img {
 	height: 0.75em;
 }.tc-search button svg, .tc-search a svg {
@@ -1205,19 +1205,19 @@ a.tc-tiddlylink:hover {
     margin: 0 0.25em;
 }.tc-tiddler-controls button.tc-selected svg,
 .tc-page-controls button.tc-selected svg  {
-	fill: #444444;
+	fill: #d79921;
 }.tc-tiddler-controls button.tc-btn-invisible:hover svg,
 .tc-search button:hover svg, .tc-search a:hover svg {
-	fill: #888888;
+	fill: #7c6f64;
 }@media print {
 	.tc-tiddler-controls {
 		display: none;
 	}
 }.tc-tiddler-help { /* Help prompts within tiddler template */
-	color: #bbb;
+	color: #d5c4a1;
 	margin-top: 14px;
 }.tc-tiddler-help a.tc-tiddlylink {
-	color: #888888;
+	color: #bdae93;
 }.tc-tiddler-frame .tc-edit-texteditor {
 	width: 100%;
 	margin: 4px 0 4px 0;
@@ -1225,24 +1225,24 @@ a.tc-tiddlylink:hover {
 .tc-tiddler-frame textarea.tc-edit-texteditor,
 .tc-tiddler-frame iframe.tc-edit-texteditor {
 	padding: 3px 3px 3px 3px;
-	border: 1px solid #cccccc;
+	border: 1px solid #282828;
 	line-height: 1.3em;
 	-webkit-appearance: none;
 	font-family: ;
 }.tc-tiddler-frame input.tc-edit-texteditor,
 .tc-tiddler-frame textarea.tc-edit-texteditor {
-	background-color: #f8f8f8;
+	background-color: #32302f;
 }.tc-tiddler-frame iframe.tc-edit-texteditor {
-	background-color: #ffffff;
+	background-color: #3c3836;
 }.tc-tiddler-frame .tc-binary-warning {
 	width: 100%;
 	height: 5em;
 	text-align: center;
 	padding: 3em 3em 6em 3em;
-	background: #ffe476;
-	border: 1px solid #b99e2f;
+	background: #cc241d;
+	border: 1px solid #cc241d;
 }canvas.tc-edit-bitmapeditor  {
-	border: 6px solid #ffffff;
+	border: 6px solid #282828;
 	cursor: crosshair;
 	-moz-user-select: none;
 	-webkit-user-select: none;
@@ -1262,7 +1262,7 @@ a.tc-tiddlylink:hover {
 	overflow: hidden; /* https://github.com/Jermolene/TiddlyWiki5/issues/282 */
 }html body.tc-body.tc-single-tiddler-window {
 	margin: 1em;
-	background: #ffffff;
+	background: #3c3836;
 }.tc-single-tiddler-window img,
 .tc-single-tiddler-window svg,
 .tc-single-tiddler-window canvas,
@@ -1275,9 +1275,9 @@ a.tc-tiddlylink:hover {
 	margin-top: 8px;
 }.tc-editor-toolbar button {
 	vertical-align: middle;
-	background-color: #cccccc;
-	color: #444444;
-	fill: #444444;
+	background-color: #665c54;
+	color: #d79921;
+	fill: #d79921;
 	border-radius: 4px;
 	padding: 3px;
 	margin: 2px 0 2px 4px;
@@ -1288,14 +1288,14 @@ a.tc-tiddlylink:hover {
 }.tc-editor-toolbar button.tc-text-editor-toolbar-item-start-group {
 	margin-left: 11px;
 }.tc-editor-toolbar button.tc-selected {
-	background-color: #5778d8;
+	background-color: #d79921;
 }.tc-editor-toolbar button svg {
 	width: 1.6em;
 	height: 1.2em;
 }.tc-editor-toolbar button:hover {
-	background-color: #444444;
-	fill: #ffffff;
-	color: #ffffff;
+	background-color: #d79921;
+	fill: #3c3836;
+	color: #3c3836;
 }.tc-editor-toolbar .tc-text-editor-toolbar-more {
 	white-space: normal;
 }.tc-editor-toolbar .tc-text-editor-toolbar-more button {
@@ -1306,7 +1306,24 @@ a.tc-tiddlylink:hover {
 	padding: 0;
 }/*
 ** Adjustments for fluid-fixed mode
-*/@media (min-width: 960px) {}/*
+*/@media (min-width: 960px) {.tc-story-river {
+		padding-right: 0;
+		position: relative;
+		width: auto;
+		left: 0;
+		margin-left: 0px;
+		margin-right: 400px;
+	}.tc-tiddler-frame {
+		width: 100%;
+	}.tc-sidebar-scrollable {
+		left: auto;
+		bottom: 0;
+		right: 0;
+		width: 400px;
+	}body.tc-body .tc-storyview-zoomin-tiddler {
+		width: 100%;
+		width: calc(100% - 42px);
+	}}/*
 ** Toolbar buttons
 */.tc-page-controls svg.tc-image-new-button {
   fill: ;
@@ -1329,7 +1346,7 @@ a.tc-tiddlylink:hover {
 }/*
 ** Tiddler edit mode
 */.tc-tiddler-edit-frame em.tc-edit {
-	color: #bbb;
+	color: #d5c4a1;
 	font-style: normal;
 }.tc-edit-type-dropdown a.tc-tiddlylink-missing {
 	font-style: normal;
@@ -1342,7 +1359,7 @@ a.tc-tiddlylink:hover {
 	}.tc-type-selector-dropdown-wrapper input.tc-edit-typeeditor {
 		min-width: 32ch;
 	}.tc-edit-tags {
-	border: 1px solid #cccccc;
+	border: 1px solid #282828;
 	padding: 4px 8px 4px 8px;
 }.tc-edit-add-tag {
 	display: inline-block;
@@ -1361,7 +1378,7 @@ a.tc-tiddlylink:hover {
 }.tc-tiddler-preview-preview {
 	float: right;
 	width: 49%;
-	border: 1px solid #cccccc;
+	border: 1px solid #282828;
 	margin: 4px 0 3px 3px;
 	padding: 3px 3px 3px 3px;
 }.tc-tiddler-frame .tc-tiddler-preview .tc-edit-texteditor {
@@ -1377,9 +1394,9 @@ a.tc-tiddlylink:hover {
 	border: none;
 	padding: 4px;
 }.tc-edit-fields > tbody > .tc-edit-field:nth-child(odd) {
-	background-color: #f0f4f0;
+	background-color: #7c6f64;
 }.tc-edit-fields > tbody > .tc-edit-field:nth-child(even) {
-	background-color: #e0e8e0;
+	background-color: #504945;
 }.tc-edit-field-name {
 	text-align: right;
 }.tc-edit-field-value input {
@@ -1388,7 +1405,7 @@ a.tc-tiddlylink:hover {
 }.tc-edit-field-remove svg {
 	height: 1em;
 	width: 1em;
-	fill: #bbb;
+	fill: #d5c4a1;
 	vertical-align: middle;
 }.tc-edit-field-add-name-wrapper input.tc-edit-texteditor {
 	width: auto;
@@ -1418,13 +1435,13 @@ a.tc-tiddlylink:hover {
 }.tc-btn-dropdown svg, .tc-btn-dropdown img {
 	height: 1em;
 	width: 1em;
-	fill: #bbb;
+	fill: #d5c4a1;
 }.tc-drop-down-wrapper {
 	position: relative;
 }.tc-drop-down {
 	min-width: 380px;
-	border: 1px solid #bbb;
-	background-color: #ffffff;
+	border: 1px solid #3c3836;
+	background-color: #665c54;
 	padding: 7px 0 7px 0;
 	margin: 4px 0 0 0;
 	white-space: nowrap;
@@ -1433,9 +1450,9 @@ a.tc-tiddlylink:hover {
 }.tc-drop-down .tc-drop-down {
 	margin-left: 14px;
 }.tc-drop-down button svg, .tc-drop-down a svg  {
-	fill: #333333;
+	fill: #fbf1c7;
 }.tc-drop-down button.tc-btn-invisible:hover svg {
-	fill: #ffffff;
+	fill: #3c3836;
 }.tc-drop-down .tc-drop-down-info {
 	padding-left: 14px;
 }.tc-drop-down p {
@@ -1450,7 +1467,7 @@ a.tc-tiddlylink:hover {
 	padding: 0 14px 0 14px;
 	width: 100%;
 	text-align: left;
-	color: #333333;
+	color: #fbf1c7;
 	line-height: 1.4;
 }.tc-drop-down .tc-tab-set .tc-tab-buttons button {
 	display: inline-block;
@@ -1468,16 +1485,16 @@ a.tc-tiddlylink:hover {
 }.tc-drop-down .tc-file-input-wrapper {
 	width: 100%;
 }.tc-drop-down .tc-file-input-wrapper button {
-	color: #333333;
+	color: #fbf1c7;
 }.tc-drop-down a:hover, .tc-drop-down button:hover, .tc-drop-down .tc-file-input-wrapper:hover button {
-	color: #ffffff;
-	background-color: #5778d8;
+	color: #3c3836;
+	background-color: #d79921;
 	text-decoration: none;
 }.tc-drop-down .tc-tab-buttons button {
-	background-color: #ececec;
+	background-color: #665c54;
 }.tc-drop-down .tc-tab-buttons button.tc-tab-selected {
-	background-color: #fff;
-	border-bottom: 1px solid #fff;
+	background-color: #ebdbb2;
+	border-bottom: 1px solid #ebdbb2;
 }.tc-drop-down-bullet {
 	display: inline-block;
 	width: 0.5em;
@@ -1488,8 +1505,8 @@ a.tc-tiddlylink:hover {
 }.tc-block-dropdown {
 	position: absolute;
 	min-width: 220px;
-	border: 1px solid #bbb;
-	background-color: #ffffff;
+	border: 1px solid #3c3836;
+	background-color: #665c54;
 	padding: 7px 0;
 	margin: 4px 0 0 0;
 	white-space: nowrap;
@@ -1509,10 +1526,10 @@ a.tc-tiddlylink:hover {
 }.tc-drop-down .tc-dropdown-item,
 .tc-block-dropdown .tc-dropdown-item {
 	padding: 4px 14px 4px 7px;
-	color: #bbb;
+	color: #d5c4a1;
 }.tc-block-dropdown a.tc-tiddlylink:hover {
-	color: #ffffff;
-	background-color: #5778d8;
+	color: #3c3836;
+	background-color: #d79921;
 	text-decoration: none;
 }.tc-search-results {
 	padding: 0 7px 0 7px;
@@ -1525,7 +1542,7 @@ a.tc-tiddlylink:hover {
 	text-align: center;
 	position: relative;
 }.tc-image-chooser a {
-	border: 1px solid #bbb;
+	border: 1px solid #d5c4a1;
 	padding: 2px;
 	margin: 2px;
 	width: 4em;
@@ -1537,9 +1554,9 @@ a.tc-tiddlylink:hover {
 	vertical-align: middle;
 }.tc-image-chooser a:hover,
 .tc-colour-chooser a:hover {
-	background: #5778d8;
+	background: #d79921;
 	padding: 0px;
-	border: 3px solid #5778d8;
+	border: 3px solid #d79921;
 }.tc-image-chooser a svg,
 .tc-image-chooser a img {
 	display: inline-block;
@@ -1571,11 +1588,11 @@ a.tc-tiddlylink:hover {
 	bottom: 0;
 	left: 0;
 	z-index: 1000;
-	background-color: #333333;
+	background-color: #fbf1c7;
 }.tc-modal {
 	z-index: 1100;
-	background-color: #ffffff;
-	border: 1px solid #999999;
+	background-color: #3c3836;
+	border: 1px solid #504945;
 }@media (max-width: 55em) {
 	.tc-modal {
 		position: fixed;
@@ -1600,7 +1617,7 @@ a.tc-tiddlylink:hover {
 	}
 }.tc-modal-header {
 	padding: 9px 15px;
-	border-bottom: 1px solid #eeeeee;
+	border-bottom: 1px solid #3c3836;
 }.tc-modal-header h3 {
 	margin: 0;
 	line-height: 30px;
@@ -1613,8 +1630,8 @@ a.tc-tiddlylink:hover {
 	padding: 14px 15px 15px;
 	margin-bottom: 0;
 	text-align: right;
-	background-color: #f5f5f5;
-	border-top: 1px solid #dddddd;
+	background-color: #3c3836;
+	border-top: 1px solid #3c3836;
 }/*
 ** Centered modals
 */
@@ -1632,8 +1649,8 @@ a.tc-tiddlylink:hover {
 	z-index: 1300;
 	max-width: 280px;
 	padding: 0 14px 0 14px;
-	background-color: #ffffdd;
-	border: 1px solid #999999;
+	background-color: #d79921;
+	border: 1px solid #d79921;
 }/*
 ** Tabs
 */.tc-tab-set.tc-vertical {
@@ -1655,22 +1672,22 @@ a.tc-tiddlylink:hover {
 	-webkit-flex: 0 0 auto;
 	flex: 0 0 auto;
 }.tc-tab-buttons button.tc-tab-selected {
-	color: #666666;
-	background-color: #ffffff;
-	border-left: 1px solid #d8d8d8;
-	border-top: 1px solid #d8d8d8;
-	border-right: 1px solid #d8d8d8;
+	color: #282828;
+	background-color: #ebdbb2;
+	border-left: 1px solid #665c54;
+	border-top: 1px solid #665c54;
+	border-right: 1px solid #665c54;
 }.tc-tab-buttons button {
-	color: #666666;
+	color: #ebdbb2;
 	padding: 3px 5px 3px 5px;
 	margin-right: 0.3em;
 	font-weight: 300;
 	border: none;
 	background: inherit;
-	background-color: #d8d8d8;
-	border-left: 1px solid #cccccc;
-	border-top: 1px solid #cccccc;
-	border-right: 1px solid #cccccc;
+	background-color: #665c54;
+	border-left: 1px solid #665c54;
+	border-top: 1px solid #665c54;
+	border-right: 1px solid #665c54;
 	border-top-left-radius: 2px;
 	border-top-right-radius: 2px;
 	border-bottom-left-radius: 0;
@@ -1681,19 +1698,19 @@ a.tc-tiddlylink:hover {
 	margin-top: 3px;
 	margin-right: 0;
 	text-align: right;
-	background-color: #d8d8d8;
-	border-left: 1px solid #cccccc;
-	border-bottom: 1px solid #cccccc;
+	background-color: #665c54;
+	border-left: 1px solid #665c54;
+	border-bottom: 1px solid #665c54;
 	border-right: none;
 	border-top-left-radius: 2px;
 	border-bottom-left-radius: 2px;
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
 }.tc-tab-buttons.tc-vertical button.tc-tab-selected {
-	background-color: #ffffff;
-	border-right: 1px solid #ffffff;
+	background-color: #ebdbb2;
+	border-right: 1px solid #ebdbb2;
 }.tc-tab-divider {
-	border-top: 1px solid #d8d8d8;
+	border-top: 1px solid #bdae93;
 }.tc-tab-divider.tc-vertical  {
 	display: none;
 }.tc-tab-content {
@@ -1703,37 +1720,37 @@ a.tc-tiddlylink:hover {
 	vertical-align: top;
 	padding-top: 0;
 	padding-left: 14px;
-	border-left: 1px solid #cccccc;
+	border-left: 1px solid #665c54;
 	-webkit-flex: 1 0 70%;
 	flex: 1 0 70%;
 	overflow: auto;
 }.tc-sidebar-lists .tc-tab-buttons {
 	margin-bottom: -1px;
 }.tc-sidebar-lists .tc-tab-buttons button.tc-tab-selected {
-	background-color: #f4f4f4;
-	color: ;
-	border-left: 1px solid #d8d8d8;
-	border-top: 1px solid #d8d8d8;
-	border-right: 1px solid #d8d8d8;
+	background-color: #bdae93;
+	color: #282828;
+	border-left: 1px solid #665c54;
+	border-top: 1px solid #665c54;
+	border-right: 1px solid #665c54;
 }.tc-sidebar-lists .tc-tab-buttons button {
-	background-color: #e0e0e0;
-	color: #666666;
-	border-left: 1px solid #cccccc;
-	border-top: 1px solid #cccccc;
-	border-right: 1px solid #cccccc;
+	background-color: #3c3836;
+	color: #ebdbb2;
+	border-left: 1px solid #bdae93;
+	border-top: 1px solid #bdae93;
+	border-right: 1px solid #bdae93;
 }.tc-sidebar-lists .tc-tab-divider {
-	border-top: 1px solid #e4e4e4;
+	border-top: 1px solid #282828;
 }.tc-more-sidebar > .tc-tab-set > .tc-tab-buttons > button {
 	display: block;
 	width: 100%;
-	background-color: #e0e0e0;
+	background-color: #3c3836;
 	border-top: none;
 	border-left: none;
 	border-bottom: none;
 	border-right: 1px solid #ccc;
 	margin-bottom: inherit;
 }.tc-more-sidebar > .tc-tab-set > .tc-tab-buttons > button.tc-tab-selected {
-	background-color: #f4f4f4;
+	background-color: #bdae93;
 	border: none;
 }/*
 ** Manager
@@ -1745,36 +1762,36 @@ a.tc-tiddlylink:hover {
 	margin: 0.5em 0;
 }.tc-manager-list {
 	width: 100%;
-	border-top: 1px solid #bbb;
-	border-left: 1px solid #bbb;
-	border-right: 1px solid #bbb;
+	border-top: 1px solid #d5c4a1;
+	border-left: 1px solid #d5c4a1;
+	border-right: 1px solid #d5c4a1;
 }.tc-manager-list-item {}.tc-manager-list-item-heading {
     display: block;
     width: 100%;
     text-align: left;	
-	border-bottom: 1px solid #bbb;
+	border-bottom: 1px solid #d5c4a1;
 	padding: 3px;
 }.tc-manager-list-item-heading-selected {
 	font-weight: bold;
-	color: #ffffff;
-	fill: #ffffff;
-	background-color: #333333;
+	color: #3c3836;
+	fill: #3c3836;
+	background-color: #fbf1c7;
 }.tc-manager-list-item-heading:hover {
-	background: #5778d8;
-	color: #ffffff;
+	background: #d79921;
+	color: #3c3836;
 }.tc-manager-list-item-content {
 	display: flex;
 }.tc-manager-list-item-content-sidebar {
     flex: 1 0;
-    background: #f8f8f8;
-    border-right: 0.5em solid #bbb;
-    border-bottom: 0.5em solid #bbb;
+    background: #32302f;
+    border-right: 0.5em solid #d5c4a1;
+    border-bottom: 0.5em solid #d5c4a1;
     white-space: nowrap;
 }.tc-manager-list-item-content-item-heading {
 	display: block;
 	width: 100%;
 	text-align: left;
-    background: #bbb;
+    background: #d5c4a1;
 	text-transform: uppercase;
 	font-size: 0.6em;
 	font-weight: bold;
@@ -1787,9 +1804,9 @@ a.tc-tiddlylink:hover {
 	background: inherit;
 }.tc-manager-list-item-content-tiddler {
     flex: 3 1;
-    border-left: 0.5em solid #bbb;
-    border-right: 0.5em solid #bbb;
-    border-bottom: 0.5em solid #bbb;
+    border-left: 0.5em solid #d5c4a1;
+    border-right: 0.5em solid #d5c4a1;
+    border-bottom: 0.5em solid #d5c4a1;
 }.tc-manager-list-item-content-item-body > table {
 	border: none;
 	padding: 0;
@@ -1813,10 +1830,10 @@ a.tc-tiddlylink:hover {
 }.tc-import-table th:last-of-type {
 	width: 30%;
 }.tc-import-table .tc-row-disabled {
-	background: #88888810;
+	background: #bdae9310;
 	opacity: 0.8;
 }.tc-import-table .tc-row-warning {
-	background: #ffc9c950;
+	background: #fb493450;
 }/*
 ** Alerts
 */.tc-alerts {
@@ -1830,24 +1847,24 @@ a.tc-tiddlylink:hover {
 	position: relative;
 	margin: 14px;
 	padding: 7px;
-	border: 1px solid #b99e2f;
-	background-color: #ffe476;
+	border: 1px solid #cc241d;
+	background-color: #cc241d;
 }.tc-alert-toolbar {
 	position: absolute;
 	top: 7px;
 	right: 7px;
     line-height: 0;
 }.tc-alert-toolbar svg {
-	fill: #b99e2f;
+	fill: #504945;
 }.tc-alert-subtitle {
-	color: #b99e2f;
+	color: #504945;
 	font-weight: bold;
     font-size: 0.8em;
     margin-bottom: 0.5em;
 }.tc-alert-body > p {
 	margin: 0;
 }.tc-alert-highlight {
-	color: #881122;
+	color: #d79921;
 }@media (min-width: 960px) {.tc-static-alert {
 		position: relative;
 	}.tc-static-alert-inner {
@@ -1855,7 +1872,7 @@ a.tc-tiddlylink:hover {
 		z-index: 100;
 	}}.tc-static-alert-inner {
 	padding: 0 2px 2px 42px;
-	color: #aaaaaa;
+	color: #B48EAD;
 }/*
 ** Floating drafts list
 */.tc-drafts-list {
@@ -1869,16 +1886,16 @@ a.tc-tiddlylink:hover {
 	padding: 4px 4px;
 	border-top-left-radius: 4px;
 	border-top-right-radius: 4px;
-	border: 1px solid #ffffff;
+	border: 1px solid #3c3836;
 	border-bottom-none;
-	background: #ff0000;
-	color: #ffffff;
-	fill: #ffffff;
+	background: #fb4934;
+	color: #3c3836;
+	fill: #3c3836;
 }.tc-drafts-list a:hover {
 	text-decoration: none;
-	background: #333333;
-	color: #ffffff;
-	fill: #ffffff;
+	background: #fbf1c7;
+	color: #3c3836;
+	fill: #3c3836;
 }.tc-drafts-list a svg {
 	width: 1em;
 	height: 1em;
@@ -1891,20 +1908,20 @@ a.tc-tiddlylink:hover {
 	width: 100%;
 }.tc-plugin-info {
 	display: flex;
-	border: 1px solid #bbb;
-	fill: #bbb;
-	background-color: #ffffff;
+	border: 1px solid #d5c4a1;
+	fill: #d5c4a1;
+	background-color: #3c3836;
 	margin: 0.5em 0 0.5em 0;
 	padding: 4px;
     align-items: center;
 }.tc-plugin-info-sub-plugins .tc-plugin-info {
     margin: 0.5em;
-	background: #ffffff;
+	background: #3c3836;
 }.tc-plugin-info-sub-plugin-indicator {
 	margin: -16px 1em 0 2em;
 }.tc-plugin-info-sub-plugin-indicator button {
-	color: #ffffff;
-	background: #333333;
+	color: #3c3836;
+	background: #fbf1c7;
 	border-radius: 8px;
     padding: 2px 7px;
     font-size: 0.75em;
@@ -1919,11 +1936,11 @@ a.tc-tiddlylink:hover {
 	background: repeating-linear-gradient(45deg, #aa0, #aa0 10px, #888 10px, #888 20px);
 }a.tc-tiddlylink.tc-plugin-info:hover {
 	text-decoration: none;
-	background-color: #5778d8;
-	color: #ffffff;
-	fill: #333333;
+	background-color: #d79921;
+	color: #3c3836;
+	fill: #fbf1c7;
 }a.tc-tiddlylink.tc-plugin-info:hover > .tc-plugin-info-chunk > svg {
-	fill: #ffffff;
+	fill: #3c3836;
 }.tc-plugin-info-chunk {
     margin: 2px;
 }.tc-plugin-info-chunk.tc-plugin-info-toggle {
@@ -1961,21 +1978,21 @@ a.tc-tiddlylink:hover {
 	width: 2em;
 	height: 2em;
 }.tc-plugin-info-dropdown {
-	border: 1px solid #bbb;
-	background: #ffffff;
+	border: 1px solid #d5c4a1;
+	background: #3c3836;
 	margin-top: -8px;
 }.tc-plugin-info-dropdown-message {
-	background: #ecf2ff;
+	background: #83a598;
 	padding: 0.5em 1em 0.5em 1em;
 	font-weight: bold;
 	font-size: 0.8em;
 }.tc-plugin-info-dropdown-body {
 	padding: 1em 1em 0 1em;
-	background: #ffffff;
+	background: #3c3836;
 }.tc-plugin-info-sub-plugins {
 	padding: 0.5em;
     margin: 0 1em 1em 1em;
-	background: #ffffdd;
+	background: #d79921;
 }.tc-install-plugin {
 	font-weight: bold;
 	background: green;
@@ -1996,12 +2013,12 @@ a.tc-tiddlylink:hover {
 }/*
 ** Message boxes
 */.tc-message-box {
-	border: 1px solid #cfd6e6;
-	background: #ecf2ff;
+	border: 1px solid #83a598;
+	background: #83a598;
 	padding: 0px 21px 0px 21px;
 	font-size: 12px;
 	line-height: 18px;
-	color: #547599;
+	color: #3c3836;
 }.tc-message-box svg {
 	width: 1em;
 	height: 1em;
@@ -2009,7 +2026,7 @@ a.tc-tiddlylink:hover {
 }/*
 ** Pictures
 */.tc-bordered-image {
-	border: 1px solid #bbb;
+	border: 1px solid #d5c4a1;
 	padding: 5px;
 	margin: 5px;
 }/*
@@ -2019,18 +2036,18 @@ a.tc-tiddlylink:hover {
 }/*
 ** Chooser
 */.tc-chooser {
-	border-right: 1px solid #f0f0f0;
-	border-left: 1px solid #f0f0f0;
+	border-right: 1px solid #504945;
+	border-left: 1px solid #504945;
 }.tc-chooser-item {
-	border-bottom: 1px solid #f0f0f0;
-	border-top: 1px solid #f0f0f0;
+	border-bottom: 1px solid #504945;
+	border-top: 1px solid #504945;
 	padding: 2px 4px 2px 14px;
 }.tc-drop-down .tc-chooser-item {
 	padding: 2px;
 }.tc-chosen,
 .tc-chooser-item:hover {
-	background-color: #f0f0f0;
-	border-color: #a8a8a8;
+	background-color: #504945;
+	border-color: #665c54;
 }.tc-chosen .tc-tiddlylink {
 	cursor:default;
 }.tc-chooser-item .tc-tiddlylink {
@@ -2041,7 +2058,7 @@ a.tc-tiddlylink:hover {
 	text-decoration: none;
 }.tc-drop-down .tc-chosen .tc-tiddlylink,
 .tc-drop-down .tc-chooser-item .tc-tiddlylink:hover {
-	color: #333333;
+	color: #fbf1c7;
 }.tc-chosen > .tc-tiddlylink:before {
 	margin-left: -10px;
 	position: relative;
@@ -2072,12 +2089,12 @@ a.tc-tiddlylink:hover {
 */.tc-sidebar-lists .tc-table-of-contents {
 	white-space: nowrap;
 }.tc-table-of-contents button {
-	color: #acacac;
+	color: #fbf1c7;
 }.tc-table-of-contents svg {
 	width: 0.7em;
 	height: 0.7em;
 	vertical-align: middle;
-	fill: #acacac;
+	fill: #fbf1c7;
 }.tc-table-of-contents ol {
 	list-style-type: none;
 	padding-left: 0;
@@ -2111,29 +2128,29 @@ a.tc-tiddlylink:hover {
 	max-width: 50%;
 	-webkit-flex: 0 0 auto;
 	flex: 0 0 auto;
-	background: #d8d8d8;
-	border-left: 1px solid #cccccc;
-	border-top: 1px solid #cccccc;
-	border-bottom: 1px solid #cccccc;
+	background: #665c54;
+	border-left: 1px solid #665c54;
+	border-top: 1px solid #665c54;
+	border-bottom: 1px solid #665c54;
 }.tc-tabbed-table-of-contents .tc-table-of-contents .toc-item > a,
 .tc-tabbed-table-of-contents .tc-table-of-contents .toc-item-selected > a {
 	display: block;
 	padding: 0.12em 1em 0.12em 0.25em;
 }.tc-tabbed-table-of-contents .tc-table-of-contents .toc-item > a {
-	border-top: 1px solid #d8d8d8;
-	border-left: 1px solid #d8d8d8;
-	border-bottom: 1px solid #d8d8d8;
+	border-top: 1px solid #665c54;
+	border-left: 1px solid #665c54;
+	border-bottom: 1px solid #665c54;
 }.tc-tabbed-table-of-contents .tc-table-of-contents .toc-item > a:hover {
 	text-decoration: none;
-	border-top: 1px solid #cccccc;
-	border-left: 1px solid #cccccc;
-	border-bottom: 1px solid #cccccc;
-	background: #cccccc;
+	border-top: 1px solid #665c54;
+	border-left: 1px solid #665c54;
+	border-bottom: 1px solid #665c54;
+	background: #665c54;
 }.tc-tabbed-table-of-contents .tc-table-of-contents .toc-item-selected > a {
-	border-top: 1px solid #cccccc;
-	border-left: 1px solid #cccccc;
-	border-bottom: 1px solid #cccccc;
-	background: #ffffff;
+	border-top: 1px solid #665c54;
+	border-left: 1px solid #665c54;
+	border-bottom: 1px solid #665c54;
+	background: #3c3836;
 	margin-right: -1px;
 }.tc-tabbed-table-of-contents .tc-table-of-contents .toc-item-selected > a:hover {
 	text-decoration: none;
@@ -2142,14 +2159,14 @@ a.tc-tiddlylink:hover {
 	vertical-align: top;
 	padding-left: 1.5em;
 	padding-right: 1.5em;
-	border: 1px solid #cccccc;
+	border: 1px solid #665c54;
 	-webkit-flex: 1 0 50%;
 	flex: 1 0 50%;
 }/*
 ** Dirty indicator
 */body.tc-dirty span.tc-dirty-indicator, body.tc-dirty span.tc-dirty-indicator svg {
-	fill: #ff0000;
-	color: #ff0000;
+	fill: #fb4934;
+	color: #fb4934;
 }/*
 ** File inputs
 */.tc-file-input-wrapper {
@@ -2250,19 +2267,19 @@ a.tc-tiddlylink:hover {
 ** Diffs
 */.tc-diff-equal {
 	background-color: ;
-	color: #333333;
+	color: #fbf1c7;
 }.tc-diff-insert {
-	background-color: #aaefad;
-	color: #333333;
+	background-color: #b8bb26;
+	color: #fbf1c7;
 }.tc-diff-delete {
-	background-color: #ffc9c9;
-	color: #333333;
+	background-color: #fb4934;
+	color: #fbf1c7;
 }.tc-diff-invisible {
 	background-color: ;
-	color: #bbb;
+	color: #d5c4a1;
 }.tc-diff-tiddlers th {
 	text-align: right;
-	background: #ffffff;
+	background: #3c3836;
 	font-weight: normal;
 	font-style: italic;
 }.tc-diff-tiddlers pre {
@@ -2296,12 +2313,12 @@ a.tc-tiddlylink:hover {
 }.tc-tree li span {
     	color: lightgray;
 }select {
-        color: ;
-        background: ;
+        color: #fbf1c7;
+        background: #665c54;
 }/*
 ** Utility classes for SVG icons
 */.tc-fill-background {
-	fill: #ffffff;
+	fill: #3c3836;
 }/*
 ** Flexbox utility classes
 */.tc-flex {
@@ -2354,7 +2371,7 @@ button.tc-btn-\%24\%3A\%2Fcore\%2Fui\%2FButtons\%2Fnew-tiddler, .tc-drop-down bu
 body.tc-dirty span.tc-dirty-indicator svg {
 	transition: fill 250ms ease-in-out;
 }body .tc-image-cloud-idle {
-	fill: #ffffff;
+	fill: #3c3836;
 	transition: opacity 250ms ease-in-out;
 	opacity: 1;
 	display: unset;
@@ -2366,7 +2383,7 @@ body.tc-dirty span.tc-dirty-indicator svg {
 	transform-origin: 50% 50%;
 	transform: rotate(359deg);
 	animation: animation-rotate-slow 2s infinite linear;
-	fill: #ffffff;
+	fill: #3c3836;
 	display: none;
 	opacity: 0;
 }body.tc-dirty .tc-image-cloud-progress {
@@ -2487,8 +2504,8 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: #f8f8f8;
-  color: #333333;
+  background: #32302f;
+  color: #fbf1c7;
   -webkit-text-size-adjust:none
 }.hljs-comment,
 .hljs-quote {
@@ -2550,13 +2567,458 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 <body class="tc-body">
 
 <section class="tc-story-river tc-static-story-river">
-<a name="Contents">
-<div class="tc-tiddler-frame tc-tiddler-view-frame tc-tiddler-exists  tc-tagged-%24%3A%2Ftags%2FSideBar" data-tags="$:/tags/SideBar" data-tiddler-title="Contents"><div class="tc-tiddler-title"><div class="tc-titlebar"><span class="tc-tiddler-controls"><span class=" tc-reveal"><button aria-label="more" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fmore-tiddler-actions" title="More actions"></button><div class=" tc-reveal" hidden="true"></div></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="edit" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fedit" title="Edit this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="close" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fclose" title="Close this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span></span><span><h2 class="tc-title">Contents</h2></span></div><div class="tc-tiddler-info tc-popup-handle tc-reveal" hidden="true"></div></div><div class=" tc-reveal" hidden="true"></div>
-<div class=" tc-reveal"><div class="tc-subtitle"><a class="tc-tiddlylink tc-tiddlylink-missing" href="#"></a>20th June 2021 at 5:49pm</div></div><div class=" tc-reveal">
+<a name="000 (1).jpg">
+<div class="tc-tiddler-frame tc-tiddler-view-frame tc-tiddler-exists  tc-tagged-Photos" data-tags="Photos" data-tiddler-title="000 (1).jpg"><div class="tc-tiddler-title"><div class="tc-titlebar"><span class="tc-tiddler-controls"><span class=" tc-reveal"><button aria-label="more" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fmore-tiddler-actions" title="More actions"></button><div class=" tc-reveal" hidden="true"></div></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="edit" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fedit" title="Edit this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="close" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fclose" title="Close this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span></span><span><h2 class="tc-title">000 (1).jpg</h2></span></div><div class="tc-tiddler-info tc-popup-handle tc-reveal" hidden="true"></div></div><div class=" tc-reveal" hidden="true"></div>
+<div class=" tc-reveal"><div class="tc-subtitle"><a class="tc-tiddlylink tc-tiddlylink-missing" href="#"></a>23rd June 2021 at 8:07am</div></div><div class=" tc-reveal">
 <div class="tc-tags-wrapper"><span class="tc-tag-list-item">
 <span class="tc-tag-label tc-btn-invisible" draggable="true" style="background-color:;
-fill:#333333;
-color:#333333;">
+fill:#3c3836;
+color:#3c3836;">
+Photos
+</span>
+<span class="tc-drop-down tc-reveal" hidden="true"></span></span></div>
+</div>
+
+<div class="tc-tiddler-body tc-reveal"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QBYRXhpZgAATU0AKgAAAAgAAgESAAMAAAABAAEAAIdpAAQAAAABAAAAJgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAACfKADAAQAAAABAAADEQAAAAD/4QnxaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJYTVAgQ29yZSA2LjAuMCI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIgcGhvdG9zaG9wOlRyYW5zbWlzc2lvblJlZmVyZW5jZT0iTy1sTTJaRjFyandhMmVTSnZoejMiIHBob3Rvc2hvcDpJbnN0cnVjdGlvbnM9IkZCTUQwZjAwMDc4ZDAzMDAwMDRmMjYwMDAwNGU1ZTAwMDA5NDY1MDAwMGE0NmQwMDAwNWI3YTAwMDBkNGM1MDAwMGUxYzcwMDAwIi8+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPD94cGFja2V0IGVuZD0idyI/PgD/7QCwUGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAHccAVoAAxslRxwCAAAC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"></div>
+
+<div class="tc-tiddler-plugin-info tc-reveal"><p>
+</p></div>
+</div>
+
+
+</a><a name="2021 Office Visits">
+<div class="tc-tiddler-frame tc-tiddler-view-frame tc-tiddler-exists  tc-tagged-Can%20Delete" data-tags="[[Can Delete]]" data-tiddler-title="2021 Office Visits"><div class="tc-tiddler-title"><div class="tc-titlebar"><span class="tc-tiddler-controls"><span class=" tc-reveal"><button aria-label="more" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fmore-tiddler-actions" title="More actions"></button><div class=" tc-reveal" hidden="true"></div></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="edit" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fedit" title="Edit this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="close" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fclose" title="Close this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span></span><span><h2 class="tc-title">2021 Office Visits</h2></span></div><div class="tc-tiddler-info tc-popup-handle tc-reveal" hidden="true"></div></div><div class=" tc-reveal" hidden="true"></div>
+<div class=" tc-reveal"><div class="tc-subtitle"><a class="tc-tiddlylink tc-tiddlylink-missing" href="#"></a>26th June 2021 at 5:45pm</div></div><div class=" tc-reveal">
+<div class="tc-tags-wrapper"><span class="tc-tag-list-item">
+<span class="tc-tag-label tc-btn-invisible" draggable="true" style="background-color:;
+fill:#3c3836;
+color:#3c3836;">
+Can Delete
+</span>
+<span class="tc-drop-down tc-reveal" hidden="true"></span></span></div>
+</div>
+
+<div class="tc-tiddler-body tc-reveal"><p><style>
+  .border {
+    border-width: medium;
+  }
+</style></p><p>Fill in the fields below and click the button to create a new office visit tiddler. The fields <code>date</code> and <code>purpose</code> are required to create a good title.</p><p><table>
+<tr><th>With</th>
+<td><input class="border" placeholder="Who the Visit is With" type="text" value=""></td>
+</tr>
+
+<tr>
+<th>Date</th>
+<td><input class="border" placeholder="Date of the Visit" type="text" value="">
+</td>
+</tr>
+
+<tr><th>Time</th>
+<td><input class="border" placeholder="Time of the Visit" type="text" value=""></td></tr>
+
+<tr><th>Where</th>
+<td><input class="border" placeholder="Where is the Visit" type="text" value=""></td></tr>
+
+<tr><th>Purpose</th>
+<td><input class="border" placeholder="Purpose of the Visit" type="text" value=""></td></tr>
+</table></p><p>
+<button class="">
+ 
+
+
+
+
+Create Office Visit
+</button>
+</p></div>
+
+<div class="tc-tiddler-plugin-info tc-reveal"><p>
+</p></div>
+</div>
+
+
+</a><a name="2021-05-19 10:00 Afib Episode">
+<div class="tc-tiddler-frame tc-tiddler-view-frame tc-tiddler-exists  tc-tagged-Afib%20Episodes" data-tags="[[Afib Episodes]]" data-tiddler-title="2021-05-19 10:00 Afib Episode"><div class="tc-tiddler-title"><div class="tc-titlebar"><span class="tc-tiddler-controls"><span class=" tc-reveal"><button aria-label="more" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fmore-tiddler-actions" title="More actions"></button><div class=" tc-reveal" hidden="true"></div></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="edit" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fedit" title="Edit this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="close" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fclose" title="Close this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span></span><span><h2 class="tc-title">2021-05-19 10:00 Afib Episode</h2></span></div><div class="tc-tiddler-info tc-popup-handle tc-reveal" hidden="true"></div></div><div class=" tc-reveal" hidden="true"></div>
+<div class=" tc-reveal"><div class="tc-subtitle"><a class="tc-tiddlylink tc-tiddlylink-missing" href="#"></a>27th June 2021 at 7:29am</div></div><div class=" tc-reveal">
+<div class="tc-tags-wrapper"><span class="tc-tag-list-item">
+<span class="tc-tag-label tc-btn-invisible" draggable="true" style="background-color:;
+fill:#3c3836;
+color:#3c3836;">
+Afib Episodes
+</span>
+<span class="tc-drop-down tc-reveal" hidden="true"></span></span></div>
+</div>
+
+<div class="tc-tiddler-body tc-reveal"><p>All new values provided as input.</p></div>
+
+<div class="tc-tiddler-plugin-info tc-reveal"><p>
+</p></div>
+</div>
+
+
+</a><a name="2021-06-20 10:24 Afib Episode">
+<div class="tc-tiddler-frame tc-tiddler-view-frame tc-tiddler-exists  tc-tagged-Afib%20Episodes" data-tags="[[Afib Episodes]]" data-tiddler-title="2021-06-20 10:24 Afib Episode"><div class="tc-tiddler-title"><div class="tc-titlebar"><span class="tc-tiddler-controls"><span class=" tc-reveal"><button aria-label="more" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fmore-tiddler-actions" title="More actions"></button><div class=" tc-reveal" hidden="true"></div></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="edit" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fedit" title="Edit this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="close" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fclose" title="Close this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span></span><span><h2 class="tc-title">2021-06-20 10:24 Afib Episode</h2></span></div><div class="tc-tiddler-info tc-popup-handle tc-reveal" hidden="true"></div></div><div class=" tc-reveal" hidden="true"></div>
+<div class=" tc-reveal"><div class="tc-subtitle"><a class="tc-tiddlylink tc-tiddlylink-missing" href="#"></a>27th June 2021 at 7:17am</div></div><div class=" tc-reveal">
+<div class="tc-tags-wrapper"><span class="tc-tag-list-item">
+<span class="tc-tag-label tc-btn-invisible" draggable="true" style="background-color:;
+fill:#3c3836;
+color:#3c3836;">
+Afib Episodes
+</span>
+<span class="tc-drop-down tc-reveal" hidden="true"></span></span></div>
+</div>
+
+<div class="tc-tiddler-body tc-reveal"><p>Watch detected.</p></div>
+
+<div class="tc-tiddler-plugin-info tc-reveal"><p>
+</p></div>
+</div>
+
+
+</a><a name="2021-06-21 10:35 Afib Episode">
+<div class="tc-tiddler-frame tc-tiddler-view-frame tc-tiddler-exists  tc-tagged-Afib%20Episodes" data-tags="[[Afib Episodes]]" data-tiddler-title="2021-06-21 10:35 Afib Episode"><div class="tc-tiddler-title"><div class="tc-titlebar"><span class="tc-tiddler-controls"><span class=" tc-reveal"><button aria-label="more" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fmore-tiddler-actions" title="More actions"></button><div class=" tc-reveal" hidden="true"></div></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="edit" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fedit" title="Edit this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="close" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fclose" title="Close this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span></span><span><h2 class="tc-title">2021-06-21 10:35 Afib Episode</h2></span></div><div class="tc-tiddler-info tc-popup-handle tc-reveal" hidden="true"></div></div><div class=" tc-reveal" hidden="true"></div>
+<div class=" tc-reveal"><div class="tc-subtitle"><a class="tc-tiddlylink tc-tiddlylink-missing" href="#"></a>27th June 2021 at 7:16am</div></div><div class=" tc-reveal">
+<div class="tc-tags-wrapper"><span class="tc-tag-list-item">
+<span class="tc-tag-label tc-btn-invisible" draggable="true" style="background-color:;
+fill:#3c3836;
+color:#3c3836;">
+Afib Episodes
+</span>
+<span class="tc-drop-down tc-reveal" hidden="true"></span></span></div>
+</div>
+
+<div class="tc-tiddler-body tc-reveal"><p>Watch detected.</p></div>
+
+<div class="tc-tiddler-plugin-info tc-reveal"><p>
+</p></div>
+</div>
+
+
+</a><a name="2021-06-21 Changes">
+<div class="tc-tiddler-frame tc-tiddler-view-frame tc-tiddler-exists  tc-tagged-Change%20Tracking" data-tags="[[Change Tracking]]" data-tiddler-title="2021-06-21 Changes"><div class="tc-tiddler-title"><div class="tc-titlebar"><span class="tc-tiddler-controls"><span class=" tc-reveal"><button aria-label="more" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fmore-tiddler-actions" title="More actions"></button><div class=" tc-reveal" hidden="true"></div></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="edit" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fedit" title="Edit this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="close" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fclose" title="Close this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span></span><span><h2 class="tc-title">2021-06-21 Changes</h2></span></div><div class="tc-tiddler-info tc-popup-handle tc-reveal" hidden="true"></div></div><div class=" tc-reveal" hidden="true"></div>
+<div class=" tc-reveal"><div class="tc-subtitle"><a class="tc-tiddlylink tc-tiddlylink-missing" href="#"></a>21st June 2021 at 4:57pm</div></div><div class=" tc-reveal">
+<div class="tc-tags-wrapper"><span class="tc-tag-list-item">
+<span class="tc-tag-label tc-btn-invisible" draggable="true" style="background-color:;
+fill:#3c3836;
+color:#3c3836;">
+Change Tracking
+</span>
+<span class="tc-drop-down tc-reveal" hidden="true"></span></span></div>
+</div>
+
+<div class="tc-tiddler-body tc-reveal"><ul><li>Imported the <code>Change Tracking</code> tiddler from my experimental TiddlyWIki.</li><li>Testing that the same tiddler is used for each day's changes.</li><li>Yup. That's working correctly!</li><li>Removed all traces (hopefully) of the dummy helloworld plugin I tried to create.</li></ul></div>
+
+<div class="tc-tiddler-plugin-info tc-reveal"><p>
+</p></div>
+</div>
+
+
+</a><a name="2021-06-23 Changes">
+<div class="tc-tiddler-frame tc-tiddler-view-frame tc-tiddler-exists  tc-tagged-Change%20Tracking" data-tags="[[Change Tracking]]" data-tiddler-title="2021-06-23 Changes"><div class="tc-tiddler-title"><div class="tc-titlebar"><span class="tc-tiddler-controls"><span class=" tc-reveal"><button aria-label="more" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fmore-tiddler-actions" title="More actions"></button><div class=" tc-reveal" hidden="true"></div></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="edit" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fedit" title="Edit this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="close" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fclose" title="Close this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span></span><span><h2 class="tc-title">2021-06-23 Changes</h2></span></div><div class="tc-tiddler-info tc-popup-handle tc-reveal" hidden="true"></div></div><div class=" tc-reveal" hidden="true"></div>
+<div class=" tc-reveal"><div class="tc-subtitle"><a class="tc-tiddlylink tc-tiddlylink-missing" href="#"></a>23rd June 2021 at 7:45am</div></div><div class=" tc-reveal">
+<div class="tc-tags-wrapper"><span class="tc-tag-list-item">
+<span class="tc-tag-label tc-btn-invisible" draggable="true" style="background-color:;
+fill:#3c3836;
+color:#3c3836;">
+Change Tracking
+</span>
+<span class="tc-drop-down tc-reveal" hidden="true"></span></span></div>
+</div>
+
+<div class="tc-tiddler-body tc-reveal"><p>Oops! Looks like deleting a tiddler doesn't necessarily delete the file from the file system. Or maybe it works differently for plugins.</p></div>
+
+<div class="tc-tiddler-plugin-info tc-reveal"><p>
+</p></div>
+</div>
+
+
+</a><a name="2021-06-26 11:54 Afib Episode">
+<div class="tc-tiddler-frame tc-tiddler-view-frame tc-tiddler-exists  tc-tagged-Afib%20Episodes" data-tags="[[Afib Episodes]]" data-tiddler-title="2021-06-26 11:54 Afib Episode"><div class="tc-tiddler-title"><div class="tc-titlebar"><span class="tc-tiddler-controls"><span class=" tc-reveal"><button aria-label="more" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fmore-tiddler-actions" title="More actions"></button><div class=" tc-reveal" hidden="true"></div></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="edit" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fedit" title="Edit this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="close" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fclose" title="Close this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span></span><span><h2 class="tc-title">2021-06-26 11:54 Afib Episode</h2></span></div><div class="tc-tiddler-info tc-popup-handle tc-reveal" hidden="true"></div></div><div class=" tc-reveal" hidden="true"></div>
+<div class=" tc-reveal"><div class="tc-subtitle"><a class="tc-tiddlylink tc-tiddlylink-missing" href="#"></a>27th June 2021 at 7:28am</div></div><div class=" tc-reveal">
+<div class="tc-tags-wrapper"><span class="tc-tag-list-item">
+<span class="tc-tag-label tc-btn-invisible" draggable="true" style="background-color:;
+fill:#3c3836;
+color:#3c3836;">
+Afib Episodes
+</span>
+<span class="tc-drop-down tc-reveal" hidden="true"></span></span></div>
+</div>
+
+<div class="tc-tiddler-body tc-reveal"><p>Changed the date 1st. Time went dull.</p></div>
+
+<div class="tc-tiddler-plugin-info tc-reveal"><p>
+</p></div>
+</div>
+
+
+</a><a name="2021-06-27 06:27 Afib Episode">
+<div class="tc-tiddler-frame tc-tiddler-view-frame tc-tiddler-exists  tc-tagged-Afib%20Episodes" data-tags="[[Afib Episodes]]" data-tiddler-title="2021-06-27 06:27 Afib Episode"><div class="tc-tiddler-title"><div class="tc-titlebar"><span class="tc-tiddler-controls"><span class=" tc-reveal"><button aria-label="more" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fmore-tiddler-actions" title="More actions"></button><div class=" tc-reveal" hidden="true"></div></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="edit" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fedit" title="Edit this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="close" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fclose" title="Close this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span></span><span><h2 class="tc-title">2021-06-27 06:27 Afib Episode</h2></span></div><div class="tc-tiddler-info tc-popup-handle tc-reveal" hidden="true"></div></div><div class=" tc-reveal" hidden="true"></div>
+<div class=" tc-reveal"><div class="tc-subtitle"><a class="tc-tiddlylink tc-tiddlylink-missing" href="#"></a>27th June 2021 at 7:27am</div></div><div class=" tc-reveal">
+<div class="tc-tags-wrapper"><span class="tc-tag-list-item">
+<span class="tc-tag-label tc-btn-invisible" draggable="true" style="background-color:;
+fill:#3c3836;
+color:#3c3836;">
+Afib Episodes
+</span>
+<span class="tc-drop-down tc-reveal" hidden="true"></span></span></div>
+</div>
+
+<div class="tc-tiddler-body tc-reveal"><p>Works when we supply only the ttime.</p></div>
+
+<div class="tc-tiddler-plugin-info tc-reveal"><p>
+</p></div>
+</div>
+
+
+</a><a name="2021-06-27 06:54 Afib Episode">
+<div class="tc-tiddler-frame tc-tiddler-view-frame tc-tiddler-exists  tc-tagged-Afib%20Episodes" data-tags="[[Afib Episodes]]" data-tiddler-title="2021-06-27 06:54 Afib Episode"><div class="tc-tiddler-title"><div class="tc-titlebar"><span class="tc-tiddler-controls"><span class=" tc-reveal"><button aria-label="more" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fmore-tiddler-actions" title="More actions"></button><div class=" tc-reveal" hidden="true"></div></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="edit" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fedit" title="Edit this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="close" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fclose" title="Close this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span></span><span><h2 class="tc-title">2021-06-27 06:54 Afib Episode</h2></span></div><div class="tc-tiddler-info tc-popup-handle tc-reveal" hidden="true"></div></div><div class=" tc-reveal" hidden="true"></div>
+<div class=" tc-reveal"><div class="tc-subtitle"><a class="tc-tiddlylink tc-tiddlylink-missing" href="#"></a>27th June 2021 at 7:16am</div></div><div class=" tc-reveal">
+<div class="tc-tags-wrapper"><span class="tc-tag-list-item">
+<span class="tc-tag-label tc-btn-invisible" draggable="true" style="background-color:;
+fill:#3c3836;
+color:#3c3836;">
+Afib Episodes
+</span>
+<span class="tc-drop-down tc-reveal" hidden="true"></span></span></div>
+</div>
+
+<div class="tc-tiddler-body tc-reveal"><p>notes would go here</p></div>
+
+<div class="tc-tiddler-plugin-info tc-reveal"><p>
+</p></div>
+</div>
+
+
+</a><a name="2021-06-27 06:56 Afib Episode">
+<div class="tc-tiddler-frame tc-tiddler-view-frame tc-tiddler-exists  tc-tagged-Afib%20Episodes" data-tags="[[Afib Episodes]]" data-tiddler-title="2021-06-27 06:56 Afib Episode"><div class="tc-tiddler-title"><div class="tc-titlebar"><span class="tc-tiddler-controls"><span class=" tc-reveal"><button aria-label="more" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fmore-tiddler-actions" title="More actions"></button><div class=" tc-reveal" hidden="true"></div></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="edit" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fedit" title="Edit this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="close" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fclose" title="Close this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span></span><span><h2 class="tc-title">2021-06-27 06:56 Afib Episode</h2></span></div><div class="tc-tiddler-info tc-popup-handle tc-reveal" hidden="true"></div></div><div class=" tc-reveal" hidden="true"></div>
+<div class=" tc-reveal"><div class="tc-subtitle"><a class="tc-tiddlylink tc-tiddlylink-missing" href="#"></a>27th June 2021 at 7:16am</div></div><div class=" tc-reveal">
+<div class="tc-tags-wrapper"><span class="tc-tag-list-item">
+<span class="tc-tag-label tc-btn-invisible" draggable="true" style="background-color:;
+fill:#3c3836;
+color:#3c3836;">
+Afib Episodes
+</span>
+<span class="tc-drop-down tc-reveal" hidden="true"></span></span></div>
+</div>
+
+<div class="tc-tiddler-body tc-reveal"><p>No notes.
+</p></div>
+
+<div class="tc-tiddler-plugin-info tc-reveal"><p>
+</p></div>
+</div>
+
+
+</a><a name="2021-06-27 07:14 Afib Episode">
+<div class="tc-tiddler-frame tc-tiddler-view-frame tc-tiddler-exists  tc-tagged-Afib%20Episodes" data-tags="[[Afib Episodes]]" data-tiddler-title="2021-06-27 07:14 Afib Episode"><div class="tc-tiddler-title"><div class="tc-titlebar"><span class="tc-tiddler-controls"><span class=" tc-reveal"><button aria-label="more" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fmore-tiddler-actions" title="More actions"></button><div class=" tc-reveal" hidden="true"></div></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="edit" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fedit" title="Edit this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="close" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fclose" title="Close this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span></span><span><h2 class="tc-title">2021-06-27 07:14 Afib Episode</h2></span></div><div class="tc-tiddler-info tc-popup-handle tc-reveal" hidden="true"></div></div><div class=" tc-reveal" hidden="true"></div>
+<div class=" tc-reveal"><div class="tc-subtitle"><a class="tc-tiddlylink tc-tiddlylink-missing" href="#"></a>27th June 2021 at 7:15am</div></div><div class=" tc-reveal">
+<div class="tc-tags-wrapper"><span class="tc-tag-list-item">
+<span class="tc-tag-label tc-btn-invisible" draggable="true" style="background-color:;
+fill:#3c3836;
+color:#3c3836;">
+Afib Episodes
+</span>
+<span class="tc-drop-down tc-reveal" hidden="true"></span></span></div>
+</div>
+
+<div class="tc-tiddler-body tc-reveal"><p>No detection.</p></div>
+
+<div class="tc-tiddler-plugin-info tc-reveal"><p>
+</p></div>
+</div>
+
+
+</a><a name="2021-06-27 07:26 Afib Episode">
+<div class="tc-tiddler-frame tc-tiddler-view-frame tc-tiddler-exists  tc-tagged-Afib%20Episodes" data-tags="[[Afib Episodes]]" data-tiddler-title="2021-06-27 07:26 Afib Episode"><div class="tc-tiddler-title"><div class="tc-titlebar"><span class="tc-tiddler-controls"><span class=" tc-reveal"><button aria-label="more" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fmore-tiddler-actions" title="More actions"></button><div class=" tc-reveal" hidden="true"></div></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="edit" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fedit" title="Edit this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="close" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fclose" title="Close this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span></span><span><h2 class="tc-title">2021-06-27 07:26 Afib Episode</h2></span></div><div class="tc-tiddler-info tc-popup-handle tc-reveal" hidden="true"></div></div><div class=" tc-reveal" hidden="true"></div>
+<div class=" tc-reveal"><div class="tc-subtitle"><a class="tc-tiddlylink tc-tiddlylink-missing" href="#"></a>27th June 2021 at 7:27am</div></div><div class=" tc-reveal">
+<div class="tc-tags-wrapper"><span class="tc-tag-list-item">
+<span class="tc-tag-label tc-btn-invisible" draggable="true" style="background-color:;
+fill:#3c3836;
+color:#3c3836;">
+Afib Episodes
+</span>
+<span class="tc-drop-down tc-reveal" hidden="true"></span></span></div>
+</div>
+
+<div class="tc-tiddler-body tc-reveal"><p>All right!! the defaults worked!!</p></div>
+
+<div class="tc-tiddler-plugin-info tc-reveal"><p>
+</p></div>
+</div>
+
+
+</a><a name="2021-06-27 Changes">
+<div class="tc-tiddler-frame tc-tiddler-view-frame tc-tiddler-exists  tc-tagged-Change%20Tracking" data-tags="[[Change Tracking]]" data-tiddler-title="2021-06-27 Changes"><div class="tc-tiddler-title"><div class="tc-titlebar"><span class="tc-tiddler-controls"><span class=" tc-reveal"><button aria-label="more" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fmore-tiddler-actions" title="More actions"></button><div class=" tc-reveal" hidden="true"></div></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="edit" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fedit" title="Edit this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="close" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fclose" title="Close this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span></span><span><h2 class="tc-title">2021-06-27 Changes</h2></span></div><div class="tc-tiddler-info tc-popup-handle tc-reveal" hidden="true"></div></div><div class=" tc-reveal" hidden="true"></div>
+<div class=" tc-reveal"><div class="tc-subtitle"><a class="tc-tiddlylink tc-tiddlylink-missing" href="#"></a>27th June 2021 at 7:38am</div></div><div class=" tc-reveal">
+<div class="tc-tags-wrapper"><span class="tc-tag-list-item">
+<span class="tc-tag-label tc-btn-invisible" draggable="true" style="background-color:;
+fill:#3c3836;
+color:#3c3836;">
+Change Tracking
+</span>
+<span class="tc-drop-down tc-reveal" hidden="true"></span></span></div>
+</div>
+
+<div class="tc-tiddler-body tc-reveal"><p>Finished the 1st pass of an afib episode listing and creation tiddler.
+</p></div>
+
+<div class="tc-tiddler-plugin-info tc-reveal"><p>
+</p></div>
+</div>
+
+
+</a><a name="Afib Episodes">
+<div class="tc-tiddler-frame tc-tiddler-view-frame tc-tiddler-exists  tc-tagged-Contents" data-tags="Contents" data-tiddler-title="Afib Episodes"><div class="tc-tiddler-title"><div class="tc-titlebar"><span class="tc-tiddler-controls"><span class=" tc-reveal"><button aria-label="more" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fmore-tiddler-actions" title="More actions"></button><div class=" tc-reveal" hidden="true"></div></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="edit" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fedit" title="Edit this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="close" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fclose" title="Close this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span></span><span><h2 class="tc-title">Afib Episodes</h2></span></div><div class="tc-tiddler-info tc-popup-handle tc-reveal" hidden="true"></div></div><div class=" tc-reveal" hidden="true"></div>
+<div class=" tc-reveal"><div class="tc-subtitle"><a class="tc-tiddlylink tc-tiddlylink-missing" href="#"></a>27th June 2021 at 7:38am</div></div><div class=" tc-reveal">
+<div class="tc-tags-wrapper"><span class="tc-tag-list-item">
+<span class="tc-tag-label tc-btn-invisible" draggable="true" style="background-color:;
+fill:#3c3836;
+color:#3c3836;">
+Contents
+</span>
+<span class="tc-drop-down tc-reveal" hidden="true"></span></span></div>
+</div>
+
+<div class="tc-tiddler-body tc-reveal"><p><style>
+  .border {
+    border-width: medium;
+  }
+</style></p><h2 class="">New Episode</h2><p>Fill in the fields below and click the button to create a new office visit tiddler. The fields <code>date</code> and <code>time</code> are required to create a good title.</p><p><table>
+<tr><th>Date</th>
+<td><input class="border" placeholder="2021-06-27" type="text" value="2021-06-27"></td>
+</tr>
+
+<tr>
+<th>Time</th>
+<td><input class="border" placeholder="07:43" type="text" value="07:43">
+</td>
+</tr>
+
+</table></p><p>
+<p><button class="">
+  
+  
+Add New Afib Episode
+</button>
+</p>
+
+</p><hr><h2 class="">Existing Episodes</h2><p><table>
+<tr><th>Date</th><th>Time</th><th>Notes</th></tr>
+
+<tr>
+  <td><a class="tc-tiddlylink tc-tiddlylink-resolves" href="#2021-06-27%2007%3A26%20Afib%20Episode">2021-06-27</a></td>
+  <td>07:26</td>
+  <td>All right!! the defaults worked!!</td>
+</tr>
+
+<tr>
+  <td><a class="tc-tiddlylink tc-tiddlylink-resolves" href="#2021-06-27%2007%3A14%20Afib%20Episode">2021-06-27</a></td>
+  <td>07:14</td>
+  <td>No detection.</td>
+</tr>
+
+<tr>
+  <td><a class="tc-tiddlylink tc-tiddlylink-resolves" href="#2021-06-27%2006%3A56%20Afib%20Episode">2021-06-27</a></td>
+  <td>06:56</td>
+  <td>No notes.
+</td>
+</tr>
+
+<tr>
+  <td><a class="tc-tiddlylink tc-tiddlylink-resolves" href="#2021-06-27%2006%3A54%20Afib%20Episode">2021-06-27</a></td>
+  <td>06:54</td>
+  <td>notes would go here</td>
+</tr>
+
+<tr>
+  <td><a class="tc-tiddlylink tc-tiddlylink-resolves" href="#2021-06-27%2006%3A27%20Afib%20Episode">2021-06-27</a></td>
+  <td>06:27</td>
+  <td>Works when we supply only the ttime.</td>
+</tr>
+
+<tr>
+  <td><a class="tc-tiddlylink tc-tiddlylink-resolves" href="#2021-06-26%2011%3A54%20Afib%20Episode">2021-06-26</a></td>
+  <td>11:54</td>
+  <td>Changed the date 1st. Time went dull.</td>
+</tr>
+
+<tr>
+  <td><a class="tc-tiddlylink tc-tiddlylink-resolves" href="#2021-06-21%2010%3A35%20Afib%20Episode">2021-06-21</a></td>
+  <td>10:35</td>
+  <td>Watch detected.</td>
+</tr>
+
+<tr>
+  <td><a class="tc-tiddlylink tc-tiddlylink-resolves" href="#2021-06-20%2010%3A24%20Afib%20Episode">2021-06-20</a></td>
+  <td>10:24</td>
+  <td>Watch detected.</td>
+</tr>
+
+<tr>
+  <td><a class="tc-tiddlylink tc-tiddlylink-resolves" href="#2021-05-19%2010%3A00%20Afib%20Episode">2021-05-19</a></td>
+  <td>10:00</td>
+  <td>All new values provided as input.</td>
+</tr>
+
+</table>
+</p></div>
+
+<div class="tc-tiddler-plugin-info tc-reveal"><p>
+</p></div>
+</div>
+
+
+</a><a name="Can Delete">
+<div class="tc-tiddler-frame tc-tiddler-view-frame tc-tiddler-exists  tc-tagged-Meta" data-tags="Meta" data-tiddler-title="Can Delete"><div class="tc-tiddler-title"><div class="tc-titlebar"><span class="tc-tiddler-controls"><span class=" tc-reveal"><button aria-label="more" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fmore-tiddler-actions" title="More actions"></button><div class=" tc-reveal" hidden="true"></div></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="edit" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fedit" title="Edit this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="close" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fclose" title="Close this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span></span><span><h2 class="tc-title">Can Delete</h2></span></div><div class="tc-tiddler-info tc-popup-handle tc-reveal" hidden="true"></div></div><div class=" tc-reveal" hidden="true"></div>
+<div class=" tc-reveal"><div class="tc-subtitle"><a class="tc-tiddlylink tc-tiddlylink-missing" href="#"></a>26th June 2021 at 5:44pm</div></div><div class=" tc-reveal">
+<div class="tc-tags-wrapper"><span class="tc-tag-list-item">
+<span class="tc-tag-label tc-btn-invisible" draggable="true" style="background-color:;
+fill:#3c3836;
+color:#3c3836;">
+Meta
+</span>
+<span class="tc-drop-down tc-reveal" hidden="true"></span></span></div>
+</div>
+
+<div class="tc-tiddler-body tc-reveal"></div>
+
+<div class="tc-tiddler-plugin-info tc-reveal"><p>
+</p></div>
+</div>
+
+
+</a><a name="Change Tracking">
+<div class="tc-tiddler-frame tc-tiddler-view-frame tc-tiddler-exists  tc-tagged-Meta" data-tags="Meta" data-tiddler-title="Change Tracking"><div class="tc-tiddler-title"><div class="tc-titlebar"><span class="tc-tiddler-controls"><span class=" tc-reveal"><button aria-label="more" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fmore-tiddler-actions" title="More actions"></button><div class=" tc-reveal" hidden="true"></div></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="edit" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fedit" title="Edit this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="close" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fclose" title="Close this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span></span><span><h2 class="tc-title">Change Tracking</h2></span></div><div class="tc-tiddler-info tc-popup-handle tc-reveal" hidden="true"></div></div><div class=" tc-reveal" hidden="true"></div>
+<div class=" tc-reveal"><div class="tc-subtitle"><a class="tc-tiddlylink tc-tiddlylink-missing" href="#"></a>21st June 2021 at 4:35pm</div></div><div class=" tc-reveal">
+<div class="tc-tags-wrapper"><span class="tc-tag-list-item">
+<span class="tc-tag-label tc-btn-invisible" draggable="true" style="background-color:;
+fill:#3c3836;
+color:#3c3836;">
+Meta
+</span>
+<span class="tc-drop-down tc-reveal" hidden="true"></span></span></div>
+</div>
+
+<div class="tc-tiddler-body tc-reveal"><p>To record changes, click the button.</p><p>
+<button class="">
+
+
+Record New Changes
+</button>
+</p><h2 class="">Previous Changes</h2><p><ul class=""><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="#2021-06-27%20Changes">2021-06-27 Changes</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="#2021-06-23%20Changes">2021-06-23 Changes</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="#2021-06-21%20Changes">2021-06-21 Changes</a></li></ul></p></div>
+
+<div class="tc-tiddler-plugin-info tc-reveal"><p>
+</p></div>
+</div>
+
+
+</a><a name="Contents">
+<div class="tc-tiddler-frame tc-tiddler-view-frame tc-tiddler-exists  tc-tagged-%24%3A%2Ftags%2FSideBar" data-tags="$:/tags/SideBar" data-tiddler-title="Contents"><div class="tc-tiddler-title"><div class="tc-titlebar"><span class="tc-tiddler-controls"><span class=" tc-reveal"><button aria-label="more" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fmore-tiddler-actions" title="More actions"></button><div class=" tc-reveal" hidden="true"></div></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="edit" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fedit" title="Edit this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="close" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fclose" title="Close this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span></span><span><h2 class="tc-title">Contents</h2></span></div><div class="tc-tiddler-info tc-popup-handle tc-reveal" hidden="true"></div></div><div class=" tc-reveal" hidden="true"></div>
+<div class=" tc-reveal"><div class="tc-subtitle"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="#Ken%20Reed">Ken Reed</a>23rd June 2021 at 8:56am</div></div><div class=" tc-reveal">
+<div class="tc-tags-wrapper"><span class="tc-tag-list-item">
+<span class="tc-tag-label tc-btn-invisible" draggable="true" style="background-color:;
+fill:#3c3836;
+color:#3c3836;">
 $:/tags/SideBar
 </span>
 <span class="tc-drop-down tc-reveal" hidden="true"></span></span></div>
@@ -2566,6 +3028,75 @@ $:/tags/SideBar
 
   
     <ol class="tc-toc toc-selective-expandable">
+      
+        
+  
+    <li class="toc-item">
+      <a class="tc-tiddlylink tc-tiddlylink-resolves" href="#Afib%20Episodes">
+          
+          <span class=" tc-reveal">
+            <button class="tc-btn-invisible tc-popup-keep">
+              <svg class="tc-image-right-arrow tc-image-button" height="22pt" viewBox="0 0 128 128" width="22pt"><path d="M99.069 64.173c0 2.027-.77 4.054-2.316 5.6l-55.98 55.98a7.92 7.92 0 01-11.196 0c-3.085-3.086-3.092-8.105 0-11.196l50.382-50.382-50.382-50.382a7.92 7.92 0 010-11.195c3.086-3.085 8.104-3.092 11.196 0l55.98 55.98a7.892 7.892 0 012.316 5.595z"></path></svg>
+            </button>
+          </span>
+          <span class=" tc-reveal" hidden="true"></span>
+        
+        
+  
+    Afib Episodes
+  
+
+      </a>
+      <span class=" tc-reveal" hidden="true"></span>
+    </li>
+  
+
+      
+        
+  
+    <li class="toc-item">
+      <a class="tc-tiddlylink tc-tiddlylink-resolves" href="#Meta">
+          
+          <span class=" tc-reveal">
+            <button class="tc-btn-invisible tc-popup-keep">
+              <svg class="tc-image-right-arrow tc-image-button" height="22pt" viewBox="0 0 128 128" width="22pt"><path d="M99.069 64.173c0 2.027-.77 4.054-2.316 5.6l-55.98 55.98a7.92 7.92 0 01-11.196 0c-3.085-3.086-3.092-8.105 0-11.196l50.382-50.382-50.382-50.382a7.92 7.92 0 010-11.195c3.086-3.085 8.104-3.092 11.196 0l55.98 55.98a7.892 7.892 0 012.316 5.595z"></path></svg>
+            </button>
+          </span>
+          <span class=" tc-reveal" hidden="true"></span>
+        
+        
+  
+    Meta
+  
+
+      </a>
+      <span class=" tc-reveal" hidden="true"></span>
+    </li>
+  
+
+      
+        
+  
+    <li class="toc-item">
+      <a class="tc-tiddlylink tc-tiddlylink-resolves" href="#Photos">
+          
+          <span class=" tc-reveal">
+            <button class="tc-btn-invisible tc-popup-keep">
+              <svg class="tc-image-right-arrow tc-image-button" height="22pt" viewBox="0 0 128 128" width="22pt"><path d="M99.069 64.173c0 2.027-.77 4.054-2.316 5.6l-55.98 55.98a7.92 7.92 0 01-11.196 0c-3.085-3.086-3.092-8.105 0-11.196l50.382-50.382-50.382-50.382a7.92 7.92 0 010-11.195c3.086-3.085 8.104-3.092 11.196 0l55.98 55.98a7.892 7.892 0 012.316 5.595z"></path></svg>
+            </button>
+          </span>
+          <span class=" tc-reveal" hidden="true"></span>
+        
+        
+  
+    Photos
+  
+
+      </a>
+      <span class=" tc-reveal" hidden="true"></span>
+    </li>
+  
+
       
         
   
@@ -2600,13 +3131,77 @@ $:/tags/SideBar
 </div>
 
 
+</a><a name="Create Afib Event">
+<div class="tc-tiddler-frame tc-tiddler-view-frame tc-tiddler-exists " data-tags="" data-tiddler-title="Create Afib Event"><div class="tc-tiddler-title"><div class="tc-titlebar"><span class="tc-tiddler-controls"><span class=" tc-reveal"><button aria-label="more" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fmore-tiddler-actions" title="More actions"></button><div class=" tc-reveal" hidden="true"></div></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="edit" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fedit" title="Edit this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="close" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fclose" title="Close this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span></span><span><h2 class="tc-title">Create Afib Event</h2></span></div><div class="tc-tiddler-info tc-popup-handle tc-reveal" hidden="true"></div></div><div class=" tc-reveal" hidden="true"></div>
+<div class=" tc-reveal"><div class="tc-subtitle"><a class="tc-tiddlylink tc-tiddlylink-missing" href="#"></a>26th June 2021 at 12:56pm</div></div><div class=" tc-reveal">
+<div class="tc-tags-wrapper"></div>
+</div>
+
+<div class="tc-tiddler-body tc-reveal"><p><table>
+<tr><th></th><th>YYYY</th><th>MM</th><th>DD</th></tr>
+<tr><th>Date</th>
+  <td><input size="4" type="text" value=""></td>
+  <td><input size="2" type="text" value=""></td>
+  <td><input size="2" type="text" value=""></td>
+</tr>
+</table></p><p><table>
+<tr><th>Notes</th></tr>
+<tr><td><textarea type="text"></textarea></td></tr>
+</table></p><p>
+ts:1200:ts
+
+
+</p><p><button class="">Click to Create Afib Entry
+</button>
+  
+</p></div>
+
+<div class="tc-tiddler-plugin-info tc-reveal"><p>
+</p></div>
+</div>
+
+
+</a><a name="Doctors">
+<div class="tc-tiddler-frame tc-tiddler-view-frame tc-tiddler-exists  tc-tagged-Can%20Delete" data-tags="[[Can Delete]]" data-tiddler-title="Doctors"><div class="tc-tiddler-title"><div class="tc-titlebar"><span class="tc-tiddler-controls"><span class=" tc-reveal"><button aria-label="more" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fmore-tiddler-actions" title="More actions"></button><div class=" tc-reveal" hidden="true"></div></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="edit" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fedit" title="Edit this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="close" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fclose" title="Close this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span></span><span><h2 class="tc-title">Doctors</h2></span></div><div class="tc-tiddler-info tc-popup-handle tc-reveal" hidden="true"></div></div><div class=" tc-reveal" hidden="true"></div>
+<div class=" tc-reveal"><div class="tc-subtitle"><a class="tc-tiddlylink tc-tiddlylink-missing" href="#"></a>26th June 2021 at 5:46pm</div></div><div class=" tc-reveal">
+<div class="tc-tags-wrapper"><span class="tc-tag-list-item">
+<span class="tc-tag-label tc-btn-invisible" draggable="true" style="background-color:;
+fill:#3c3836;
+color:#3c3836;">
+Can Delete
+</span>
+<span class="tc-drop-down tc-reveal" hidden="true"></span></span></div>
+</div>
+
+<div class="tc-tiddler-body tc-reveal"><p><style>
+  .border {
+    border-width: medium;
+  }
+</style></p><p>Fill in the fields below and click the button to create a new doctor tiddler. The field <code>name</code> is required to create the title.</p><p><table>
+<tr><th>Name</th>
+<td><input class="border" placeholder="The doctor's name" type="text" value=""></td>
+</tr>
+</table></p><p><button class="">
+ 
+
+
+
+
+Create Doctor Tiddler
+</button></p></div>
+
+<div class="tc-tiddler-plugin-info tc-reveal"><p>
+</p></div>
+</div>
+
+
 </a><a name="First Tiddler">
 <div class="tc-tiddler-frame tc-tiddler-view-frame tc-tiddler-exists  tc-tagged-Setting%20Up" data-tags="[[Setting Up]]" data-tiddler-title="First Tiddler"><div class="tc-tiddler-title"><div class="tc-titlebar"><span class="tc-tiddler-controls"><span class=" tc-reveal"><button aria-label="more" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fmore-tiddler-actions" title="More actions"></button><div class=" tc-reveal" hidden="true"></div></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="edit" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fedit" title="Edit this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="close" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fclose" title="Close this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span></span><span><h2 class="tc-title">First Tiddler</h2></span></div><div class="tc-tiddler-info tc-popup-handle tc-reveal" hidden="true"></div></div><div class=" tc-reveal" hidden="true"></div>
 <div class=" tc-reveal"><div class="tc-subtitle"><a class="tc-tiddlylink tc-tiddlylink-missing" href="#"></a>20th June 2021 at 5:49pm</div></div><div class=" tc-reveal">
 <div class="tc-tags-wrapper"><span class="tc-tag-list-item">
 <span class="tc-tag-label tc-btn-invisible" draggable="true" style="background-color:;
-fill:#333333;
-color:#333333;">
+fill:#3c3836;
+color:#3c3836;">
 Setting Up
 </span>
 <span class="tc-drop-down tc-reveal" hidden="true"></span></span></div>
@@ -2619,13 +3214,89 @@ Setting Up
 </div>
 
 
+</a><a name="Ken Reed">
+<div class="tc-tiddler-frame tc-tiddler-view-frame tc-tiddler-exists  tc-tagged-Members" data-tags="Members" data-tiddler-title="Ken Reed"><div class="tc-tiddler-title"><div class="tc-titlebar"><span class="tc-tiddler-controls"><span class=" tc-reveal"><button aria-label="more" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fmore-tiddler-actions" title="More actions"></button><div class=" tc-reveal" hidden="true"></div></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="edit" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fedit" title="Edit this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="close" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fclose" title="Close this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span></span><span><h2 class="tc-title">Ken Reed</h2></span></div><div class="tc-tiddler-info tc-popup-handle tc-reveal" hidden="true"></div></div><div class=" tc-reveal" hidden="true"></div>
+<div class=" tc-reveal"><div class="tc-subtitle"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="#Ken%20Reed">Ken Reed</a>23rd June 2021 at 9:01am</div></div><div class=" tc-reveal">
+<div class="tc-tags-wrapper"><span class="tc-tag-list-item">
+<span class="tc-tag-label tc-btn-invisible" draggable="true" style="background-color:;
+fill:#3c3836;
+color:#3c3836;">
+Members
+</span>
+<span class="tc-drop-down tc-reveal" hidden="true"></span></span></div>
+</div>
+
+<div class="tc-tiddler-body tc-reveal"><table><tbody><tr class="evenRow"><th align="right">Roll</th><td>Owner</td></tr><tr class="oddRow"><th align="right">email</th><td><a class="tc-tiddlylink-external" href="mailto:ken@kmreed.net" rel="noopener noreferrer" target="_blank">ken@kmreed.net</a></td></tr></tbody></table></div>
+
+<div class="tc-tiddler-plugin-info tc-reveal"><p>
+</p></div>
+</div>
+
+
+</a><a name="Members">
+<div class="tc-tiddler-frame tc-tiddler-view-frame tc-tiddler-exists  tc-tagged-Meta" data-tags="Meta" data-tiddler-title="Members"><div class="tc-tiddler-title"><div class="tc-titlebar"><span class="tc-tiddler-controls"><span class=" tc-reveal"><button aria-label="more" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fmore-tiddler-actions" title="More actions"></button><div class=" tc-reveal" hidden="true"></div></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="edit" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fedit" title="Edit this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="close" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fclose" title="Close this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span></span><span><h2 class="tc-title">Members</h2></span></div><div class="tc-tiddler-info tc-popup-handle tc-reveal" hidden="true"></div></div><div class=" tc-reveal" hidden="true"></div>
+<div class=" tc-reveal"><div class="tc-subtitle"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="#Ken%20Reed">Ken Reed</a>23rd June 2021 at 9:01am</div></div><div class=" tc-reveal">
+<div class="tc-tags-wrapper"><span class="tc-tag-list-item">
+<span class="tc-tag-label tc-btn-invisible" draggable="true" style="background-color:;
+fill:#3c3836;
+color:#3c3836;">
+Meta
+</span>
+<span class="tc-drop-down tc-reveal" hidden="true"></span></span></div>
+</div>
+
+<div class="tc-tiddler-body tc-reveal"></div>
+
+<div class="tc-tiddler-plugin-info tc-reveal"><p>
+</p></div>
+</div>
+
+
+</a><a name="Meta">
+<div class="tc-tiddler-frame tc-tiddler-view-frame tc-tiddler-exists  tc-tagged-Contents" data-tags="Contents" data-tiddler-title="Meta"><div class="tc-tiddler-title"><div class="tc-titlebar"><span class="tc-tiddler-controls"><span class=" tc-reveal"><button aria-label="more" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fmore-tiddler-actions" title="More actions"></button><div class=" tc-reveal" hidden="true"></div></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="edit" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fedit" title="Edit this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="close" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fclose" title="Close this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span></span><span><h2 class="tc-title">Meta</h2></span></div><div class="tc-tiddler-info tc-popup-handle tc-reveal" hidden="true"></div></div><div class=" tc-reveal" hidden="true"></div>
+<div class=" tc-reveal"><div class="tc-subtitle"><a class="tc-tiddlylink tc-tiddlylink-missing" href="#"></a>21st June 2021 at 4:37pm</div></div><div class=" tc-reveal">
+<div class="tc-tags-wrapper"><span class="tc-tag-list-item">
+<span class="tc-tag-label tc-btn-invisible" draggable="true" style="background-color:;
+fill:#3c3836;
+color:#3c3836;">
+Contents
+</span>
+<span class="tc-drop-down tc-reveal" hidden="true"></span></span></div>
+</div>
+
+<div class="tc-tiddler-body tc-reveal"></div>
+
+<div class="tc-tiddler-plugin-info tc-reveal"><p>
+</p></div>
+</div>
+
+
+</a><a name="Photos">
+<div class="tc-tiddler-frame tc-tiddler-view-frame tc-tiddler-exists  tc-tagged-Contents" data-tags="Contents" data-tiddler-title="Photos"><div class="tc-tiddler-title"><div class="tc-titlebar"><span class="tc-tiddler-controls"><span class=" tc-reveal"><button aria-label="more" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fmore-tiddler-actions" title="More actions"></button><div class=" tc-reveal" hidden="true"></div></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="edit" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fedit" title="Edit this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="close" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fclose" title="Close this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span></span><span><h2 class="tc-title">Photos</h2></span></div><div class="tc-tiddler-info tc-popup-handle tc-reveal" hidden="true"></div></div><div class=" tc-reveal" hidden="true"></div>
+<div class=" tc-reveal"><div class="tc-subtitle"><a class="tc-tiddlylink tc-tiddlylink-missing" href="#"></a>23rd June 2021 at 7:54am</div></div><div class=" tc-reveal">
+<div class="tc-tags-wrapper"><span class="tc-tag-list-item">
+<span class="tc-tag-label tc-btn-invisible" draggable="true" style="background-color:;
+fill:#3c3836;
+color:#3c3836;">
+Contents
+</span>
+<span class="tc-drop-down tc-reveal" hidden="true"></span></span></div>
+</div>
+
+<div class="tc-tiddler-body tc-reveal"></div>
+
+<div class="tc-tiddler-plugin-info tc-reveal"><p>
+</p></div>
+</div>
+
+
 </a><a name="Second Tiddler">
 <div class="tc-tiddler-frame tc-tiddler-view-frame tc-tiddler-exists  tc-tagged-Setting%20Up" data-tags="[[Setting Up]]" data-tiddler-title="Second Tiddler"><div class="tc-tiddler-title"><div class="tc-titlebar"><span class="tc-tiddler-controls"><span class=" tc-reveal"><button aria-label="more" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fmore-tiddler-actions" title="More actions"></button><div class=" tc-reveal" hidden="true"></div></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="edit" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fedit" title="Edit this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal"><button aria-label="close" class="tc-btn-invisible tc-btn-%24%3A%2Fcore%2Fui%2FButtons%2Fclose" title="Close this tiddler"></button></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span><span class=" tc-reveal" hidden="true"></span></span><span><h2 class="tc-title">Second Tiddler</h2></span></div><div class="tc-tiddler-info tc-popup-handle tc-reveal" hidden="true"></div></div><div class=" tc-reveal" hidden="true"></div>
 <div class=" tc-reveal"><div class="tc-subtitle"><a class="tc-tiddlylink tc-tiddlylink-missing" href="#"></a>20th June 2021 at 5:50pm</div></div><div class=" tc-reveal">
 <div class="tc-tags-wrapper"><span class="tc-tag-list-item">
 <span class="tc-tag-label tc-btn-invisible" draggable="true" style="background-color:;
-fill:#333333;
-color:#333333;">
+fill:#3c3836;
+color:#3c3836;">
 Setting Up
 </span>
 <span class="tc-drop-down tc-reveal" hidden="true"></span></span></div>
@@ -2643,8 +3314,8 @@ Setting Up
 <div class=" tc-reveal"><div class="tc-subtitle"><a class="tc-tiddlylink tc-tiddlylink-missing" href="#"></a>20th June 2021 at 5:49pm</div></div><div class=" tc-reveal">
 <div class="tc-tags-wrapper"><span class="tc-tag-list-item">
 <span class="tc-tag-label tc-btn-invisible" draggable="true" style="background-color:;
-fill:#333333;
-color:#333333;">
+fill:#3c3836;
+color:#3c3836;">
 Contents
 </span>
 <span class="tc-drop-down tc-reveal" hidden="true"></span></span></div>
