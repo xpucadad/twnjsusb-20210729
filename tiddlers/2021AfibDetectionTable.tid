@@ -1,0 +1,11 @@
+caption: 2021 Afib Detections
+created: 20210628154304343
+modified: 20210628175410035
+tags: 
+title: 2021AfibDetectionTable
+type: text/vnd.tiddlywiki
+year: 2021
+
+<$tiddler tiddler=<<currentTab>> >
+{{||$:/kmr/templates/AfibDetectionTableTemplate}}
+</$tiddler>

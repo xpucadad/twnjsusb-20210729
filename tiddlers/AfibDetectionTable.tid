@@ -1,19 +1,7 @@
 created: 20210627194727407
-modified: 20210628162604388
+modified: 20210628175152983
 tags: 
 title: AfibDetectionTable
 type: text/vnd.tiddlywiki
 
-<<tabs tabsList:"[[2022 AfibDetectionTable]]   [[2021 AfibDetectionTable]] [[2020 AfibDetectionTable]]">>
-
-<!--
-!!2022
-{{2022 AfibDetectionTable}}
-!!2021
-{{2021 AfibDetectionTable}}
-!!2020
-{{2020 AfibDetectionTable}}
-
--->
-!! All
-{{||$:/kmr/templates/AfibDetectionTableTemplate}}
+<<tabs tabsList:"2022AfibDetectionTable   2021AfibDetectionTable 2020AfibDetectionTable" "2021AfibDetectionTable">>
