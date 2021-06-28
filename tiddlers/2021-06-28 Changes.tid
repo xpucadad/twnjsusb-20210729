@@ -1,0 +1,9 @@
+created: 20210628200708459
+modified: 20210628212024378
+tags: [[Change Tracking]]
+title: 2021-06-28 Changes
+type: text/vnd.tiddlywiki
+
+* Implemented an afix detection table that lists detection events with tabs for each year. Unfortunately, I can't figure out how to make the default tab to automatically be the one for the current year. I mean I can figure out how to generate the appropriate title, but can't figure out how to access it from within the `<<tabs>>` macro. For now I just hard-coded it.
+
+* Created a tiddler which accepts a filter, lists the selected tiddlers, and provides a button to delete the listed tiddlers.

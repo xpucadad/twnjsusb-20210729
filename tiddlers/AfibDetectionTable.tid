@@ -1,7 +1,15 @@
 created: 20210627194727407
-modified: 20210628175152983
+modified: 20210628203917990
 tags: 
 title: AfibDetectionTable
 type: text/vnd.tiddlywiki
 
-<<tabs tabsList:"2022AfibDetectionTable   2021AfibDetectionTable 2020AfibDetectionTable" "2021AfibDetectionTable">>
+<!--
+I can not figure out how to generate the default automatically. I don't think you can nest macros and that's what I would need to do. Maybe I'll figure something out later.
+
+For now I just hard-coded the default.
+-->
+
+<<tabs tabsList:"[prefix[202]suffix[AfibDetectionTable]!sort[]]" 
+default:"2021AfibDetectionTable"
+>>
