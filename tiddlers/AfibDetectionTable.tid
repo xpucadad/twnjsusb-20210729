@@ -1,15 +1,17 @@
 created: 20210627194727407
-modified: 20210628203917990
+modified: 20210629200421794
 tags: 
 title: AfibDetectionTable
 type: text/vnd.tiddlywiki
 
-<!--
-I can not figure out how to generate the default automatically. I don't think you can nest macros and that's what I would need to do. Maybe I'll figure something out later.
-
-For now I just hard-coded the default.
--->
-
-<<tabs tabsList:"[prefix[202]suffix[AfibDetectionTable]!sort[]]" 
-default:"2021AfibDetectionTable"
+\define show-tabs(y)
+<<tabs 
+  tabsList:"[prefix[202]suffix[AfibDetectionTable]!sort[]]" 
+  default:"$y$AfibDetectionTable" 
+  template:"$:/kmr/templates/AfibDetectionTableTemplate"
 >>
+\end
+
+<$set name="y" value=<<now YYYY>> >
+<$macrocall $name="show-tabs" y=<<y>> />
+</$set>

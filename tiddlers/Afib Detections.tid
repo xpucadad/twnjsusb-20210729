@@ -1,5 +1,5 @@
 created: 20210626150012195
-modified: 20210628160046332
+modified: 20210629193114965
 tags: Contents
 title: Afib Detections
 type: text/vnd.tiddlywiki
@@ -12,7 +12,7 @@ type: text/vnd.tiddlywiki
   }
 </style>
 
-!! New Episode
+!! New Detection
 
 Fill in the fields below and click the button to create a new office visit tiddler. The fields ``date`` and ``time`` are required to create a good title.
 
@@ -75,4 +75,5 @@ Add New Afib Detection
 </$vars>
 
 ---
+!! Previous Detections
 {{AfibDetectionTable}}

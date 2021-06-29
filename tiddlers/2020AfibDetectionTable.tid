@@ -1,11 +1,7 @@
-caption: 2020 Afib Detections
+caption: 2020 Detections
 created: 20210628155214619
-modified: 20210628175255463
+modified: 20210629200454141
 tags: 
 title: 2020AfibDetectionTable
 type: text/vnd.tiddlywiki
 year: 2020
-
-<$tiddler tiddler=<<currentTab>> >
-{{||$:/kmr/templates/AfibDetectionTableTemplate}}
-</$tiddler>
