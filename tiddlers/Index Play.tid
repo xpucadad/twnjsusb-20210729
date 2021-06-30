@@ -1,0 +1,16 @@
+created: 20210630161534369
+modified: 20210630203805651
+tags: 
+title: Index Play
+type: text/vnd.tiddlywiki
+
+<$list filter="[tag[Afib Detections Data]sort[]]" >
+<$set name="dt" value=<<currentTiddler>> >
+<h2><<dt>></h2>
+<$list filter="[<dt>indexes[]sort[]]">
+<<currentTiddler>>:
+<$view tiddler=<<dt>> index=<<currentTiddler>> /><br>
+</$list>
+</$set>
+</$list>
+
