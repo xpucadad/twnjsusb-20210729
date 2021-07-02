@@ -1,10 +1,10 @@
-created: 20210626235409129
-modified: 20210626235409129
+created: 20210702181710096
+modified: 20210702181710096
 status: complete
 title: $:/Import
 type: text/vnd.tiddlywiki
 
 The following tiddlers were imported:
 
-# [[2021 Office Visits]]
-# [[Doctors]]
+# [[$:/plugins/kixam/datepicker]]
+# [[$:/plugins/kixam/moment]]
