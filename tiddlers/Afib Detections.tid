@@ -1,5 +1,5 @@
 created: 20210626150012195
-modified: 20210629193114965
+modified: 20210703222045857
 tags: Contents
 title: Afib Detections
 type: text/vnd.tiddlywiki
@@ -14,7 +14,7 @@ type: text/vnd.tiddlywiki
 
 !! New Detection
 
-Fill in the fields below and click the button to create a new office visit tiddler. The fields ``date`` and ``time`` are required to create a good title.
+Fill in the fields below and click the button to create a new afib detection. The fields ``date`` and ``time`` are required to create a good title.
 
 <!-- Get default values -->
 
@@ -45,24 +45,33 @@ default=<<now-time>>
 </td>
 </tr>
 
+<tr>
+<th>Notes</th>
+<td><$edit-text class="border"
+tiddler="$:/temp/NewAfibInfo"
+field="notes"
+default=""
+/>
+</td>
+</tr>
+
 </table>
 
 <!-- retrieve the values or set to defaullts -->
 <$set name="date" value={{$:/temp/NewAfibInfo!!date}} emptyValue=<<now-date>> >
 <$set name="time" value={{$:/temp/NewAfibInfo!!time}} emptyValue=<<now-time>> >
+<$set name="notes" value={{$:/temp/NewAfibInfo!!notes}} emptyValue="">
 
 <!-- The button
-  1) creates a new tiddler
+  1) adds to the data tiddler
   2) deletes the temp tiddler
 -->
 
 <$button>
-  <$action-sendmessage
-    $message="tm-new-tiddler"
-    tags="[[Afib Detections]]"
-    date=<<date>>
-    time=<<time>>
-    title=<<make-title>>
+  <$action-setfield
+    $tiddler=<<get-data-tiddler-title>>
+    $index=<<make-index>>
+    $value=<<notes>>
   />
   <$action-sendmessage
     $message="tm-delete-tiddler"
