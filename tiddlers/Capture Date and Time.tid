@@ -1,0 +1,16 @@
+created: 20210703154800337
+modified: 20210703161934808
+tags: 
+title: Capture Date and Time
+type: text/vnd.tiddlywiki
+
+<table>
+<tr><th>Year</th><td>{{CaptureDateAndTimeYear}}</td></tr>
+<tr><th>Month</th><td>{{CaptureDateAndTimeMonth}}</td></tr>
+<tr><th>Day</th><td></td></tr>
+<tr><th>Hour</th><td></td></tr>
+<tr><th>Min</th><td></td></tr>
+</table>
+
+Timestamp:
+{{$:/temp/CapDateTime!!year}}{{$:/temp/CapDateTime!!month}}
