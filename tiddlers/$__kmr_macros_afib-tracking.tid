@@ -1,9 +1,13 @@
 created: 20210627193902122
-modified: 20210704030214389
+modified: 20210704191603641
 tags: $:/tags/Macro
 title: $:/kmr/macros/afib-tracking
 type: text/vnd.tiddlywiki
 
 \define make-index()
 $(date)$.$(time)$
+\end
+
+\define make-data-title()
+$(year)$AfibData
 \end

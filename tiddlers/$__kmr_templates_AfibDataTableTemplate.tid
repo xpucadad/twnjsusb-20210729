@@ -1,11 +1,29 @@
 created: 20210704023004517
-modified: 20210704024454528
+modified: 20210704191558510
 tags: 
 title: $:/kmr/templates/AfibDataTableTemplate
 type: text/vnd.tiddlywiki
 
 \import $:/kmr/macros/afib-tracking
 
+<$tiddler tiddler=<<currentTab>> >
+<$set name="year" value={{!!year}} >
+<$set name="data-file" value=<<make-data-title>> >
+
+<table>
+<tr><th>Date and Time</th><th>Notes</th></tr>
+<$list filter="[<data-file>indexes[]prefix{!!year}!sort[]]" variable="index">
+<tr>
+<td><<index>></td>
+<td><$view tiddler=<<data-file>> index=<<index>>/></td>
+</tr>
+</$list>
+</table>
+</$set>
+</$set>
+</$tiddler>
+
+<!--
 <$tiddler tiddler=<<currentTab>> >
 <table>
 <tr><th>Date and Time</th><th>Notes</th></tr>
@@ -17,3 +35,4 @@ type: text/vnd.tiddlywiki
 </$list>
 </table>
 </$tiddler>
+-->

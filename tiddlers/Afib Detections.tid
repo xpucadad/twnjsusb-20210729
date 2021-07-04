@@ -1,5 +1,5 @@
 created: 20210626150012195
-modified: 20210704030740585
+modified: 20210704191925223
 tags: Contents
 title: Afib Detections
 type: text/vnd.tiddlywiki
@@ -14,7 +14,7 @@ type: text/vnd.tiddlywiki
 
 !! New Detection
 
-Fill in the fields below and click the button to create a new afib detection. The fields `date` and `time` are required to create a valid entry.
+Fill in the fields below and click the button to create a new afib detection. The fields `Date` and `Time` are required and should use the format shown.
 
 <!-- Get default values -->
 
@@ -61,6 +61,7 @@ default=""
 <$set name="date" value={{$:/temp/NewAfibInfo!!date}} emptyValue=<<now-date>> >
 <$set name="time" value={{$:/temp/NewAfibInfo!!time}} emptyValue=<<now-time>> >
 <$set name="notes" value={{$:/temp/NewAfibInfo!!notes}} emptyValue="">
+<$set name="year" value={{{ [<date>split[]first[4]join[]] }}} >
 
 <!-- The button
   1) adds to the data tiddler
@@ -69,16 +70,18 @@ default=""
 
 <$button>
   <$action-setfield
-    $tiddler="AfibData"
+    $tiddler=<<make-data-title>>
     $index=<<make-index>>
     $value=<<notes>>
   />
+
   <$action-sendmessage
     $message="tm-delete-tiddler"
     $param="$:/temp/NewAfibInfo"
   />
 Add New Afib Detection
 </$button>
+</$set>
 </$set>
 </$set>
 </$set>

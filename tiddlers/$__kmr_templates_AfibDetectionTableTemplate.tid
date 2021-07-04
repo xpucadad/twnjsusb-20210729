@@ -1,9 +1,10 @@
 created: 20210628155610665
-modified: 20210703224751079
-tags: 
+modified: 20210704183843496
+tags: Archive
 title: $:/kmr/templates/AfibDetectionTableTemplate
 type: text/vnd.tiddlywiki
 
+<!--
 \import $:/kmr/macros/afib-tracking
 
 <$tiddler tiddler=<<currentTab>> >
@@ -18,3 +19,4 @@ type: text/vnd.tiddlywiki
 </$list>
 </table>
 </$tiddler>
+-->
