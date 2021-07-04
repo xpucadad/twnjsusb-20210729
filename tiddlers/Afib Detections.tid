@@ -1,5 +1,5 @@
 created: 20210626150012195
-modified: 20210703222045857
+modified: 20210704030740585
 tags: Contents
 title: Afib Detections
 type: text/vnd.tiddlywiki
@@ -14,7 +14,7 @@ type: text/vnd.tiddlywiki
 
 !! New Detection
 
-Fill in the fields below and click the button to create a new afib detection. The fields ``date`` and ``time`` are required to create a good title.
+Fill in the fields below and click the button to create a new afib detection. The fields `date` and `time` are required to create a valid entry.
 
 <!-- Get default values -->
 
@@ -69,7 +69,7 @@ default=""
 
 <$button>
   <$action-setfield
-    $tiddler=<<get-data-tiddler-title>>
+    $tiddler="AfibData"
     $index=<<make-index>>
     $value=<<notes>>
   />
@@ -81,8 +81,9 @@ Add New Afib Detection
 </$button>
 </$set>
 </$set>
+</$set>
 </$vars>
 
 ---
 !! Previous Detections
-{{AfibDetectionTable}}
+{{AfibDataTables}}

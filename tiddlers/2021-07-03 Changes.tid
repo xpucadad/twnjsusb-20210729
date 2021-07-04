@@ -1,0 +1,8 @@
+created: 20210704030917631
+modified: 20210704031103507
+tags: [[Change Tracking]]
+title: 2021-07-03 Changes
+type: text/vnd.tiddlywiki
+
+* Got the afib tracking converted to using a single data tiddler for all detections. Not ready to move this to the real wiki yet. That will require some care to maintain the old data and implementing tiddlers.
+

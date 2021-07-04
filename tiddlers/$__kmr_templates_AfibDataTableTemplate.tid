@@ -1,0 +1,19 @@
+created: 20210704023004517
+modified: 20210704024454528
+tags: 
+title: $:/kmr/templates/AfibDataTableTemplate
+type: text/vnd.tiddlywiki
+
+\import $:/kmr/macros/afib-tracking
+
+<$tiddler tiddler=<<currentTab>> >
+<table>
+<tr><th>Date and Time</th><th>Notes</th></tr>
+<$list filter="[[AfibData]indexes[]prefix{!!year}!sort[]]" variable="index">
+<tr>
+<td><<index>></td>
+<td><$view tiddler=AfibData index=<<index>>/></td>
+</tr>
+</$list>
+</table>
+</$tiddler>

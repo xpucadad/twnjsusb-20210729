@@ -1,22 +1,9 @@
 created: 20210627193902122
-modified: 20210703222108031
+modified: 20210704030214389
 tags: $:/tags/Macro
 title: $:/kmr/macros/afib-tracking
 type: text/vnd.tiddlywiki
 
-\define make-link(date, title)
-[[$date$|$title$]]
-\end
-
-\define make-title()
-$(date)$ $(time)$ Afib Detection
-\end
-
 \define make-index()
 $(date)$.$(time)$
 \end
-
-\define get-data-tiddler-title()
-AfibDataTiddler
-\end
-
