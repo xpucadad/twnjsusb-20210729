@@ -1,0 +1,7 @@
+created: 20210705182845134
+modified: 20210705183003972
+tags: [[Change Tracking]]
+title: 2021-07-05 Changes
+type: text/vnd.tiddlywiki
+
+* Cleaned up the Afib tiddlers, deleting those no longer used and tagging all the tiddlers related to afib processing with `Afib Tiddlers` so they could listed ni the contents under `Meta`.

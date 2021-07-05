@@ -1,6 +1,6 @@
 created: 20210704023004517
-modified: 20210704191558510
-tags: 
+modified: 20210705181551011
+tags: [[Afib Tiddlers]]
 title: $:/kmr/templates/AfibDataTableTemplate
 type: text/vnd.tiddlywiki
 
@@ -9,7 +9,6 @@ type: text/vnd.tiddlywiki
 <$tiddler tiddler=<<currentTab>> >
 <$set name="year" value={{!!year}} >
 <$set name="data-file" value=<<make-data-title>> >
-
 <table>
 <tr><th>Date and Time</th><th>Notes</th></tr>
 <$list filter="[<data-file>indexes[]prefix{!!year}!sort[]]" variable="index">
