@@ -1,0 +1,119 @@
+created: 20210707142130274
+modified: 20210707153419881
+tags: [[Afib Tiddlers]]
+title: NewAfibDetection
+type: text/vnd.tiddlywiki
+
+\import $:/kmr/macros/afib-detection
+
+<style>
+  .border {
+    border-width: medium;
+  }
+</style>
+
+!! New Detection
+
+Fill in the fields below and click the button to create a new afib detection. The fields `Date` and `Time` are required and should use the format shown.
+
+<!-- Get default values -->
+
+<$vars
+  now-date=<<now "YYYY-0MM-0DD">>
+  now-time=<<now "0hh:0mm">>
+>
+
+<!-- Get user input for new episode -->
+<table>
+<tr><th>Date</th>
+<td><$edit-text class="border"
+tiddler="$:/temp/NewAfibInfo"
+field="date"
+placeholder=<<now-date>>
+default=<<now-date>>
+/></td>
+</tr>
+
+<tr>
+<th>Time</th>
+<td><$edit-text class="border"
+tiddler="$:/temp/NewAfibInfo"
+field="time"
+placeholder=<<now-time>>
+default=<<now-time>>
+/>
+</td>
+</tr>
+
+<tr>
+<th>Notes</th>
+<td><$edit-text class="border"
+tiddler="$:/temp/NewAfibInfo"
+field="notes"
+default=""
+/>
+</td>
+</tr>
+
+</table>
+
+<!-- retrieve the values or set to defaults -->
+<$set name="date" value={{$:/temp/NewAfibInfo!!date}} emptyValue=<<now-date>> >
+<$set name="time" value={{$:/temp/NewAfibInfo!!time}} emptyValue=<<now-time>> >
+<$set name="notes" value={{$:/temp/NewAfibInfo!!notes}} emptyValue="">
+
+<!-- Get the year from the date -->
+<$set name="year" value={{{ [<date>split[]first[4]join[]] }}} >
+
+<!-- create the expected names for the data and
+   -- the data table tiddlers.
+-->
+<$vars
+  data-tiddler=<<make-data-title>>
+  data-tiddler-table=<<make-data-table-title>>
+>
+
+<!-- The button
+  1) Creates the data tiddler if it doesn't exist
+  2) adds to the data tiddler
+  3) deletes the temp tiddler
+-->
+
+<$button>
+  <!-- 
+     -- If the data tiddler for this year doesn't exist, 
+     --  create it and the data table shell tiddler.
+  -->
+  <$list filter="[!exists<data-tiddler>first[]]" >
+    <$action-createtiddler
+      $basetitle=<<data-tiddler>>
+      tags="[[Afib Tiddlers]]"
+    />
+    <$action-createtiddler
+      $basetitle=<<data-tiddler-table>>
+      tags="[[Afib Tiddlers]]"
+      year=<<year>>
+      caption=<<year>>
+    />
+  </$list>
+
+<!-- Add the information to the data tiddler -->
+  <$action-setfield
+    $tiddler=<<data-tiddler>>
+    $index=<<make-index>>
+    $value=<<notes>>
+  />
+
+<!-- Remove the temp tiddler -->
+  <$action-sendmessage
+    $message="tm-delete-tiddler"
+    $param="$:/temp/NewAfibInfo"
+  />
+Add New Afib Detection
+</$button>
+</$vars>
+</$set>
+</$set>
+</$set>
+</$set>
+</$vars>

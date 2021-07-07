@@ -1,5 +1,5 @@
 created: 20210628204416191
-modified: 20210628211826491
+modified: 20210707153951118
 tags: Tools
 title: List and Delete By Filter
 type: text/vnd.tiddlywiki
@@ -15,7 +15,9 @@ Click the button to delete the listed tiddlers.
 
 <$button>
 <$action-deletetiddler $filter="$f$" />
+<!--
 <$action-deletetiddler $tiddler="$:/temp/ListAndDelete" />
+-->
 Delete Listed Tiddlers
 </$button>
 \end

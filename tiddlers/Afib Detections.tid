@@ -1,92 +1,10 @@
 created: 20210626150012195
-modified: 20210705180259798
+modified: 20210707142139296
 tags: Contents [[Afib Tiddlers]]
 title: Afib Detections
 type: text/vnd.tiddlywiki
 
-\import $:/kmr/macros/afib-tracking
-
-<style>
-  .border {
-    border-width: medium;
-  }
-</style>
-
-!! New Detection
-
-Fill in the fields below and click the button to create a new afib detection. The fields `Date` and `Time` are required and should use the format shown.
-
-<!-- Get default values -->
-
-<$vars
-  now-date=<<now "YYYY-0MM-0DD">>
-  now-time=<<now "0hh:0mm">>
->
-
-<!-- Get user input for new episode -->
-<table>
-<tr><th>Date</th>
-<td><$edit-text class="border"
-tiddler="$:/temp/NewAfibInfo"
-field="date"
-placeholder=<<now-date>>
-default=<<now-date>>
-/></td>
-</tr>
-
-<tr>
-<th>Time</th>
-<td><$edit-text class="border"
-tiddler="$:/temp/NewAfibInfo"
-field="time"
-placeholder=<<now-time>>
-default=<<now-time>>
-/>
-</td>
-</tr>
-
-<tr>
-<th>Notes</th>
-<td><$edit-text class="border"
-tiddler="$:/temp/NewAfibInfo"
-field="notes"
-default=""
-/>
-</td>
-</tr>
-
-</table>
-
-<!-- retrieve the values or set to defaullts -->
-<$set name="date" value={{$:/temp/NewAfibInfo!!date}} emptyValue=<<now-date>> >
-<$set name="time" value={{$:/temp/NewAfibInfo!!time}} emptyValue=<<now-time>> >
-<$set name="notes" value={{$:/temp/NewAfibInfo!!notes}} emptyValue="">
-<$set name="year" value={{{ [<date>split[]first[4]join[]] }}} >
-
-<!-- The button
-  1) adds to the data tiddler
-  2) deletes the temp tiddler
--->
-
-<$button>
-  <$action-setfield
-    $tiddler=<<make-data-title>>
-    $index=<<make-index>>
-    $value=<<notes>>
-  />
-
-  <$action-sendmessage
-    $message="tm-delete-tiddler"
-    $param="$:/temp/NewAfibInfo"
-  />
-Add New Afib Detection
-</$button>
-</$set>
-</$set>
-</$set>
-</$set>
-</$vars>
-
+{{NewAfibDetection}}
 ---
 !! Previous Detections
 {{AfibDataTables}}

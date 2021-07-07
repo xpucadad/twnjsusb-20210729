@@ -1,0 +1,8 @@
+created: 20210707142819469
+modified: 20210707154321323
+tags: [[Change Tracking]]
+title: 2021-07-07 Changes
+type: text/vnd.tiddlywiki
+
+* Renamed macro for afib from `$:/kmr/macros/afib-tracking` to `$:/kmr/macros/afib-detection`.
+* Added automatic creation of afib data and data table tiddlers if they don't exist.
