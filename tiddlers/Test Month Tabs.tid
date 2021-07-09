@@ -1,0 +1,23 @@
+created: 20210708232411486
+modified: 20210709001150106
+tags: temp
+title: Test Month Tabs
+type: text/vnd.tiddlywiki
+
+\define show-tabs(year)
+<!--
+year:<<year>><br>
+{{{ [prefix[$year$-]suffix[AfibDataTable]!sort[]] }}}<br>
+{{{ [prefix[$year$-]suffix[AfibDataTable]!sort[]first[]] }}}
+-->
+<<tabs
+  tabsList: "[prefix[$year$-]suffix[AfibDataTable]!sort[]]"
+  default: "[prefix[$year$-]suffix[AfibDataTable]!sort[]first[]]"
+  template: "$:/kmr/templates/AfibDataTableMonthTemplate"
+  class: "tc-vertical"
+>>
+\end
+
+<$set name="year" value=<<now YYYY>> >
+<$macrocall $name="show-tabs" year=<<year>> />
+</$set>

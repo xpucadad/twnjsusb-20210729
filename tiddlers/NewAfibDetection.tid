@@ -1,5 +1,5 @@
 created: 20210707142130274
-modified: 20210707153419881
+modified: 20210708231135364
 tags: [[Afib Tiddlers]]
 title: NewAfibDetection
 type: text/vnd.tiddlywiki
@@ -83,7 +83,7 @@ default=""
   <!-- 
      -- If the data tiddler for this year doesn't exist, 
      --  create it and the data table shell tiddler.
-  -->
+This doesn't work. Comment out the file creation stuff.
   <$list filter="[!exists<data-tiddler>first[]]" >
     <$action-createtiddler
       $basetitle=<<data-tiddler>>
@@ -96,6 +96,7 @@ default=""
       caption=<<year>>
     />
   </$list>
+  -->
 
 <!-- Add the information to the data tiddler -->
   <$action-setfield

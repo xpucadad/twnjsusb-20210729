@@ -1,0 +1,26 @@
+created: 20210708230444009
+modified: 20210709001328472
+tags: [[Afib Tiddlers]]
+title: $:/kmr/templates/AfibDataTableMonthTemplate
+type: text/vnd.tiddlywiki
+
+\import $:/kmr/macros/afib-detection
+
+<$tiddler tiddler=<<currentTab>> >
+<$set name="month" value={{!!month}} >
+<$set name="year" filter="[<month>split[]first[4]join[]]" >
+<$set name="data-file" value=<<make-data-title>> >
+
+<table>
+<tr><th style="min-width: 145px;">Date and Time</th><th>Notes</th></tr>
+<$list filter="[<data-file>indexes[]prefix{!!month}!sort[]]" variable="index">
+<tr>
+<td><<index>></td>
+<td><$view tiddler=<<data-file>> index=<<index>>/></td>
+</tr>
+</$list>
+</table>
+</$set>
+</$set>
+</$set>
+</$tiddler>

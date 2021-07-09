@@ -1,0 +1,7 @@
+created: 20210709001342468
+modified: 20210709001619594
+tags: [[Change Tracking]]
+title: 2021-07-08 Changes
+type: text/vnd.tiddlywiki
+
+* Started changes to provide subtabs in the afib tables for the months in the selected year. Still not done. Original is working except that the months are showing up in the list of tabs that contain the year. I'll fix this when I move up the design from implementing the month vertical tabs to updateing the year tabs.
