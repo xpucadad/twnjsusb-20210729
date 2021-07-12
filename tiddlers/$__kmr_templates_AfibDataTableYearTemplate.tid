@@ -1,9 +1,8 @@
 created: 20210712180440169
-modified: 20210712193135830
+modified: 20210712200829522
 tags: [[Afib Tiddlers]]
 title: $:/kmr/templates/AfibDataTableYearTemplate
 type: text/vnd.tiddlywiki
-year: 2021
 
 \define show-tabs(year, month)
 <<tabs

@@ -1,0 +1,7 @@
+created: 20210712195717906
+modified: 20210712200434334
+tags: [[Change Tracking]]
+title: 2021-07-12 Changes
+type: text/vnd.tiddlywiki
+
+* The two layer tabs for Afib detections are now working. It probably wouldn't hurt to review them at some point to standardize and simplify them if possible.
