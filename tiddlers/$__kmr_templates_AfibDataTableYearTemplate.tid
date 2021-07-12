@@ -1,0 +1,25 @@
+created: 20210712180440169
+modified: 20210712193135830
+tags: [[Afib Tiddlers]]
+title: $:/kmr/templates/AfibDataTableYearTemplate
+type: text/vnd.tiddlywiki
+year: 2021
+
+\define show-tabs(year, month)
+<<tabs
+  tabsList: "[prefix[$year$-]suffix[AfibDataTable]!sort[]]"
+  default: "$year$-$month$AfibDataTable"
+  template: "$:/kmr/templates/AfibDataTableMonthTemplate"
+  class: "tc-vertical"
+>>
+
+\end
+
+<$tiddler tiddler=<<currentTab>> >
+<$set name="year" value={{!!year}} >
+<$set name="month" value=<<now 0MM>> >
+<$macrocall $name="show-tabs" year=<<year>> month=<<month>> />
+</$set>
+</$set>
+</$tiddler>
+
