@@ -1,0 +1,13 @@
+created: 20210713184746238
+modified: 20210713191307768
+tags: 
+title: UFOTemplate
+type: text/vnd.tiddlywiki
+
+currentTiddler:<<currentTiddler>><br>
+<$set name="year" value={{{ [all[current]split[]first[4]join[]] }}} >
+
+year:<<year>><br>
+
+
+</$set>
