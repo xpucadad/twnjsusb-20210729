@@ -1,0 +1,22 @@
+created: 20210714210245807
+modified: 20210714212504376
+tags: 
+title: Test UFO Month Template
+type: text/vnd.tiddlywiki
+
+\define show-tabs()
+<<tabs
+  tabsList: "[[2021-07]] [[2021-08]]"
+  template: "UFOMonthTemplate"
+  class: tc-vertical
+>>
+\end
+
+<$list filter="[suffix[UfoData]!sort[]]" >
+Year {{{ [<currentTiddler>split[]first[4]join[]] }}}<br>
+<$list filter="[all[current]indexes[]split[]first[7]join[]]" >
+Month {{{ [<currentTiddler>] }}}<br>
+</$list>
+</$list>
+
+<$macrocall $name="show-tabs" />

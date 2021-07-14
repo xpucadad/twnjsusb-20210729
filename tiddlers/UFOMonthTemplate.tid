@@ -1,0 +1,10 @@
+created: 20210714190537384
+modified: 20210714211004198
+tags: 
+title: UFOMonthTemplate
+type: text/vnd.tiddlywiki
+
+currentTab: <<currentTab>><br>
+<$set name="year-month" value=<<currentTab>> >
+year-month: <<year-month>><br>
+</$set>
