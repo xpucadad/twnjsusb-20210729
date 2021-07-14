@@ -1,13 +1,39 @@
 created: 20210713184746238
-modified: 20210713191307768
+modified: 20210714025320604
 tags: 
 title: UFOTemplate
 type: text/vnd.tiddlywiki
 
-currentTiddler:<<currentTiddler>><br>
-<$set name="year" value={{{ [all[current]split[]first[4]join[]] }}} >
+<!--
+-- the tabs macro doesn't update the currentTiddler
+-->
+<$set name="currentTiddler" value=<<currentTab>> >
 
-year:<<year>><br>
+<!--
+-- The currentTiddle is the data file for the year we're
+-- processing.
+-->
+<$set name="data-file" value=<<currentTiddler>> >
 
+<!-- 
+-- Cycle through all indexes in the current data file.
+-->
+<$list filter="[all[current]indexes[]]">
 
+<!--
+-- Each 'tiddler' is actually an index in the data file.
+-- Save in, then display the index and use it to 
+-- lookup the 'notes' from the data file for that 
+-- index and display it.
+-->
+<$set name="index" value=<<currentTiddler>> >
+<<index>>: 
+<$view tiddler=<<data-file>> index=<<index>> /><br>
+
+<!-- 
+-- Close all the set and list elements
+-->
+</$set>
+</$list>
+</$set>
 </$set>

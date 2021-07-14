@@ -1,7 +1,10 @@
 created: 20210713190806720
-modified: 20210713191548845
+modified: 20210714024804226
 tags: 
 title: Test UFO Template
 type: text/vnd.tiddlywiki
 
-{{2021UfoData||UFOTemplate}}
+<<tabs 
+  tabsList: "[suffix[UfoData]]"
+  template: "UFOTemplate"
+>>
