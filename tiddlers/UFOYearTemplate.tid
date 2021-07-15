@@ -1,12 +1,11 @@
 created: 20210713184746238
-modified: 20210714191026085
+modified: 20210714234303844
 tags: 
 title: UFOYearTemplate
 type: text/vnd.tiddlywiki
 
 <!--
 -- the tabs macro doesn't update the currentTiddler
-<$set name="currentTiddler" value=<<currentTab>> >
 -->
 <$tiddler tiddler=<<currentTab>> >
 <!--
