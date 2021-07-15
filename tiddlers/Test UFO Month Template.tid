@@ -1,17 +1,16 @@
 created: 20210714210245807
-modified: 20210715012239268
+modified: 20210715164952737
 tags: 
 title: Test UFO Month Template
 type: text/vnd.tiddlywiki
 
-\define tabs-list(year)
-[[$year$-08]] [[$year$-07]] [[$year$-06]] [[$year$-05]]
+\define tabs-list()
+[[$(year)$-08]] [[$(year)$-07]] [[$(year)$-06]] [[$(year)$-05]]
 \end
 
 \define show-tabs(year, tabs-list)
-tabs-list in show-tabs: <<tabs-list>><br>
 <<tabs
-  tabsList: $tabs-list$
+  tabsList: "$tabs-list$"
   default: "2021-07"
   template: "UFOMonthTemplate"
   class: tc-vertical
@@ -20,12 +19,5 @@ tabs-list in show-tabs: <<tabs-list>><br>
 
 
 <$set name="year" value="2021">
-year in main: <<year>><br>
-<$set 
-  name="tl" 
-  value=<$macrocall $name="tabs-list" year=<<year>> /> 
->
-tabs-list in main: <<tl>> <br>
-<$macrocall $name="show-tabs" year=<<year>> tabs-list=<<tl>> />
-</$set>
+<$macrocall $name="show-tabs" year=<<year>> tabs-list=<<tabs-list>> />
 </$set>
