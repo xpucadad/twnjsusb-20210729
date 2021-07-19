@@ -1,0 +1,29 @@
+created: 20210719190442110
+modified: 20210719193304962
+month: 2021-06
+tags: 
+title: Temp - count
+type: text/vnd.tiddlywiki
+
+\define day-prefix()
+$(month)$-$(day)$
+\end
+
+<$set name="data-file" value="2021AfibData" >
+<$set name="month" value={{!!month}} >
+
+<$set name="day" value="25" >
+<$set name="year-month-day" value=<<day-prefix>> >
+
+data-file: <<data-file>><br>
+month: <<month>> <br>
+day: <<day>> <br>
+year-month-day: <<year-month-day>><br>
+
+{{{ [<data-file>indexes[]prefix<year-month-day>count[]] }}}
+<$list filter="[<data-file>indexes[]prefix<year-month-day>count[]]" >
+<<year-month-day>>: <<currentTiddler>>
+</$list>
+</$set>
+</$set>
+</$set>
