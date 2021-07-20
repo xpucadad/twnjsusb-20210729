@@ -1,29 +1,25 @@
 created: 20210719190442110
-modified: 20210719193304962
-month: 2021-06
-tags: 
+modified: 20210720195204437
+tags: [[In Progress]]
 title: Temp - count
 type: text/vnd.tiddlywiki
+year-month: 2021-06
 
-\define day-prefix()
-$(month)$-$(day)$
+\define create-ymd()
+$(year-month)$-$(day)$
 \end
 
-<$set name="data-file" value="2021AfibData" >
-<$set name="month" value={{!!month}} >
+<$set name="year-month" value={{!!year-month}} >
+year-month: <<year-month>> <br>
+<$set name="day" value="25">
+day: <<day>><br>
+<$set name="ymd" value=<<create-ymd>> >
+ymd: <<ymd>> <br>
 
-<$set name="day" value="25" >
-<$set name="year-month-day" value=<<day-prefix>> >
-
-data-file: <<data-file>><br>
-month: <<month>> <br>
-day: <<day>> <br>
-year-month-day: <<year-month-day>><br>
-
-{{{ [<data-file>indexes[]prefix<year-month-day>count[]] }}}
-<$list filter="[<data-file>indexes[]prefix<year-month-day>count[]]" >
-<<year-month-day>>: <<currentTiddler>>
+<$list filter="[[2021AfibData]indexes[]prefix<ymd>count[]]">
+<<ymd>>: <<currentTiddler>>
 </$list>
+
 </$set>
 </$set>
 </$set>
