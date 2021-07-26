@@ -1,7 +1,7 @@
 created: 20210726180047272
-modified: 20210726201731706
+modified: 20210726203158933
 tags: 
-title: NewUfoYearTemplate
+title: $:/kmr/templates/AfibYearTemplate
 type: text/vnd.tiddlywiki
 
 \define make-year-month()

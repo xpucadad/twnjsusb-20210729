@@ -1,17 +1,10 @@
 created: 20210704024550497
-modified: 20210714203119225
+modified: 20210726203238196
 tags: [[Afib Tiddlers]]
 title: AfibDataTables
 type: text/vnd.tiddlywiki
 
-\define show-tabs(year)
 <<tabs
-  tabsList: "[suffix[AfibDataTable]has[year]!sort[]]"
-  default: "$year$AfibDataTable"
-  template: "$:/kmr/templates/AfibDataTableYearTemplate"
+  tabsList:"[suffix[AfibData]!sort[]]"
+  template:"$:/kmr/templates/AfibYearTemplate"
 >>
-\end
-
-<$set name="year" value=<<now YYYY>> >
-<$macrocall $name="show-tabs" year=<<year>> />
-</$set>

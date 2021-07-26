@@ -1,7 +1,7 @@
 created: 20210708230444009
-modified: 20210713184735630
+modified: 20210726204656270
 tags: [[Afib Tiddlers]]
-title: $:/kmr/templates/AfibDataTableMonthTemplate
+title: $:/kmr/templates/AfibDataTableMonthTemplate (old)
 type: text/vnd.tiddlywiki
 
 \import $:/kmr/macros/afib-detection
