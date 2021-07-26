@@ -1,5 +1,5 @@
 created: 20210726180047272
-modified: 20210726203158933
+modified: 20210726210138034
 tags: 
 title: $:/kmr/templates/AfibYearTemplate
 type: text/vnd.tiddlywiki
@@ -32,6 +32,11 @@ $(year)$-$(month)$
 -->
 <$set name="year-month" value=<<make-year-month>> >
 <$set name="month-name" filter="[[$:/kmr/data/months]getindex<month>]" >
+<!--
+-- Need to count the number of days which have occurrences, not the actual
+-- count of # of detections. See [[Temp - count]] tiddler for hints - it will need
+-- to be adjusted to fit the way we're doing things here.
+-->
 <$set name="count" filter="[<data-file>indexes[]prefix<year-month>count[]]" >
 <<make-table-row>>
 </$set><!-- count -->
