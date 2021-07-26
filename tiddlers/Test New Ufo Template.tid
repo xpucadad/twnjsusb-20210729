@@ -1,0 +1,10 @@
+created: 20210726192248540
+modified: 20210726201738740
+tags: 
+title: Test New Ufo Template
+type: text/vnd.tiddlywiki
+
+<<tabs
+  tabsList:"[suffix[UfoData]!sort[]]"
+  template:"NewUfoYearTemplate"
+>>

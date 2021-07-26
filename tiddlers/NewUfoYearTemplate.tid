@@ -1,0 +1,44 @@
+created: 20210726180047272
+modified: 20210726201731706
+tags: 
+title: NewUfoYearTemplate
+type: text/vnd.tiddlywiki
+
+\define make-year-month()
+$(year)$-$(month)$
+\end
+
+\define make-table-row()
+<tr><td>$(month-name)$</td><td>$(count)$</td></tr>
+\end
+
+<!--
+-- The data file name comes in as the currentTab
+-- Parse the year from the data file name.
+-->
+<$set name="data-file" value=<<currentTab>> >
+<$set name="year" filter="[<data-file>split[]first[4]join[]]" >
+
+<!--
+-- Create the table
+-->
+<table>
+<tr><th>Month</th><th>Occurrences</th></tr>
+<$list filter="[[$:/kmr/data/months]indexes[]]">
+<!-- The month is listed as the currentTiddler -->
+<$set name="month" value=<<currentTiddler>> >
+<!--
+-- Got the other data we need, then create the table row
+-->
+<$set name="year-month" value=<<make-year-month>> >
+<$set name="month-name" filter="[[$:/kmr/data/months]getindex<month>]" >
+<$set name="count" filter="[<data-file>indexes[]prefix<year-month>count[]]" >
+<<make-table-row>>
+</$set><!-- count -->
+</$set><!-- month-name -->
+</$set><!-- year-month -->
+</$set><!-- month -->
+</$list>
+</table>
+</$set><!-- year -->
+</$set><!-- data-file -->
