@@ -1,5 +1,5 @@
 created: 20210726180047272
-modified: 20210726210138034
+modified: 20210727203412303
 tags: 
 title: $:/kmr/templates/AfibYearTemplate
 type: text/vnd.tiddlywiki
@@ -9,7 +9,10 @@ $(year)$-$(month)$
 \end
 
 \define make-table-row()
-<tr><td>$(month-name)$</td><td>$(count)$</td></tr>
+<tr>
+<td>$(month-name)$</td>
+<td>$(count)$</td>
+</tr>
 \end
 
 <!--
@@ -23,21 +26,24 @@ $(year)$-$(month)$
 -- Create the table
 -->
 <table>
-<tr><th>Month</th><th>Occurrences</th></tr>
+<tr><th>Month</th><th>Days</th></tr>
 <$list filter="[[$:/kmr/data/months]indexes[]]">
 <!-- The month is listed as the currentTiddler -->
 <$set name="month" value=<<currentTiddler>> >
 <!--
--- Got the other data we need, then create the table row
+-- Get the other data we need, then create the table row
 -->
-<$set name="year-month" value=<<make-year-month>> >
+<!-- Get the month information -->
 <$set name="month-name" filter="[[$:/kmr/data/months]getindex<month>]" >
 <!--
--- Need to count the number of days which have occurrences, not the actual
--- count of # of detections. See [[Temp - count]] tiddler for hints - it will need
--- to be adjusted to fit the way we're doing things here.
+-- Calculate the number of days with afib detections.
+-- Note that removing everything after the "." in the index
+-- will result in at most one entry for each day of the month.
+-- So count ends up with the number of days in the month that
+-- had detections.
 -->
-<$set name="count" filter="[<data-file>indexes[]prefix<year-month>count[]]" >
+<$set name="year-month" value=<<make-year-month>> >
+<$set name="count"  filter="[<data-file>indexes[]prefix<year-month>splitbefore[.]count[]]" >
 <<make-table-row>>
 </$set><!-- count -->
 </$set><!-- month-name -->
