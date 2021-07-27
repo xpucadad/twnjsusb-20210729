@@ -1,0 +1,17 @@
+created: 20210627193902122
+modified: 20210727222448552
+tags: $:/tags/Macro [[Afib Tiddlers]]
+title: $:/kmr/macros/afib-detection
+type: text/vnd.tiddlywiki
+
+\define make-index()
+$(date)$.$(time)$
+\end
+
+\define make-data-title()
+$(year)$AfibData
+\end
+
+\define make-data-table-title()
+$(year)$AfibDataTable
+\end
