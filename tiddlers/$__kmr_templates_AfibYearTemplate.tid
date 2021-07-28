@@ -1,0 +1,55 @@
+created: 20210726180047272
+modified: 20210727220717061
+tags: 
+title: $:/kmr/templates/AfibYearTemplate
+type: text/vnd.tiddlywiki
+
+\define make-year-month()
+$(year)$-$(month)$
+\end
+
+\define make-table-row()
+<tr>
+<td>$(month-name)$</td>
+<td>$(count)$</td>
+</tr>
+\end
+
+<!--
+-- The data file name comes in as the currentTab
+-- Parse the year from the data file name.
+-->
+<$set name="data-file" value=<<currentTab>> >
+<$set name="year" filter="[<data-file>split[]first[4]join[]]" >
+
+<!--
+-- Create the table
+-->
+<table>
+<tr><th>Month</th><th>Days</th></tr>
+<$list filter="[[$:/kmr/data/months]indexes[]]">
+<!-- The month is listed as the currentTiddler -->
+<$set name="month" value=<<currentTiddler>> >
+<!--
+-- Get the other data we need, then create the table row
+-->
+<!-- Get the month information -->
+<$set name="month-name" filter="[[$:/kmr/data/months]getindex<month>]" >
+<!--
+-- Calculate the number of days with afib detections.
+-- Note that removing everything after the "." in the index
+-- will result in at most one entry for each day of the month.
+-- So count ends up with the number of days in the month that
+-- had detections.
+-->
+<$set name="year-month" value=<<make-year-month>> >
+<$set name="count"  filter="[<data-file>indexes[]prefix<year-month>splitbefore[.]count[]]" >
+<<make-table-row>>
+</$set><!-- count -->
+</$set><!-- month-name -->
+</$set><!-- year-month -->
+</$set><!-- month -->
+</$list>
+</table>
+</$set><!-- year -->
+</$set><!-- data-file -->

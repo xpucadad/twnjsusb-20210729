@@ -1,0 +1,8 @@
+created: 20210727221344932
+modified: 20210727221451018
+tags: [[Change Tracking]]
+title: 2021-07-27 Changes
+type: text/vnd.tiddlywiki
+
+* Got the afib display to show only the number of days in each month that had detections.
+* The default tab should now be to one for the current year.

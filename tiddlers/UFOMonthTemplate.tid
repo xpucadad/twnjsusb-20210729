@@ -1,0 +1,33 @@
+created: 20210714190537384
+modified: 20210715164914354
+tags: 
+title: UFOMonthTemplate
+type: text/vnd.tiddlywiki
+
+\define get-data-file()
+$(year)$UfoData
+\end
+
+\define get-notes()
+{{$(data-file)$##$(currentTiddler)$}}
+\end
+
+<$set name="year-month" value=<<currentTab>> >
+year-month: <<year-month>><br>
+<$set name="year" value="{{{  [<year-month>split[]first[4]join[]] }}}" >
+year: <<year>> <br>
+<$set name="data-file" value="2021UfoData" >
+data-file: <<data-file>><br>
+
+<table>
+<tr><th>Date</th><th>Notes</th></tr>
+<$list filter="[<data-file>indexes[]prefix<year-month>]">
+<tr>
+  <td><<currentTiddler>></td>
+  <td><<get-notes>></td>
+</tr>
+</$list>
+</table>
+</$set>
+</$set>
+</$set>

@@ -1,5 +1,5 @@
-created: 20210707142130274
-modified: 20210708231135364
+created: 20210727222050806
+modified: 20210728211635337
 tags: [[Afib Tiddlers]]
 title: NewAfibDetection
 type: text/vnd.tiddlywiki
@@ -70,7 +70,6 @@ default=""
 -->
 <$vars
   data-tiddler=<<make-data-title>>
-  data-tiddler-table=<<make-data-table-title>>
 >
 
 <!-- The button
@@ -83,32 +82,19 @@ default=""
   <!-- 
      -- If the data tiddler for this year doesn't exist, 
      --  create it and the data table shell tiddler.
-This doesn't work. Comment out the file creation stuff.
-  <$list filter="[!exists<data-tiddler>first[]]" >
+-->
+  <$list filter="[<data-tiddler>!exists[]]" >
     <$action-createtiddler
       $basetitle=<<data-tiddler>>
       tags="[[Afib Tiddlers]]"
     />
-    <$action-createtiddler
-      $basetitle=<<data-tiddler-table>>
-      tags="[[Afib Tiddlers]]"
-      year=<<year>>
-      caption=<<year>>
-    />
   </$list>
-  -->
 
 <!-- Add the information to the data tiddler -->
   <$action-setfield
     $tiddler=<<data-tiddler>>
     $index=<<make-index>>
     $value=<<notes>>
-  />
-
-<!-- Remove the temp tiddler -->
-  <$action-sendmessage
-    $message="tm-delete-tiddler"
-    $param="$:/temp/NewAfibInfo"
   />
 Add New Afib Detection
 </$button>
