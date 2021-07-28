@@ -1,5 +1,5 @@
 created: 20210727222050806
-modified: 20210728211635337
+modified: 20210728212715425
 tags: [[Afib Tiddlers]]
 title: NewAfibDetection
 type: text/vnd.tiddlywiki
@@ -86,6 +86,7 @@ default=""
   <$list filter="[<data-tiddler>!exists[]]" >
     <$action-createtiddler
       $basetitle=<<data-tiddler>>
+      caption=<<year>>
       tags="[[Afib Tiddlers]]"
     />
   </$list>
