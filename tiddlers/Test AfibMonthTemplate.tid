@@ -1,0 +1,7 @@
+created: 20210729161947821
+modified: 20210729162023045
+tags: 
+title: Test AfibMonthTemplate
+type: text/vnd.tiddlywiki
+
+{{||$:/kmr/templates/AfibMonthTemplate}}
