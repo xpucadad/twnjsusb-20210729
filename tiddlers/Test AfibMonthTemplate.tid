@@ -1,7 +1,11 @@
 created: 20210729161947821
-modified: 20210729162023045
+modified: 20210730015429770
 tags: 
 title: Test AfibMonthTemplate
 type: text/vnd.tiddlywiki
 
+<$set name="year" value="2021">
+<$set name="year-month" value="2021-06">
 {{||$:/kmr/templates/AfibMonthTemplate}}
+</$set>
+</$set>
