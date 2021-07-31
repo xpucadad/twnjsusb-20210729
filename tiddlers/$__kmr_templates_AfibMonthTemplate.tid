@@ -1,17 +1,14 @@
 created: 20210729161915207
-modified: 20210730174857251
+modified: 20210731153310688
 tags: 
 title: $:/kmr/templates/AfibMonthTemplate
 type: text/vnd.tiddlywiki
 
-This is the month template.
-
 <$set name="year" value={{{ [{!!year-month}split[]first[4]join[]] }}} >
-year: <<year>><br>
 <$set name="data-file" value=<<make-data-title>> >
 <table>
 <tr><th>Time</th><th>Notes</th></tr>
-<$list filter="[<data-file>indexes[]prefix<year-month>!sort[]]">
+<$list filter="[<data-file>indexes[]prefix{!!year-month}!sort[]]">
 <tr><td style="white-space:nowrap;vertical-align:top;"><<currentTiddler>></td>
 <td>{{{[<data-file>getindex<currentTiddler>]}}}</td></tr>
 </$list>
