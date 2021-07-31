@@ -1,7 +1,5 @@
 created: 20210729161947821
-modified: 20210731155241000
-month-details: $:/temp/2021-06AfibDetails 1
-month-table: $:/temp/2021-06AfibDetails
+modified: 20210731195456428
 tags: 
 title: Test AfibMonthTemplate
 type: text/vnd.tiddlywiki
@@ -18,7 +16,6 @@ test detail-tiddler-name: <<detail-tiddler-name>><br>
   year-month="$year-month$"
 />
 </$list>
-
 <$action-navigate $to=<<detail-tiddler-name>> />
 </$set>
 \end
@@ -33,6 +30,45 @@ $mn$
 </$button>
 \end
 
+\define make-year-month()
+$(year)$-$(month)$
+\end
 
+\define make-table-row()
+<tr>
+<td><$macrocall $name=create-button mn=<<month-name>> ym=<<year-month>> /></td><td>$(count)$</td>
+</tr>
+\end
+
+<$set name="data-file" value="2021AfibData">
+<$set name="year" filter="[<data-file>split[]first[4]join[]]" >
+<table>
+<tr><th>Month</th><th>Days</th></tr>
+<$list filter="[[$:/kmr/data/months]indexes[]]" emptyMessage="No entries.">
+<!-- The month is listed as the currentTiddler -->
+<$set name="month" value=<<currentTiddler>> >
+<!--
+-- Get the other data we need, then create the table row
+-->
+<!-- Get the month information -->
+<$set name="month-name" value=<<get-month-name>> >
+<!--
+-- Calculate the number of days with afib detections.
+-- Note that removing everything after the "." in the index
+-- will result in at most one entry for each day of the month.
+-- So count ends up with the number of days in the month that
+-- had detections.
+-->
+<$set name="year-month" value=<<make-year-month>> >
+<$set name="count"  filter="[<data-file>indexes[]prefix<year-month>splitbefore[.]count[]]" >
+<<make-table-row>>
+</$set><!-- count -->
+</$set><!-- month-name -->
+</$set><!-- year-month -->
+</$set><!-- month -->
+</$list>
+</table>
+</$set><!-- data-file -->
+</$set><!-- year -->
 <$macrocall $name="create-button" mn="June" ym="2021-06" /><br>
 <$macrocall $name="create-button" mn="July" ym="2021-07" />

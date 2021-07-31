@@ -1,9 +1,10 @@
 created: 20210726180047272
-modified: 20210727220717061
+modified: 20210731193643465
 tags: 
 title: $:/kmr/templates/AfibYearTemplate
 type: text/vnd.tiddlywiki
 
+\import $:/kmr/macros/afib-detection
 \define make-year-month()
 $(year)$-$(month)$
 \end
@@ -34,7 +35,7 @@ $(year)$-$(month)$
 -- Get the other data we need, then create the table row
 -->
 <!-- Get the month information -->
-<$set name="month-name" filter="[[$:/kmr/data/months]getindex<month>]" >
+<$set name="month-name" value=<<get-month-name>> >
 <!--
 -- Calculate the number of days with afib detections.
 -- Note that removing everything after the "." in the index

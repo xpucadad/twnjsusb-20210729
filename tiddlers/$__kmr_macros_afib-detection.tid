@@ -1,5 +1,5 @@
 created: 20210627193902122
-modified: 20210728205328474
+modified: 20210731193734566
 tags: $:/tags/Macro [[Afib Tiddlers]]
 title: $:/kmr/macros/afib-detection
 type: text/vnd.tiddlywiki
@@ -10,4 +10,8 @@ $(date)$.$(time)$
 
 \define make-data-title()
 $(year)$AfibData
+\end
+
+\define get-month-name()
+<$text text={{{ [[$:/kmr/data/months]getindex<month>] }}} />
 \end
