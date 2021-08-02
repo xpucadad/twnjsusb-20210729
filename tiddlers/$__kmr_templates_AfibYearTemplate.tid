@@ -1,17 +1,44 @@
 created: 20210726180047272
-modified: 20210731193643465
+modified: 20210802203046094
 tags: 
 title: $:/kmr/templates/AfibYearTemplate
 type: text/vnd.tiddlywiki
 
 \import $:/kmr/macros/afib-detection
+
 \define make-year-month()
 $(year)$-$(month)$
 \end
 
+\define button-actions()
+  <$set name="month-temp-tiddler" value="$:/temp/$(year-month)$AfibMonthTable">
+  ba month-temp-tiddler: <<month-temp-tiddler>> <br>
+  <$list filter="[<month-temp-tiddler>!exists[]]"
+    <$action-createtiddler 
+      $basetitle=<<month-temp-tiddler>>
+      text="{{||$:/kmr/templates/AfibMonthTemplate}}"
+      year-month=$(year-month)$
+    />
+  <$/list>
+
+  <$action-navigate $to=<<month-temp-tiddler>> />
+  </$set><!-- month-temp-tiddler -->
+\end
+
+\define make-button()
+<$button
+  actions=<<button-actions>>
+  set="!!year-month"
+  setTo=<<year-month>>
+  class="tc-btn-invisible tc-tiddlylink"
+>
+$(month-name)$
+</$button>
+\end
+
 \define make-table-row()
 <tr>
-<td>$(month-name)$</td>
+<td><<make-button>></td>
 <td>$(count)$</td>
 </tr>
 \end
@@ -21,7 +48,9 @@ $(year)$-$(month)$
 -- Parse the year from the data file name.
 -->
 <$set name="data-file" value=<<currentTab>> >
+ytemp data-file: <<data-file>><br>
 <$set name="year" filter="[<data-file>split[]first[4]join[]]" >
+ytemp year: <<year>><br>
 
 <!--
 -- Create the table
