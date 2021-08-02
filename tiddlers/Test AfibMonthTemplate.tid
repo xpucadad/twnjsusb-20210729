@@ -1,21 +1,20 @@
 created: 20210729161947821
-modified: 20210731195456428
+modified: 20210802165500455
 tags: 
 title: Test AfibMonthTemplate
 type: text/vnd.tiddlywiki
-year-month: 2021-07
 
 \define button-actions(year-month)
 <$set name="detail-tiddler-name" value="$:/temp/$year-month$AfibDetails" >
-test detail-tiddler-name: <<detail-tiddler-name>><br>
+
 <$list filter="[<detail-tiddler-name>!exists[]]">
 <$action-createtiddler
   $basetitle=<<detail-tiddler-name>>
-  $savetitle="!!month-details"
   text="{{||$:/kmr/templates/AfibMonthTemplate}}"
   year-month="$year-month$"
 />
 </$list>
+
 <$action-navigate $to=<<detail-tiddler-name>> />
 </$set>
 \end
