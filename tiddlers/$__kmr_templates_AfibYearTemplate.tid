@@ -1,5 +1,5 @@
 created: 20210726180047272
-modified: 20210803030310905
+modified: 20210803153245359
 tags: 
 title: $:/kmr/templates/AfibYearTemplate
 type: text/vnd.tiddlywiki
@@ -7,6 +7,8 @@ type: text/vnd.tiddlywiki
 \import $:/kmr/macros/afib-detection
 
 \define make-year-month()
+mym year: $(year)$<br>
+mym month: $(month)$<br>
 $(year)$-$(month)$
 \end
 
@@ -29,7 +31,7 @@ $(year)$-$(month)$
 <$button
   actions=<<button-actions>>
   set="!!year-month"
-  setTo=<<year-month>>
+  setTo=$(year-month)$
   class="tc-btn-invisible tc-tiddlylink"
 >
 $(month-name)$
@@ -73,6 +75,7 @@ ytemp year: <<year>><br>
 -- had detections.
 -->
 <$set name="year-month" value=<<make-year-month>> >
+main year-month: <<year-month>><br>
 <$set name="count"  filter="[<data-file>indexes[]prefix<year-month>splitbefore[.]count[]]" >
 <<make-table-row>>
 </$set><!-- count -->

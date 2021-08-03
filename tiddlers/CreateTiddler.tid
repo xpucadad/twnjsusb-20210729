@@ -1,26 +1,26 @@
 created: 20210803020144683
-modified: 20210803030314623
+modified: 20210803153248985
 tags: 
 title: CreateTiddler
 type: text/vnd.tiddlywiki
 year-month: 2021-07
 
-\define seed-tiddler-title()
-$:/temp/$(year)$-$(month)$seed
+\define detail-tiddler-title()
+$:/temp/$(year)$-$(month)$AfidDetails
 \end
 
 \define button-actions()
-<$set name="seed-tiddler" value=<<seed-tiddler-title>> >
-<$list filter="[<seed-tiddler-title>!exists[]]" >
+<$set name="detail-tiddler" value=<<detail-tiddler-title>> >
+<$list filter="[<detail-tiddler-title>!exists[]]" >
   <$action-createtiddler
-    $basetitle=<<seed-tiddler-title>>
+    $basetitle=<<detail-tiddler-title>>
     text = "{{||$:/kmr/templates/AfibMonthTemplate}}"
-    year-month = <<year-month>>
+    year-month = $(year-month)$
   /> 
 </$list>
 
-<$action-navigate $to=<<seed-tiddler-title>> /> 
-</$set><!-- seed-tiddler-title -->
+<$action-navigate $to=<<detail-tiddler-title>> /> 
+</$set><!-- detail-tiddler-title -->
 \end
 
 \define create-year-month()
