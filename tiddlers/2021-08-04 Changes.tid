@@ -1,0 +1,7 @@
+created: 20210804205915512
+modified: 20210804210037051
+tags: [[Change Tracking]]
+title: 2021-08-04 Changes
+type: text/vnd.tiddlywiki
+
+* It looks like I got the Afib details to display by making the month names in the year template into buttons which create and ope temporary tiddlers when they are clicked.

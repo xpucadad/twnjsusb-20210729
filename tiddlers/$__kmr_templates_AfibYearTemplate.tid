@@ -1,5 +1,5 @@
 created: 20210726180047272
-modified: 20210803153245359
+modified: 20210804205150535
 tags: 
 title: $:/kmr/templates/AfibYearTemplate
 type: text/vnd.tiddlywiki
@@ -7,30 +7,29 @@ type: text/vnd.tiddlywiki
 \import $:/kmr/macros/afib-detection
 
 \define make-year-month()
-mym year: $(year)$<br>
-mym month: $(month)$<br>
 $(year)$-$(month)$
 \end
 
-\define button-actions()
-  <$set name="month-temp-tiddler" value="$:/temp/$(year-month)$AfibMonthTable">
-  ba month-temp-tiddler: <<month-temp-tiddler>> <br>
-  <$list filter="[<month-temp-tiddler>!exists[]]"
-    <$action-createtiddler 
-      $basetitle=<<month-temp-tiddler>>
-      text="{{||$:/kmr/templates/AfibMonthTemplate}}"
-      year-month=$(year-month)$
-    />
-  <$/list>
-
-  <$action-navigate $to=<<month-temp-tiddler>> />
-  </$set><!-- month-temp-tiddler -->
+\define detail-tiddler-title()
+$:/temp/$(year-month)$AfidDetails
 \end
+
+\define button-actions()
+<$list filter="[<detail-tiddler-title>!exists[]]" >
+  <$action-createtiddler
+    $basetitle=<<detail-tiddler-title>>
+    text = "{{||$:/kmr/templates/AfibMonthTemplate}}"
+    year-month = $(year-month)$
+  /> 
+</$list>
+<$action-navigate $to=<<detail-tiddler-title>> /> 
+\end
+
 
 \define make-button()
 <$button
   actions=<<button-actions>>
-  set="!!year-month"
+  setField="year-month"
   setTo=$(year-month)$
   class="tc-btn-invisible tc-tiddlylink"
 >
@@ -50,9 +49,7 @@ $(month-name)$
 -- Parse the year from the data file name.
 -->
 <$set name="data-file" value=<<currentTab>> >
-ytemp data-file: <<data-file>><br>
 <$set name="year" filter="[<data-file>split[]first[4]join[]]" >
-ytemp year: <<year>><br>
 
 <!--
 -- Create the table
@@ -75,7 +72,6 @@ ytemp year: <<year>><br>
 -- had detections.
 -->
 <$set name="year-month" value=<<make-year-month>> >
-main year-month: <<year-month>><br>
 <$set name="count"  filter="[<data-file>indexes[]prefix<year-month>splitbefore[.]count[]]" >
 <<make-table-row>>
 </$set><!-- count -->
