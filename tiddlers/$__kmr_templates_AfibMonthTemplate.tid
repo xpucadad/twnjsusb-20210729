@@ -1,5 +1,5 @@
 created: 20210729161915207
-modified: 20210802165509293
+modified: 20210804210640454
 tags: 
 title: $:/kmr/templates/AfibMonthTemplate
 type: text/vnd.tiddlywiki
@@ -8,9 +8,7 @@ type: text/vnd.tiddlywiki
 Expects field year-month to be define. 2021-06 or 2022-01, etc.
 -->
 <$set name="year" value={{{ [{!!year-month}split[]first[4]join[]] }}} >
-template year: <<year>><br>
 <$set name="data-file" value=<<make-data-title>> >
-template data-file: <<data-file>><br>
 <table>
 <tr><th>Time</th><th>Notes</th></tr>
 <$list filter="[<data-file>indexes[]prefix{!!year-month}!sort[]]">
