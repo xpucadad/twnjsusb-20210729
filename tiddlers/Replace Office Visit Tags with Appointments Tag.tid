@@ -1,0 +1,31 @@
+created: 20211007194815513
+modified: 20211007212247897
+tags: 
+title: Replace Office Visit Tags with Appointments Tag
+type: text/vnd.tiddlywiki
+
+\define update-tags(f)
+Your filter selected these tiddlers:
+
+<$list filter="$f$">
+  <<currentTiddler>><br>
+</$list>
+
+Click the button to delete the listed tiddlers.
+
+<$button>
+<$list filter="$f$">
+<$action-listops $tags="-[[2020 Office Visits]] -[[2021 Office Visits]] -[[2022 Office Visits]] [[Appointments]]" />
+</$list>
+Update Tags on Listed Tiddlers
+</$button>
+\end
+
+Enter a filter expression to select tiddlers for tag processing:
+
+<$edit-text tiddler="$:/temp/ChangeTags"
+tag="input" size="50" default="[[]]"/>
+
+<$macrocall $name="update-tags"
+  f={{$:/temp/ChangeTags}} />
+
