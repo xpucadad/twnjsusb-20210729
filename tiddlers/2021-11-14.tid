@@ -1,0 +1,13 @@
+created: 20211007194725479
+modified: 20211114201608168
+tags: Testing
+title: 2021-11-14
+type: text/vnd.tiddlywiki
+
+This is a `new` file that I created outside of TW.
+
+If you want to create a tiddler outside of TiddlyWiki, you can add it to the TiddlyWiki by:
+
+# Put the file in the `tiddlers` folder
+# Restart the server
+# Refresh (or open) the TiddlyWiki.
