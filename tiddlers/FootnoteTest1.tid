@@ -1,0 +1,16 @@
+created: 20211120170104875
+modified: 20211120172245998
+tags: 
+title: FootnoteTest1
+type: text/vnd.tiddlywiki
+
+\define footnote-tiddler()
+{{!!title}}/footnotes
+\end
+
+<$set name="fntid" value=<<footnote-tiddler>> >
+fntid:<<fntid>><br>
+{{{ [<fntid>getindex[1]] }}}
+
+</$set>
+
