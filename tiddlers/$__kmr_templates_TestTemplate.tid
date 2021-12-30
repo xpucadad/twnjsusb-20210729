@@ -1,0 +1,12 @@
+created: 20211229170229114
+modified: 20211229170657547
+tags: 
+title: $:/kmr/templates/TestTemplate
+type: text/vnd.tiddlywiki
+
+Here is what the transcluder put into the field `data`:
+
+
+<<<
+{{!!data}}
+<<<

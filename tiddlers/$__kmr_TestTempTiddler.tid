@@ -1,0 +1,8 @@
+created: 20211229172222228
+data: Hello there from temp tiddler.
+modified: 20211230174115262
+tags: 
+title: $:/kmr/TestTempTiddler
+type: text/vnd.tiddlywiki
+
+{{||$:/kmr/templates/TestTemplate}}

@@ -1,0 +1,24 @@
+created: 20211229171013529
+modified: 20211230174739620
+title: Explain Issue with transcluding within $:/temp/... tiddler
+type: text/vnd.tiddlywiki
+
+After upgrading to 5.2.1 I ran into an interesting problem with transcluding in a `$:/temp` tiddler.
+
+I created a template, [[$:/kmr/templates/TestTemplate]]. All it does is display the contents of the data field for tiddlers that transclude it as a template.
+
+The tiddler [[TestRegularTiddler]] has a field called `data` and the single line:
+
+```
+{{||$/kmr/templates/TestTemplate}}
+```
+
+The tiddler [[$:/temp/TestTempTiddler]] has exactly the same content as [[TestRegularTiddler]].
+
+[[TestRegularTiddler]] works as expected. If you edit it and turn on the preview pane you will see exactly what you see when the tiddler is in view mode.
+
+The same is //not// true for [[$:/temp/TestTempTiddler]]. While the preview pane shows the expected results, the view mode just shows only the unrendered contents of [[$:/temp/TestTempTiddler]].
+
+Just renaming [[$:/temp/TestTempTiddler]] to a "simple" tiddler name fixes the issue.
+
+I don't think this was an issue with 5.2, but I'm not sure. It definitely wasn't the case with the last 5.1.* version. It has something to do with `temp` because if I change the name to [[$:/kmr/TestTempTiddler]] it works as expected.

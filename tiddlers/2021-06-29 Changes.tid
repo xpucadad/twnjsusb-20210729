@@ -1,12 +1,12 @@
 created: 20210629194631999
-modified: 20210629200407488
+modified: 20211230174511928
 tags: [[Change Tracking]]
 title: 2021-06-29 Changes
 type: text/vnd.tiddlywiki
 
 * Figured out how to generate the title for the default tab so it automatically points to the tab for the current year! 
 ** I encapsulated the call to the `<<tabs>>` macro in a new macro `show-tabs`, which takes a year as an argument. It then uses text substitution to create the title of the tab for the specified year.
-** The tiddler first uses the `<<now>>` macro to set a variable to the current year, then uses `<$macrocall>` to call `show-tabs`, passing in the year value See [[AfibDetectionTable]].
+** The tiddler first uses the `<<now>>` macro to set a variable to the current year, then uses `<$macrocall>` to call `show-tabs`, passing in the year value See [[AfibDataTables]].
 * I also simplified the tranclusion process 
 **Removed the setting of `currentTiddler` and the template transclusion from the individual monthly detections. Now they only need to contain a `year` field and an optional `caption` field.
 **Added the code to set `currentTiddler` from `currentTab` to the template.
