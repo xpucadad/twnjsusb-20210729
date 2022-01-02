@@ -1,0 +1,7 @@
+created: 20220102175621326
+modified: 20220102175652917
+tags: $:/tags/ViewTemplateBodyFilter
+title: $:/config/ViewTemplateBodyFilters/system
+type: text/vnd.tiddlywiki
+
+[prefix[$:/boot/]] [prefix[$:/config/]] [prefix[$:/core/]!field:title[$:/core/readme]!field:title[$:/core/icon]] [prefix[$:/info/]] [prefix[$:/language/]] [prefix[$:/languages/]] [prefix[$:/snippets/]] [prefix[$:/state/]] [prefix[$:/status/]] [prefix[$:/info/]] [prefix[$:/temp/]!tag[ForceRender]] +[limit[1]then[$:/core/ui/ViewTemplate/body/code]]

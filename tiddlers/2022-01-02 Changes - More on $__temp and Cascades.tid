@@ -1,0 +1,9 @@
+created: 20220102180303803
+modified: 20220102182127584
+tags: [[Change Tracking]]
+title: 2022-01-02 Changes - More on $:/temp and Cascades
+type: text/vnd.tiddlywiki
+
+Just to make sure I understood the cascades that caused my temporary file from rendering its contents, I edited the  [[$:/config/ViewTemplateBodyFilters/system]] tiddler by adding a tag check for the `[prefix[$:/temp]]` filter. I changed this filter to `[prefix[$:/temp]!tag[ForceRender]]`.  Any tiddlers beginning with `$:/temp` but without the `ForceRender` tag, will disply the text field of the tiddler rather than rendering it. With the tag, such files will display rendered code (unless subsequent steps in the cascade get triggered).
+
+There are probably better ways to do this. In the health wiki I put the tiddler somewhere else where, unfortunately, it will not get automatically deleted.
