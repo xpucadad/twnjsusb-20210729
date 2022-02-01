@@ -1,0 +1,16 @@
+created: 20220201221335859
+modified: 20220201221629374
+tags: 
+title: Internal Links
+type: text/vnd.tiddlywiki
+
+!! Directory
+<a href="##Intor">Introduction</a><br>
+<a href="##Section 1">Section One</a><br>
+
+!! Intro
+<a id="#Intro"></a>
+
+!! Section 1
+<a id="#Section 1"></a>
+
