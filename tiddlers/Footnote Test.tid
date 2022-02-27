@@ -1,0 +1,12 @@
+created: 20220227153648924
+modified: 20220227154419126
+tags: 
+title: Footnote Test
+type: text/vnd.tiddlywiki
+
+<h2>Second level Header</h2>
+
+This has a fn. <<fnote "This is a footnote">> This also has one. <<fnote "Another footnote">>
+
+---
+<<showfnotes title:"Footnotes" class:"fnote-list" emptyMessage:"None">>
