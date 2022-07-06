@@ -1,0 +1,15 @@
+created: 20220706190648759
+modified: 20220706192140535
+tags: 
+title: DeleteTiddler
+type: text/vnd.tiddlywiki
+
+\define action-delete-tiddler()
+<$log />
+\end
+
+<$set name="tiddler-to-delete" value=<<currentTiddler>> >
+<$button
+  actions=<<action-delete-tiddler>>
+  > Click me</$button>
+</$set>

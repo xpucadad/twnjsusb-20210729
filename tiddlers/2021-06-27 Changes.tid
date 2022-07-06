@@ -1,10 +1,10 @@
 created: 20210627143823411
-modified: 20211230174700291
+modified: 20220706184908718
 tags: [[Change Tracking]]
 title: 2021-06-27 Changes
 type: text/vnd.tiddlywiki
 
 * Finished the 1st pass of an afib episode listing and creation tiddler.
-* Moved the 2 afib macros (make-title and make-link) to [[$:/kmr/macros/afib-detection]].
+* Moved the 2 afib macros (make-title and make-link) to `$:/kmr/macros/afib-detection`.
 * Pulled the afib table out to its own tiddler.
 * Imported the macros into both tiddlers rather than hard-coding them. 
