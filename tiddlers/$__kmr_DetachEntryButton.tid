@@ -1,5 +1,5 @@
 created: 20220709144032596
-modified: 20220709172857743
+modified: 20220709212007096
 tags: 
 title: $:/kmr/DetachEntryButton
 type: text/vnd.tiddlywiki
@@ -10,9 +10,6 @@ type: text/vnd.tiddlywiki
 </$fieldmangler>
 \end
 
-parent: <<parent>><br>
-child: <<child>><br>
-
-<$button actions=<<detach-button-actions>> >
+<$button actions=<<detach-button-actions>> class="tc-btn-invisible tc-tiddlylink">
 Detach Entry
 </$button>
