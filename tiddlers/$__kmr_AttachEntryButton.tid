@@ -1,5 +1,5 @@
 created: 20220709150612472
-modified: 20220709154908348
+modified: 20220709173108312
 tags: 
 title: $:/kmr/AttachEntryButton
 type: text/vnd.tiddlywiki
@@ -8,9 +8,19 @@ type: text/vnd.tiddlywiki
 <$action-createtiddler $basetitle="$(child)$" text="$(parent)$:$(child)$" tags="[[Master Document]]"/>
 \end
 
+\define attach-button-actions()
+<$fieldmangler tiddler="$(child)$">
+<$action-sendmessage $message="tm-add-tag" $param="$(parent)$" />
+</$fieldmangler>
+\end
+
 parent: <<parent>><br>
 child: <<child>><br>
 
 <$button actions=<<create-button-actions>> >
-Create and Attach Entry
+Create Entry
+</$button>
+<br>
+<$button actions= <<attach-button-actions>> >
+Attach Child to Parent
 </$button>

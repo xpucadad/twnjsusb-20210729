@@ -1,12 +1,12 @@
 created: 20220709144032596
-modified: 20220709153909940
+modified: 20220709172857743
 tags: 
 title: $:/kmr/DetachEntryButton
 type: text/vnd.tiddlywiki
 
 \define detach-button-actions()
-<$fieldmangler tiddler="$(parent)$">
-<$action-sendmessage $message="tm-remove-tag" $param="$(child)$" />
+<$fieldmangler tiddler="$(child)$">
+<$action-sendmessage $message="tm-remove-tag" $param="$(parent)$" />
 </$fieldmangler>
 \end
 

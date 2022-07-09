@@ -1,7 +1,6 @@
-created: 20220709154912144
-modified: 20220709154912144
-tags: [[Master Document]]
+created: 20220709172505316
+modified: 20220709173124983
 title: Child Document
 type: text/vnd.tiddlywiki
 
-[[Master Document]]:Child Document
+Master Document:Child Document
