@@ -1,0 +1,13 @@
+created: 20220709144205710
+modified: 20220709154845909
+tags: 
+title: TestEntriesButtons
+type: text/vnd.tiddlywiki
+
+<$set name="parent" value="[[Master Document]]" >
+<$set name="child" value="Child Document" >
+{{$:/kmr/AttachEntryButton}}
+<br>
+{{$:/kmr/DetachEntryButton}}
+</$set>
+</$set>

@@ -1,0 +1,16 @@
+created: 20220709150612472
+modified: 20220709154908348
+tags: 
+title: $:/kmr/AttachEntryButton
+type: text/vnd.tiddlywiki
+
+\define create-button-actions()
+<$action-createtiddler $basetitle="$(child)$" text="$(parent)$:$(child)$" tags="[[Master Document]]"/>
+\end
+
+parent: <<parent>><br>
+child: <<child>><br>
+
+<$button actions=<<create-button-actions>> >
+Create and Attach Entry
+</$button>

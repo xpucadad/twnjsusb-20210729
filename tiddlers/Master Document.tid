@@ -1,12 +1,10 @@
 created: 20220705181410519
 delete-date: 20220705
-modified: 20220706194335098
+modified: 20220709143659761
 tags: 
 title: Master Document
 type: text/vnd.tiddlywiki
 
-<$list filter="[all[tiddlers]tag[Master Document]]">
-<$link/><br>
-</$list>
+<<TOC-related-entries "Related Entries">>
 
-<<toc [[Master Document]]>>
+<<related-entries>>

@@ -1,0 +1,23 @@
+created: 20220709143412878
+modified: 20220709143448199
+tags: $:/tags/Macro Macros
+title: $:/kmr/Macros/anchors
+type: text/vnd.tiddlywiki
+
+\define anchor(text)
+<$set name="id-text" filter="[[$text$]split[ ]join[-]addprefix[#]]">
+<a id=<<id-text>> >$text$</a>
+</$set>
+\end
+
+\define link-to-anchor(text)
+<$set name="id-text" filter="[[$text$]split[ ]join[-]addprefix[##]]" >
+<a style="color:inherit;" href=<<id-text>> >$text$</a>
+</$set>
+\end
+
+\define anchored-header(level, text)
+<$set name="id-text" filter="[[$text$]split[ ]join[-]addprefix[#]]" >
+<a id=<<id-text>> ><h$level$>$text$</h$level$></a>
+</$set>
+\end
