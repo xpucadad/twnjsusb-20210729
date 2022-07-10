@@ -1,5 +1,5 @@
 created: 20220610162554595
-modified: 20220709213032202
+modified: 20220710185121638
 tags: $:/tags/Macro Macros
 title: $:/kmr/Macros/related-entries
 type: text/vnd.tiddlywiki
@@ -14,8 +14,19 @@ type: text/vnd.tiddlywiki
 </$set> <!-- c-o-t -->
 <$transclude mode="block"/>
 <$set name="top-id" filter="[<journal-title>split[ ]join[-]addprefix[##]]" >
+<!--
 <a href=<<top-id>> style="color:inherit; font-size:0.75em;">Back to Top</a>
-<!-- Here's where to insert the detach entry button. -->
+-->
+<!-- Here's where to insert the back to top and detach entry buttons. -->
+
+<span style="float:left;">
+<a href=<<top-id>> style="color:inherit; font-size:0.75em;">Back to Top</a>
+</span>
+<span style="float:right;">
+right
+</span>
+<br>
+
 </$set> <!-- top-id -->
 <hr class="tc-tiddlylink tc-tiddlylink-resolves" style="border: 3px solid;">
 </$list>

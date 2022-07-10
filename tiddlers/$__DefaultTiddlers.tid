@@ -1,7 +1,6 @@
 created: 20210621164720465
-modified: 20211230174932266
+modified: 20220710185210367
 title: $:/DefaultTiddlers
 type: text/vnd.tiddlywiki
 
-[[THIS IS A SANDBOX TIDDLYWIKI!]]
-[[Contents]]
+[list[$:/StoryList]]
