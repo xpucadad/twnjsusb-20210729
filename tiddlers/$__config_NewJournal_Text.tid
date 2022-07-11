@@ -1,11 +1,8 @@
 created: 20220702193230605
-modified: 20220702193334190
+modified: 20220711170651866
 title: $:/config/NewJournal/Text
 type: text/vnd.tiddlywiki
 
-!! Goals for the day
-*
+<<TOC-related-entries "Entries">>
 
-!! Scheduled events
-
-!! Journal
+<<related-entries>>

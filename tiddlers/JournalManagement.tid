@@ -1,0 +1,54 @@
+created: 20220711160101260
+modified: 20220711173729498
+tags: Tools
+title: JournalManagement
+type: text/vnd.tiddlywiki
+
+\define make-full-parent-filter()
+$(uf)$ +$(mf)$
+\end
+
+<!-- select 1 parent using filter -->
+!! Enter filter to select parent
+
+<$edit-text 
+  tiddler="$:/kmr/JournalManagement/Parameters"
+  index="parent-filter"
+  size=50
+  default="[[]]"
+  placeholder="Enter filter to select a parent"
+  tag="input"
+/>
+
+<$set name="uf" tiddler="$:/kmr/JournalManagement/Parameters" index="parent-filter" >
+<$set name="mf" value="[!is[draft]sort[]first[]]" >
+<$set name="full-parent-filter" value=
+  <<make-full-parent-filter>> >
+
+<$list filter=<<full-parent-filter>> >
+<$set name="parent" value=<<currentTiddler>> >
+<table>
+<tr><th>Parent Tiddler</th></tr>
+<tr><td><$link to=<<parent>> /></td></tr>
+</table>
+<table>
+<tr><th>Associated Entries</th><th/></tr>
+
+<$list filter="[all[current]tagging[]]">
+<$set name="child" value=<<currentTiddler>> >
+<tr><td><$link/></td><td>{{$:/kmr/DetachEntryButton}}</td></tr>
+</$set> <!-- child -->
+</$list>
+</table>
+</$set> <!-- parent -->
+
+
+
+</$list>
+
+</$set> <!-- full-parent-filter -->
+</$set> <!-- mf -->
+</$set> <!-- uf -->
+<!-- select entries to attach/detach by filter -->
+
+{{AttachEntriesButton}} {{DetachEntriesButton}}
