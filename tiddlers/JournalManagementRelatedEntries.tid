@@ -1,0 +1,21 @@
+created: 20220712210353024
+modified: 20220712211651738
+tags: 
+title: JournalManagementRelatedEntries
+type: text/vnd.tiddlywiki
+
+
+<table>
+<tr><th colspan:3>Related Entries</th></tr>
+
+<$list filter="[<parent>tagging[]]" emptyMessage="<tr><td colspan:3>Parent Has No Related Entries</td></tr>">
+<$set name="child" value=<<currentTiddler>> >
+  <tr>
+    <td><$link/></td>
+    <td>{{$:/kmr/DetachEntryButton}}</td>
+    <td>{{$:/kmr/DeleteEntryButton}}</td>
+  </tr>
+</$set> <!-- child -->
+
+</$list>
+</table>

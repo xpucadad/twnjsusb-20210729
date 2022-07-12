@@ -1,7 +1,7 @@
 created: 20220706190648759
-modified: 20220706192140535
+modified: 20220712162549364
 tags: 
-title: DeleteTiddler
+title: $:/kmr/DeleteEntryButton
 type: text/vnd.tiddlywiki
 
 \define action-delete-tiddler()
@@ -10,6 +10,5 @@ type: text/vnd.tiddlywiki
 
 <$set name="tiddler-to-delete" value=<<currentTiddler>> >
 <$button
-  actions=<<action-delete-tiddler>>
-  > Click me</$button>
+  actions=<<action-delete-tiddler>> class="tc-btn-invisible tc-tiddlylink">Delete</$button>
 </$set>

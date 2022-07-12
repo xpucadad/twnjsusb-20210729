@@ -1,0 +1,24 @@
+created: 20220712203644527
+modified: 20220712205331309
+tags: 
+title: Filter and Macro Play Detach
+type: text/vnd.tiddlywiki
+
+parent: <<parent>><br>
+currentTiddler: <<currentTiddler>><br>
+
+!! Constant
+<$list filter="[[2022-07-11 Monday]tagging[]]" emptyMessage="none">
+<$link/><br>
+</$list>
+
+!! Using `parent` 
+<$list filter="[<parent>tagging[]]" emptyMessage="none">
+<$link/><br>
+</$list>
+
+!! Using all[current]
+<$list filter="[all[current]tagging[]]" emptyMessage="none">
+<$link/><br>
+</$list>
+

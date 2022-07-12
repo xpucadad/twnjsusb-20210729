@@ -1,0 +1,31 @@
+created: 20220712172121484
+modified: 20220712210706781
+tags: 
+title: Filter and Macro Play
+type: text/vnd.tiddlywiki
+
+\define make-full-filter()
+$(prefix)$ +$(infix)$ +$(suffix)$
+\end
+
+<$set name="prefix" value="[tag[Journals]!is[draft]]" >
+<$set name="infix" value="[prefix[2022-07-11]]" >
+<$set name="suffix" value="[sort[]first[]]" >
+
+<$set name="full-parent-filter" value=<<make-full-filter >> >
+
+full-parent-filter:<br> <<full-parent-filter>><br>
+
+<$list filter=<<full-parent-filter>> >
+<$link/>
+<$set name="parent" value=<<currentTiddler>> >
+
+{{Filter and Macro Play Detach}}
+
+</$set> <!-- parent -->
+</$list>
+
+</$set>
+</$set>
+</$set>
+</$set>

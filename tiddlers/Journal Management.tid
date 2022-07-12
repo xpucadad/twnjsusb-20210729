@@ -1,0 +1,52 @@
+created: 20220711160101260
+modified: 20220712213352192
+tags: Tools
+title: Journal Management
+type: text/vnd.tiddlywiki
+
+\define make-full-filter()
+$(prefix)$ +$(infix)$ +$(suffix)$
+\end
+
+<!-- select 1 parent using filter -->
+!! Enter filter to select parent
+
+<$edit-text 
+  tiddler="$:/kmr/JournalManagement/Parameters"
+  index="parent-filter"
+  size=50
+  default="[[]]"
+  placeholder="Enter filter to select a parent"
+  tag="input"
+/>
+
+<$set name="infix" tiddler="$:/kmr/JournalManagement/Parameters" index="parent-filter" >
+<$set name="prefix" value="[tag[Journals]!is[draft]]" >
+<$set name="suffix" value="[sort[]first[]]" >
+<$set name="full-parent-filter" value=<<make-full-filter>> >
+
+|!Full Filter Used|
+|<<full-parent-filter>>|
+
+<$list filter=<<full-parent-filter>> emptyMessage="<br><br>''No Matching Entries''">
+<$set name="parent" value=<<currentTiddler>> >
+
+<table>
+<tr><th>Parent Tiddler</th></tr>
+<tr><td><$link to=<<parent>> /></td></tr>
+</table>
+
+
+{{JournalManagementRelatedEntries}}
+{{JournalManagementUnrelatedEntries}}
+
+</$set> <!-- parent -->
+
+
+
+</$list>
+
+</$set> <!-- full-parent-filter -->
+</$set> <!-- parent-filter-suffix -->
+</$set> <!-- parent-filter-prefix -->
+</$set> <!-- parent-filter-infex -->

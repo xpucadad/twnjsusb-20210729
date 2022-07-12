@@ -1,3 +1,4 @@
 {
-    "parent-filter": "[tag[Journals]prefix[2022-07-1f]]"
+    "parent-filter": "[prefix[2022-07-11]]",
+    "unrelated-entries-filter": "[prefix[2022-06]]"
 }

@@ -1,5 +1,5 @@
 created: 20220709144032596
-modified: 20220711173840666
+modified: 20220712165121402
 tags: 
 title: $:/kmr/DetachEntryButton
 type: text/vnd.tiddlywiki
@@ -11,5 +11,5 @@ type: text/vnd.tiddlywiki
 \end
 
 <$button actions=<<detach-button-actions>> class="tc-btn-invisible tc-tiddlylink">
-Detach Entry
+Detach
 </$button>
