@@ -1,0 +1,16 @@
+created: 20220713173248528
+modified: 20220713174645131
+tags: 
+title: Test Unrelated
+type: text/vnd.tiddlywiki
+
+\define make-full-filter()
+$(prefix)$ +$(infix)$ +$(suffix)$
+\end
+
+
+<$set name="parent" value="[[2022-07-11 Monday]]" >
+
+{{JournalManagementUnrelatedEntries}}
+
+</$set>

@@ -1,5 +1,5 @@
 created: 20220711160101260
-modified: 20220713023733739
+modified: 20220713173333559
 tags: Tools
 title: Journal Management
 type: text/vnd.tiddlywiki
@@ -15,8 +15,6 @@ $(prefix)$ +$(infix)$ +$(suffix)$
   tiddler="$:/kmr/JournalManagement/Parameters"
   index="parent-filter"
   size=50
-  default="[[]]"
-  placeholder="Enter filter to select a parent"
   tag="input"
 />
 
@@ -28,7 +26,7 @@ $(prefix)$ +$(infix)$ +$(suffix)$
 |!Full Filter Used|
 |<<full-parent-filter>>|
 
-<$list filter=<<full-parent-filter>> emptyMessage="<br><br>''No Matching Entries''">
+<$list filter=<<full-parent-filter>> emptyMessage="''No Matching Entries''">
 <$set name="parent" value=<<currentTiddler>> >
 
 <table>

@@ -1,5 +1,5 @@
 created: 20220712210906926
-modified: 20220713034141995
+modified: 20220713183349305
 tags: 
 title: JournalManagementUnrelatedEntries
 type: text/vnd.tiddlywiki
@@ -18,9 +18,15 @@ currentTiddler: <<currentTiddler>><br>
 parent: <<parent>><br>
 
 <$set name="infix" tiddler="$:/kmr/JournalManagement/Parameters" index="unrelated-filter" >
-<$set name="prefix" value="[!tag[Journals]!tag<parent>!is[system]!is[shadow]]" >
+infix: <<infix>><br>
 <$set name="suffix" value="[sort[]]" >
+suffix: <<suffix>><br>
+
+<$set name="prefix" value="[!tag[2022-07-11 Monday]] +[!tag[Journals]!is[system]!is[shadow]]" >
+
+prefix: <<prefix>><br>
 <$set name="unrelated-entries-filter" value=<<make-full-filter>> >
+
 
 |!Full Filter Used|
 |<<unrelated-entries-filter>>|
@@ -38,3 +44,7 @@ parent: <<parent>><br>
 
 </$list>
 </table>
+</$set>
+</$set>
+</$set>
+</$set>
