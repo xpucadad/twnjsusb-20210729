@@ -1,26 +1,25 @@
 created: 20220712210906926
-modified: 20220712214941552
+modified: 20220713034141995
 tags: 
 title: JournalManagementUnrelatedEntries
 type: text/vnd.tiddlywiki
 
-!! Enter filter for unrelated entris
+!! Enter Filter for Unrelated Entries
+
+currentTiddler: <<currentTiddler>><br>
 
 <$edit-text 
   tiddler="$:/kmr/JournalManagement/Parameters"
-  index="unrelated-entries-filter"
+  index="unrelated-filter"
   size=50
-  default="[[]]"
-  placeholder="Enter filter for unrelated entries"
   tag="input"
 />
 
 parent: <<parent>><br>
 
-<$set name="infix" tiddler="$:/kmr/JournalManagement/Parameters" index="unrelated-entries-filter" >
-<$set name="prefix" value="[!tag<parent>!is[system]!is[shadow]]" >
+<$set name="infix" tiddler="$:/kmr/JournalManagement/Parameters" index="unrelated-filter" >
+<$set name="prefix" value="[!tag[Journals]!tag<parent>!is[system]!is[shadow]]" >
 <$set name="suffix" value="[sort[]]" >
-
 <$set name="unrelated-entries-filter" value=<<make-full-filter>> >
 
 |!Full Filter Used|
@@ -29,7 +28,7 @@ parent: <<parent>><br>
 <table>
 <tr><th colspan:2>Unrelated Entries</th></tr>
 
-<$list filter=<<unrelated-entries-filter>>  emptyMessage="<tr><td colspan:2>Parent Has No Related Entries</td></tr>">
+<$list filter=<<unrelated-entries-filter>>  emptyMessage="<tr><td colspan:2>Parent Has No Matching Unrelated Entries</td></tr>">
 <$set name="child" value=<<currentTiddler>> >
   <tr>
     <td><$link/></td>
