@@ -1,8 +1,12 @@
 created: 20220712210906926
-modified: 20220713183349305
+modified: 20220714201302901
 tags: 
 title: JournalManagementUnrelatedEntries
 type: text/vnd.tiddlywiki
+
+\define make-unrelated-prefix()
+[!tag[$(parent)$]!tag[Journals]!is[system]!is[shadow]!is[draft]]
+\end
 
 !! Enter Filter for Unrelated Entries
 
@@ -19,10 +23,11 @@ parent: <<parent>><br>
 
 <$set name="infix" tiddler="$:/kmr/JournalManagement/Parameters" index="unrelated-filter" >
 infix: <<infix>><br>
+
 <$set name="suffix" value="[sort[]]" >
 suffix: <<suffix>><br>
 
-<$set name="prefix" value="[!tag[2022-07-11 Monday]] +[!tag[Journals]!is[system]!is[shadow]]" >
+<$set name="prefix" value=<<make-unrelated-prefix>> >
 
 prefix: <<prefix>><br>
 <$set name="unrelated-entries-filter" value=<<make-full-filter>> >

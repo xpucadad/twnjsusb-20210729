@@ -1,2 +1,2 @@
-parent-filter: [prefix[2022-07-11]]
+parent-filter: [search:title[Monday]]
 unrelated-filter: [prefix[2022-07]]
