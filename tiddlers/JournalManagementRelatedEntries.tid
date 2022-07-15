@@ -1,5 +1,5 @@
 created: 20220712210353024
-modified: 20220712211651738
+modified: 20220715160558239
 tags: 
 title: JournalManagementRelatedEntries
 type: text/vnd.tiddlywiki
@@ -13,7 +13,8 @@ type: text/vnd.tiddlywiki
   <tr>
     <td><$link/></td>
     <td>{{$:/kmr/DetachEntryButton}}</td>
-    <td>{{$:/kmr/DeleteEntryButton}}</td>
+<!--    <td>{{$:/kmr/DeleteEntryButton}}</td> -->
+<!-- It's too easy to hit delete by mistake -->
   </tr>
 </$set> <!-- child -->
 

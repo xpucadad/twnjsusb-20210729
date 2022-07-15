@@ -1,5 +1,5 @@
 created: 20220712210906926
-modified: 20220715044943599
+modified: 20220715162712072
 tags: 
 title: JournalManagementUnrelatedEntries
 type: text/vnd.tiddlywiki
@@ -8,24 +8,30 @@ type: text/vnd.tiddlywiki
 [!tag[$(parent)$]!tag[Journals]!is[system]!is[shadow]!is[draft]]
 \end
 
-parent: <<parent>><br>
+<!-- parent: <<parent>><br> -->
 
-!! Enter Filter for Unrelated Entries
-
+<table>
+<tr><th style="text-align:left;font-size:1.5em;">Enter Filter for Unrelated Entries:</th></tr>
+<tr><td>
 <$edit-text 
   tiddler=<<param-tiddler>>
   index="unrelated-filter"
   size=50
   tag="input"
 />
+</td></tr>
+</table>
 
 <$set name="infix" tiddler=<<param-tiddler>> index="unrelated-filter" >
-infix: <<infix>><br>
 <$set name="suffix" value="[sort[]]" >
-suffix: <<suffix>><br>
 <$set name="prefix" value=<<make-unrelated-prefix>> >
-prefix: <<prefix>><br>
 <$set name="unrelated-entries-filter" value=<<make-full-filter>> >
+
+<!--
+prefix: <<prefix>><br>
+infix: <<infix>><br>
+suffix: <<suffix>><br>
+-->
 
 |! Full Filter Used|
 |<<unrelated-entries-filter>>|

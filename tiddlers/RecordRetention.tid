@@ -1,5 +1,5 @@
 created: 20220705185831603
-modified: 20220705192517497
+modified: 20220715163747959
 tags: 
 title: RecordRetention
 type: text/vnd.tiddlywiki
@@ -8,7 +8,7 @@ type: text/vnd.tiddlywiki
 <table>
 <tr><th>Tiddler</th><th>Expired</th></tr>
 <$list filter="[has[delete-date]!days:delete-date[-1]sort[delete-date]]">
-<tr><td><$link/></td><td>{{!!delete-date}}</td></tr>
+<tr><td><$link/></td><td>@@color:red;{{!!delete-date}}@@</td></tr>
 </$list>
 </table>
 

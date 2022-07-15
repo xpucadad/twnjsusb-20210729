@@ -1,0 +1,7 @@
+created: 20220715164009867
+modified: 20220715164153919
+tags: Buttons
+title: $:/kmr/DeleteJournalButton
+type: text/vnd.tiddlywiki
+
+<$button>Delete Journal and Attached Entries</$button> @@color:red;<== Dummy Button@@
