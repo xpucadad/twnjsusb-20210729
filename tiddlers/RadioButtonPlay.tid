@@ -1,0 +1,27 @@
+created: 20220716171704083
+modified: 20220716175148732
+tags: 
+title: RadioButtonPlay
+type: text/vnd.tiddlywiki
+
+\define param-tiddler()
+$:/temp/RadioButtonPlay/params
+\end
+
+<table>
+<tr><th>Choose a Journal</th></tr>
+<$list filter="[prefix[2022]]">
+<tr><td><$radio 
+  tiddler=<<param-tiddler>>
+  index="chosen-radio"
+  default=""
+  value=<<currentTiddler>> > {{!!title}}
+</$radio></td></tr>
+</$list>
+</table>
+
+<$set name="parent" tiddler=<<param-tiddler>> index="chosen-radio" >
+
+<<parent>>
+
+</$set>

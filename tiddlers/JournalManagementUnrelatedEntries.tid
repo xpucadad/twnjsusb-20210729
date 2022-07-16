@@ -1,8 +1,11 @@
 created: 20220712210906926
-modified: 20220716042613412
+modified: 20220716184909032
 title: JournalManagementUnrelatedEntries
 type: text/vnd.tiddlywiki
 
+\define param-tiddler()
+$:/temp/JournalManagementUnrelatedEntries/params
+\end
 \define unrelated-filter-prefix()
 [!tag[$(parent)$]!tag[Journals]is[tiddler]!prefix[$:/]!is[draft]]
 \end

@@ -1,10 +1,10 @@
 created: 20220716031252200
-modified: 20220716042149113
+modified: 20220716184337593
 title: Journal Management
 type: text/vnd.tiddlywiki
 
 \define param-tiddler()
-$:/temp/$(currentTiddler)$/params
+$:/temp/JournalManagement/params
 \end
 
 \define parent-filter-prefix()
@@ -12,29 +12,40 @@ $:/temp/$(currentTiddler)$/params
 \end
 
 \define parent-filter-suffix()
-[sort[]first[]]
+[sort[]]
 \end
 
 \define full-parent-filter()
 $(parent-filter-prefix)$ +$(parent-filter-infix)$ +$(parent-filter-suffix)$
 \end
 
-<$edit tag="input" tiddler=<<param-tiddler>> index="parent-user-filter"/>
+<table>
+<tr><th>Enter Filter to Reduce Journal List</th></tr>
+<tr><td><$edit-text tag="input" size="50" tiddler=<<param-tiddler>> default="[]" placeholder="[]" index="parent-user-filter"/></td></tr>
+</table>
 
 <$set name="parent-filter-infix" tiddler=<<param-tiddler>> index="parent-user-filter" >
 
-parent-filter-infix: <<parent-filter-infix>><br>
+<table>
+<tr><th>Choose a Journal</th></tr>
+<$list filter=<<full-parent-filter>> emptyMessage="No Matching Tiddlers Found">
+<tr><td>
+<$radio
+  tiddler=<<param-tiddler>>
+  index="selected-journal"
+  default=""
+  value=<<currentTiddler>> > {{!!title}}
+</$radio></td></tr>
+</$list>
+</table>
 
-full-parent-filter: <<full-parent-filter>><br>
+<$set name="parent" tiddler=<<param-tiddler>> index="selected-journal" >
 
-<$list filter=<<full-parent-filter>> >
-<$link/><br>
-<$let parent=<<currentTiddler>> >
+parent: <<parent>><br>
 
 {{JournalManagementRelatedEntries}}
 
 {{JournalManagementUnrelatedEntries}}
 
-</$let> <!-- parent -->
-</$list>
+</$set> <!-- parent -->
 </$set> <!-- parent-filter-infix -->
