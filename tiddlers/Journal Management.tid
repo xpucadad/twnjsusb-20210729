@@ -1,5 +1,5 @@
 created: 20220716031252200
-modified: 20220716184337593
+modified: 20220716214342945
 title: Journal Management
 type: text/vnd.tiddlywiki
 
@@ -21,13 +21,22 @@ $(parent-filter-prefix)$ +$(parent-filter-infix)$ +$(parent-filter-suffix)$
 
 <table>
 <tr><th>Enter Filter to Reduce Journal List</th></tr>
-<tr><td><$edit-text tag="input" size="50" tiddler=<<param-tiddler>> default="[]" placeholder="[]" index="parent-user-filter"/></td></tr>
+<tr><td><$edit-text tag="input" size="50" tiddler="<<param-tiddler>>" index="parent-user-filter" default="[search[]]" /></td></tr>
 </table>
 
-<$set name="parent-filter-infix" tiddler=<<param-tiddler>> index="parent-user-filter" >
+<$set name="parent-filter-infix" tiddler="<<param-tiddler>>" index="parent-user-filter" emptyValue="[search[]]">
+
+parent-filter-infix: <<parent-filter-infix>><br>
+full-parent-filter: <<full-parent-filter>><br>
 
 <table>
 <tr><th>Choose a Journal</th></tr>
+<tr><td><$radio
+  tiddler=<<param-tiddler>>
+  index="selected-journal"
+  default="Yes"
+  value="" > None
+</$radio></td></tr>
 <$list filter=<<full-parent-filter>> emptyMessage="No Matching Tiddlers Found">
 <tr><td>
 <$radio
@@ -43,9 +52,13 @@ $(parent-filter-prefix)$ +$(parent-filter-infix)$ +$(parent-filter-suffix)$
 
 parent: <<parent>><br>
 
+<$list filter="[<parent>!prefix[+]first[]]" emptyMessage="Empty" >
+"Other stuff..."
+<!--
 {{JournalManagementRelatedEntries}}
 
 {{JournalManagementUnrelatedEntries}}
-
+-->
+</$list>
 </$set> <!-- parent -->
 </$set> <!-- parent-filter-infix -->
