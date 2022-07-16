@@ -1,0 +1,13 @@
+created: 20220716042819680
+modified: 20220716043157793
+tags: [[2022-07-14 Journal Management Journal]]
+title: 2022-07-15T21:28:19
+type: text/vnd.tiddlywiki
+
+We really need to implement a better way to select the journal. probably a table with radio buttons to select the journal.
+
+So - set up a learning tiddler with radio buttons.
+
+# present full list of journals based on user filter, with radio buttons to accept.
+# set `parent` based on user selected radio button
+

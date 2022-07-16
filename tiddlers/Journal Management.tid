@@ -1,6 +1,5 @@
-created: 20220711160101260
-modified: 20220715162946077
-tags: Tools
+created: 20220716031252200
+modified: 20220716042149113
 title: Journal Management
 type: text/vnd.tiddlywiki
 
@@ -8,56 +7,34 @@ type: text/vnd.tiddlywiki
 $:/temp/$(currentTiddler)$/params
 \end
 
-\define make-full-filter()
-$(prefix)$ +$(infix)$ +$(suffix)$
+\define parent-filter-prefix()
+[tag[Journals]!is[draft]]
 \end
 
-<!-- param-tiddler: <$text text=<<param-tiddler>> /><br> -->
+\define parent-filter-suffix()
+[sort[]first[]]
+\end
 
-<!-- select 1 parent using filter -->
-<table>
-<tr><th style="text-align:left;font-size:1.5em;">fEnter filter to select parent:</th></tr>
-<tr><td>
-<$edit-text 
-  tiddler=<<param-tiddler>>
-  index="parent-filter"
-  size=50
-  tag="input"
-/>
-</td></tr>
-</table>
+\define full-parent-filter()
+$(parent-filter-prefix)$ +$(parent-filter-infix)$ +$(parent-filter-suffix)$
+\end
 
-<$set name="infix" tiddler=<<param-tiddler>> index="parent-filter" >
-<$set name="prefix" value="[tag[Journals]!is[draft]]" >
-<$set name="suffix" value="[sort[]first[]]" >
-<$set name="full-parent-filter" value=<<make-full-filter>> >
+<$edit tag="input" tiddler=<<param-tiddler>> index="parent-user-filter"/>
 
-<!--
-prefix: <<prefix>><br>
-infix: <<infix>><br>
-suffix: <<suffix>><br>
--->
+<$set name="parent-filter-infix" tiddler=<<param-tiddler>> index="parent-user-filter" >
 
-|!Full Filter Used|
-|<<full-parent-filter>>|
+parent-filter-infix: <<parent-filter-infix>><br>
 
-<$list filter=<<full-parent-filter>> emptyMessage="''No Matching Entries''">
-<$set name="parent" value=<<currentTiddler>> >
+full-parent-filter: <<full-parent-filter>><br>
 
-<table>
-<tr><th>Parent Tiddler</th></tr>
-<tr><td><$link to=<<parent>> /></td></tr>
-</table>
-
+<$list filter=<<full-parent-filter>> >
+<$link/><br>
+<$let parent=<<currentTiddler>> >
 
 {{JournalManagementRelatedEntries}}
+
 {{JournalManagementUnrelatedEntries}}
 
-</$set> <!-- parent -->
-
-</$list> <!-- parent selection list -->
-
-</$set> <!-- full-parent-filter -->
-</$set> <!-- parent-filter-suffix -->
-</$set> <!-- parent-filter-prefix -->
-</$set> <!-- parent-filter-infex -->
+</$let> <!-- parent -->
+</$list>
+</$set> <!-- parent-filter-infix -->

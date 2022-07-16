@@ -1,11 +1,18 @@
 created: 20220712210906926
-modified: 20220715162712072
-tags: 
+modified: 20220716042613412
 title: JournalManagementUnrelatedEntries
 type: text/vnd.tiddlywiki
 
-\define make-unrelated-prefix()
-[!tag[$(parent)$]!tag[Journals]!is[system]!is[shadow]!is[draft]]
+\define unrelated-filter-prefix()
+[!tag[$(parent)$]!tag[Journals]is[tiddler]!prefix[$:/]!is[draft]]
+\end
+
+\define unrelated-filter-suffix()
+[sort[]]
+\end
+
+\define full-unrelated-filter()
+$(unrelated-filter-prefix)$ +$(unrelated-filter-infix)$ +$(unrelated-filter-suffix)$
 \end
 
 <!-- parent: <<parent>><br> -->
@@ -15,31 +22,22 @@ type: text/vnd.tiddlywiki
 <tr><td>
 <$edit-text 
   tiddler=<<param-tiddler>>
-  index="unrelated-filter"
+  index="unrelated-user-filter"
   size=50
   tag="input"
 />
 </td></tr>
 </table>
 
-<$set name="infix" tiddler=<<param-tiddler>> index="unrelated-filter" >
-<$set name="suffix" value="[sort[]]" >
-<$set name="prefix" value=<<make-unrelated-prefix>> >
-<$set name="unrelated-entries-filter" value=<<make-full-filter>> >
-
-<!--
-prefix: <<prefix>><br>
-infix: <<infix>><br>
-suffix: <<suffix>><br>
--->
+<$set name="unrelated-filter-infix" tiddler=<<param-tiddler>> index="unrelated-user-filter" >
 
 |! Full Filter Used|
-|<<unrelated-entries-filter>>|
+|<<full-unrelated-filter>>|
 
 <table>
 <tr><th colspan:2>Unrelated Entries</th></tr>
 
-<$list filter=<<unrelated-entries-filter>>  emptyMessage="<tr><td colspan:2>Parent Has No Matching Unrelated Entries</td></tr>">
+<$list filter=<<full-unrelated-filter>>  emptyMessage="<tr><td colspan:2>Parent Has No Matching Unrelated Entries</td></tr>">
 <$set name="child" value=<<currentTiddler>> >
   <tr>
     <td><$link/></td>
@@ -47,9 +45,6 @@ suffix: <<suffix>><br>
   </tr>
 </$set> <!-- child -->
 
-</$list>
+</$list> <!-- unrelated child list -->
 </table>
-</$set>
-</$set>
-</$set>
-</$set>
+</$set> <!-- unrelated-filter-infix -->
