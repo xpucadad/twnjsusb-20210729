@@ -1,6 +1,17 @@
 created: 20220715164009867
-modified: 20220716022621442
+modified: 20220717203016653
 title: $:/kmr/DeleteJournalButton
 type: text/vnd.tiddlywiki
 
+journal: <<journal>><br> <!-- the journal to delete -->
+entry: <<entry>><br> <!-- Is this needed in this case. Don't think it is. -->
+param-tiddler: <<param-tiddler>><br> <!-- containing radio button index if journal is in a radio button scenario -->
+index: <<index>><br> <!-- index that's store the selected radio button -->
+
+<!-- Button Actions
+1. If journal, delete all related-entries
+2. ?? check index in param-tiddler. If it matches journal title, then set it back to "None"
+3. Delete Journal
+
+-->
 <$button>Delete Journal and Attached Entries</$button> @@color:red;<== Dummy Button@@
