@@ -1,0 +1,36 @@
+created: 20220717162007829
+modified: 20220717173442144
+tags: 
+title: Radio Shit
+type: text/vnd.tiddlywiki
+
+\define param-tiddler()
+$:/temp/RadioShit/params
+\end
+
+\define radio-actions()
+<$action-sendmessage $message="tm-notify" $param="RadioShitNotificationTemplate" value=<<actionValue>> current=<<currentTiddler>> />
+\end
+
+<$set name="parent" value="2022-07-11 Monday" >
+
+Journal: ''<$link to=<<parent>> text=<<parent>> />''
+
+<table>
+<tr><th>Attached Entries</th></tr>
+<tr><td><$radio tiddler=<<param-tiddler>> index="selected-child" value="None" default="None">None</$radio></td></tr>
+<$list filter="[<parent>tagging[]]" >
+<tr><td>
+<$radio 
+  actions=<<radio-actions>>
+  tiddler=<<param-tiddler>> 
+  index="selected-child" 
+  value=<<currentTiddler>> 
+  default="None" >{{!!title}}</$radio></td></tr>
+</$list>
+
+</table>
+
+<$set name="selected-child" tiddler=<<param-tiddler>> index="selected-child">
+
+selected-child: <<selected-child>><br>
