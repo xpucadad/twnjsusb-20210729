@@ -1,5 +1,5 @@
 created: 20220716031252200
-modified: 20220716214342945
+modified: 20220718023203948
 title: Journal Management
 type: text/vnd.tiddlywiki
 
@@ -34,9 +34,8 @@ full-parent-filter: <<full-parent-filter>><br>
 <tr><td><$radio
   tiddler=<<param-tiddler>>
   index="selected-journal"
-  default="Yes"
-  value="" > None
-</$radio></td></tr>
+  default="None"
+  value="None" >None</$radio></td></tr>
 <$list filter=<<full-parent-filter>> emptyMessage="No Matching Tiddlers Found">
 <tr><td>
 <$radio

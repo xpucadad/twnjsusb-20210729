@@ -1,5 +1,5 @@
 created: 20220717162007829
-modified: 20220717173442144
+modified: 20220718024407372
 tags: 
 title: Radio Shit
 type: text/vnd.tiddlywiki
@@ -17,8 +17,11 @@ $:/temp/RadioShit/params
 Journal: ''<$link to=<<parent>> text=<<parent>> />''
 
 <table>
-<tr><th>Attached Entries</th></tr>
-<tr><td><$radio tiddler=<<param-tiddler>> index="selected-child" value="None" default="None">None</$radio></td></tr>
+<tr><th colspan:2>Attached Entries</th></tr>
+<tr><td><$radio tiddler=<<param-tiddler>> index="selected-child" value="None" default="None">None</$radio></td>
+<td colspan:2/>
+</tr>
+
 <$list filter="[<parent>tagging[]]" >
 <tr><td>
 <$radio 
@@ -26,7 +29,10 @@ Journal: ''<$link to=<<parent>> text=<<parent>> />''
   tiddler=<<param-tiddler>> 
   index="selected-child" 
   value=<<currentTiddler>> 
-  default="None" >{{!!title}}</$radio></td></tr>
+  default="None" >{{!!title}}</$radio></td>
+  <td>{{DeleteJournalButton}}</td>
+</tr>
+
 </$list>
 
 </table>
