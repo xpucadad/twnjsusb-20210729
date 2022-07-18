@@ -1,5 +1,5 @@
 created: 20220709144032596
-modified: 20220717203717535
+modified: 20220718205408949
 title: $:/kmr/DetachEntryButton
 type: text/vnd.tiddlywiki
 
@@ -8,12 +8,6 @@ type: text/vnd.tiddlywiki
 <$action-sendmessage $message="tm-remove-tag" $param="$(parent)$" />
 </$fieldmangler>
 \end
-
-<!-- more button actions before the remove tag 
-1. If param-tiddler provided, retrieve the value for the provided index. (This will be the entry currently selected for the radio button.)
-2. If the provided entry matches the index value, set the index to "None"
-3. Remove the tag named in journal from the entry.
--->
 
 <$button actions=<<detach-button-actions>> class="tc-btn-invisible tc-tiddlylink">
 Detach

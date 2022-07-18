@@ -1,25 +1,15 @@
 created: 20220706190648759
-modified: 20220717203237978
+modified: 20220718210515970
 title: $:/kmr/DeleteEntryButton
 type: text/vnd.tiddlywiki
 
 \define action-delete-tiddler()
-<$log />
+<$action-log $$message="Delete Entry Button pressed" child=<<child>> />
 \end
 
-journal: <<journal>><br> <!-- the journal the entry is related to -->
-entry: <<entry>><br> <!-- The entry to delete. -->
-param-tiddler: <<param-tiddler>><br> <!-- containing radio button index if entry is in a radio button scenario -->
-index: <<index>><br> <!-- index that stores the selected radio button -->
-
-<!-- Button Actions
-1. If param-tiddler provided, fetch the value at the provide index. If the value matches the entry, than update the index to "None".
-2. Delete the entry.
-
+<!--
+child: <<child>><br>
 -->
 
-
-<$set name="tiddler-to-delete" value=<<currentTiddler>> >
 <$button
   actions=<<action-delete-tiddler>> class="tc-btn-invisible tc-tiddlylink">Delete</$button>
-</$set>

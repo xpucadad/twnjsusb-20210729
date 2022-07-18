@@ -1,5 +1,5 @@
 created: 20220717162007829
-modified: 20220718024407372
+modified: 20220718211452226
 tags: 
 title: Radio Shit
 type: text/vnd.tiddlywiki
@@ -8,29 +8,30 @@ type: text/vnd.tiddlywiki
 $:/temp/RadioShit/params
 \end
 
-\define radio-actions()
-<$action-sendmessage $message="tm-notify" $param="RadioShitNotificationTemplate" value=<<actionValue>> current=<<currentTiddler>> />
+\define parent-input-actions()
+<$action-setfield $tiddler=<<param-tiddler>> $index="selected-child" $value="None"/>
 \end
 
-<$set name="parent" value="2022-07-11 Monday" >
+''Enter Journal Tiddle Name''
+<$edit-text tiddler=<<param-tiddler>> index="selected-parent" default=""
+  placeholder="Enter Journal Tiddler Name" tag="input" size="50" inputActions=<<parent-input-actions>> />
+
+<$set name="parent" tiddler=<<param-tiddler>> index="selected-parent" >
 
 Journal: ''<$link to=<<parent>> text=<<parent>> />''
-
+!! Radio Button Version
 <table>
-<tr><th colspan:2>Attached Entries</th></tr>
+<tr><th>Attached Entries</th></tr>
 <tr><td><$radio tiddler=<<param-tiddler>> index="selected-child" value="None" default="None">None</$radio></td>
-<td colspan:2/>
 </tr>
 
 <$list filter="[<parent>tagging[]]" >
 <tr><td>
 <$radio 
-  actions=<<radio-actions>>
   tiddler=<<param-tiddler>> 
   index="selected-child" 
   value=<<currentTiddler>> 
   default="None" >{{!!title}}</$radio></td>
-  <td>{{DeleteJournalButton}}</td>
 </tr>
 
 </$list>
@@ -40,3 +41,25 @@ Journal: ''<$link to=<<parent>> text=<<parent>> />''
 <$set name="selected-child" tiddler=<<param-tiddler>> index="selected-child">
 
 selected-child: <<selected-child>><br>
+
+</$set>
+
+!! Detach and Delete Buttons
+
+<$checkbox tiddler=<<param-tiddler>> index="enable-delete" checked="{{$:/kmr/DeleteEntryButton}}" unchecked="" default="" >Enable Delete Button</$checkbox>
+
+<$set name="delete-button" tiddler=<<param-tiddler>> index="enable-delete" >
+
+delete-button: <<delete-button>><br>
+parent: <<parent>><br>
+
+<table>
+<tr><th>Attached Entries</th><th <<action-span>> >Actions</th></tr>
+<$list filter="[<parent>tagging[]]" >
+<$set name="child" value=<<currentTiddler>>  >
+<tr><td><$link/></td><td>{{$:/kmr/DetachEntryButton}} <<delete-button>></td></tr>
+</$set>
+</$list>
+</table>
+
+</$set>
