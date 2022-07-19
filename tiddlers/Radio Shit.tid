@@ -1,5 +1,5 @@
 created: 20220717162007829
-modified: 20220719014918736
+modified: 20220719164611389
 tags: 
 title: Radio Shit
 type: text/vnd.tiddlywiki
@@ -12,13 +12,20 @@ $:/temp/RadioShit/params
 <$action-setfield $tiddler=<<param-tiddler>> $index="selected-child" $value="None"/>
 \end
 
+\define gen-table-header()
+<tr><th>Attached Entries</th><th colspan:$(title-colspan)$>Actions</th></tr>
+\end
+
 ''Enter Journal Tiddle Name''
 <$edit-text tiddler=<<param-tiddler>> index="selected-parent" default=""
   placeholder="Enter Journal Tiddler Name" tag="input" size="50" inputActions=<<parent-input-actions>> />
 
 <$set name="parent" tiddler=<<param-tiddler>> index="selected-parent" >
 
+<!--
 Journal: ''<$link to=<<parent>> text=<<parent>> />''
+-->
+
 !! Radio Button Version
 <table>
 <tr><th>Attached Entries</th></tr>
@@ -40,7 +47,9 @@ Journal: ''<$link to=<<parent>> text=<<parent>> />''
 
 <$set name="selected-child" tiddler=<<param-tiddler>> index="selected-child">
 
+<!--
 selected-child: <<selected-child>><br>
+-->
 
 </$set>
 
@@ -50,18 +59,49 @@ selected-child: <<selected-child>><br>
 
 <$set name="disabled-delete" tiddler=<<param-tiddler>> index="disable-delete" >
 
+<!--
 disabled-delete: <<disabled-delete>><br>
 parent: <<parent>><br>
+-->
+
+<$set name="title-colspan" filter="[<disabled-delete>compare:string:eq[yes]then[1]else[2]]" >
+
+<!--
+title-colspan: <<title-colspan>><br>
+-->
+
+<$set name="table-header" value=<<gen-table-header>>  >
+
+<!--
+<$reveal stateTitle=<<param-tiddler>> stateIndex="disable-delete" 
+  type="match" text="no" default="yes">Reveal Delete Button</$reveal><br>
+-->
+
+<!-- This was not working
+<style>
+th[colspan="2"] {
+    text-align: center;
+}
+</style>
+-->
 
 <table>
-<tr><th>Attached Entries</th><th colspan="2" >Actions</th></tr>
+<<table-header>>
+<!--
+<tr><th>Attached Entries</th><th colspan:<<title-colspan>> >Actions</th></tr>
+-->
 <$list filter="[<parent>tagging[]]" >
 <$set name="child" value=<<currentTiddler>>  >
 <tr><td><$link/></td>
   <td>{{$:/kmr/DetachEntryButton}}</td> 
-  <td>{{$:/kmr/DeleteEntryButton}}</td></tr>
+  <$reveal stateTitle=<<param-tiddler>> stateIndex="disable-delete" 
+  type="match" text="no" default="yes">
+   <td>{{$:/kmr/DeleteEntryButton}}</td></$reveal>
+</tr>
 </$set>
 </$list>
 </table>
 
+</$set>
+</$set>
 </$set>
