@@ -1,5 +1,5 @@
 created: 20220712210906926
-modified: 20220718185218267
+modified: 20220719015708328
 title: JournalManagementUnrelatedEntries
 type: text/vnd.tiddlywiki
 
@@ -28,6 +28,8 @@ $(unrelated-filter-prefix)$ +$(unrelated-filter-infix)$ +$(unrelated-filter-suff
   index="unrelated-user-filter"
   size=50
   tag="input"
+  default="[search[]]"
+  placeholder="[search[]]"
 />
 </td></tr>
 </table>

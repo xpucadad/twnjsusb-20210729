@@ -1,5 +1,6 @@
 created: 20220709150612472
-modified: 20220716022645965
+modified: 20220719030509748
+tags: Buttons
 title: $:/kmr/AttachEntryButton
 type: text/vnd.tiddlywiki
 
@@ -9,6 +10,10 @@ type: text/vnd.tiddlywiki
 </$fieldmangler>
 \end
 
-<$button actions= <<attach-button-actions>> class="tc-btn-invisible tc-tiddlylink">
+<!--
+class="tc-btn-invisible tc-tiddlylink"
+-->
+
+<$button actions= <<attach-button-actions>> >
 Attach
 </$button>

@@ -1,15 +1,26 @@
 created: 20220706190648759
-modified: 20220718210515970
+modified: 20220719030427924
+tags: Buttons
 title: $:/kmr/DeleteEntryButton
 type: text/vnd.tiddlywiki
 
 \define action-delete-tiddler()
-<$action-log $$message="Delete Entry Button pressed" child=<<child>> />
+<$action-log child=<<child>> />
 \end
 
 <!--
 child: <<child>><br>
+
+disabled-delete: <<disabled-delete>><br>
+-->
+
+<!--
+tc-tiddlylink
+  class="tc-btn-invisible tc-tiddlylink"
+
 -->
 
 <$button
-  actions=<<action-delete-tiddler>> class="tc-btn-invisible tc-tiddlylink">Delete</$button>
+  actions=<<action-delete-tiddler>> 
+  disabled=<<disabled-delete>> 
+  >Delete</$button>

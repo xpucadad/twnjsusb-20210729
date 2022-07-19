@@ -1,5 +1,5 @@
 created: 20220717162007829
-modified: 20220718211452226
+modified: 20220719014918736
 tags: 
 title: Radio Shit
 type: text/vnd.tiddlywiki
@@ -46,18 +46,20 @@ selected-child: <<selected-child>><br>
 
 !! Detach and Delete Buttons
 
-<$checkbox tiddler=<<param-tiddler>> index="enable-delete" checked="{{$:/kmr/DeleteEntryButton}}" unchecked="" default="" >Enable Delete Button</$checkbox>
+<$checkbox tiddler=<<param-tiddler>> index="disable-delete" checked="no" unchecked="yes" default="yes" > Enable Delete</$checkbox>
 
-<$set name="delete-button" tiddler=<<param-tiddler>> index="enable-delete" >
+<$set name="disabled-delete" tiddler=<<param-tiddler>> index="disable-delete" >
 
-delete-button: <<delete-button>><br>
+disabled-delete: <<disabled-delete>><br>
 parent: <<parent>><br>
 
 <table>
-<tr><th>Attached Entries</th><th <<action-span>> >Actions</th></tr>
+<tr><th>Attached Entries</th><th colspan="2" >Actions</th></tr>
 <$list filter="[<parent>tagging[]]" >
 <$set name="child" value=<<currentTiddler>>  >
-<tr><td><$link/></td><td>{{$:/kmr/DetachEntryButton}} <<delete-button>></td></tr>
+<tr><td><$link/></td>
+  <td>{{$:/kmr/DetachEntryButton}}</td> 
+  <td>{{$:/kmr/DeleteEntryButton}}</td></tr>
 </$set>
 </$list>
 </table>
