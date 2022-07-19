@@ -1,10 +1,10 @@
 created: 20220716031252200
-modified: 20220718201651307
+modified: 20220719204616613
 title: Journal Management
 type: text/vnd.tiddlywiki
 
 \define param-tiddler()
-$:/temp/JournalManagement/params
+<<qualify "$:/temp/JournalManagement/params">>
 \end
 
 \define parent-filter-prefix()
@@ -23,9 +23,11 @@ $(parent-filter-prefix)$ +$(parent-filter-infix)$ +$(parent-filter-suffix)$
 <$action-setfield $tiddler=<<param-tiddler>> $index="selected-journal" $value="None"/>
 \end
 
+param-tiddler: <<param-tiddler>><br>
+
 <table>
 <tr><th>Enter Filter to Reduce Journal List</th></tr>
-<tr><td><$edit-text tag="input" size="50" tiddler="<<param-tiddler>>" index="parent-user-filter" default="[search[]]" inputActions=<<parent-filter-input-actions>> /></td></tr>
+<tr><td><$edit-text tag="input" size="50" tiddler=<<param-tiddler>> index="parent-user-filter" default="[search[]]" inputActions=<<parent-filter-input-actions>> /></td></tr>
 </table>
 
 <$set name="parent-filter-infix" tiddler=<<param-tiddler>> index="parent-user-filter" emptyValue="[search[]]">
@@ -56,8 +58,9 @@ full-parent-filter: <<full-parent-filter>><br>
 parent: <<parent>><br>
 
 <$list filter="[<parent>!prefix[+]first[]]" emptyMessage="Empty" >
+<hr>
   {{JournalManagementRelatedEntries}}
-
+<hr>
   {{JournalManagementUnrelatedEntries}}
 
 </$list>

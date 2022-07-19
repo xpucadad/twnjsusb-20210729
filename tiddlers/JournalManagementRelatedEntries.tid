@@ -1,9 +1,19 @@
-created: 20220712210353024
-modified: 20220719015904877
+created: 20220719204804866
+modified: 20220719205814420
+tags: 
 title: JournalManagementRelatedEntries
 type: text/vnd.tiddlywiki
 
 parent: <<parent>><br>
+param-tiddler: <<param-tiddler>><br>
+
+<$checkbox tiddler="TestParams" index="disable-related-delete" checked="no" unchecked="yes" default="yes" > Enable Delete</$checkbox>
+<!--
+<$set name="disable-delete" tiddler=<<param-tiddler>> index="disable-related-delete" >
+
+-->
+
+
 <table>
 <tr><th colspan:3>Related Entries</th></tr>
 

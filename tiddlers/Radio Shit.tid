@@ -1,11 +1,11 @@
 created: 20220717162007829
-modified: 20220719164611389
+modified: 20220719205017118
 tags: 
 title: Radio Shit
 type: text/vnd.tiddlywiki
 
 \define param-tiddler()
-$:/temp/RadioShit/params
+<<qualify "$:/temp/RadioShit/params">>
 \end
 
 \define parent-input-actions()
@@ -15,6 +15,10 @@ $:/temp/RadioShit/params
 \define gen-table-header()
 <tr><th>Attached Entries</th><th colspan:$(title-colspan)$>Actions</th></tr>
 \end
+
+param-tiddler: <<param-tiddler>><br>
+
+{{RadioSubShit}}
 
 ''Enter Journal Tiddle Name''
 <$edit-text tiddler=<<param-tiddler>> index="selected-parent" default=""
