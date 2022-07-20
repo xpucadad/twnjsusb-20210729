@@ -1,5 +1,5 @@
 created: 20220716031252200
-modified: 20220719204616613
+modified: 20220719235925104
 title: Journal Management
 type: text/vnd.tiddlywiki
 
@@ -23,7 +23,11 @@ $(parent-filter-prefix)$ +$(parent-filter-infix)$ +$(parent-filter-suffix)$
 <$action-setfield $tiddler=<<param-tiddler>> $index="selected-journal" $value="None"/>
 \end
 
+<h2>Journal Selection</h2>
+
+<!--
 param-tiddler: <<param-tiddler>><br>
+-->
 
 <table>
 <tr><th>Enter Filter to Reduce Journal List</th></tr>
@@ -32,8 +36,10 @@ param-tiddler: <<param-tiddler>><br>
 
 <$set name="parent-filter-infix" tiddler=<<param-tiddler>> index="parent-user-filter" emptyValue="[search[]]">
 
+<!--
 parent-filter-infix: <<parent-filter-infix>><br>
 full-parent-filter: <<full-parent-filter>><br>
+-->
 
 <table>
 <tr><th>Choose a Journal</th></tr>
@@ -55,15 +61,29 @@ full-parent-filter: <<full-parent-filter>><br>
 
 <$set name="parent" tiddler=<<param-tiddler>> index="selected-journal" >
 
+<!--
 parent: <<parent>><br>
+-->
 
-<$list filter="[<parent>!prefix[+]first[]]" emptyMessage="Empty" >
+<!-- <$list filter="[<parent>!prefix[+]first[]]" emptyMessage="Empty" > -->
 <hr>
+    <$reveal stateTitle=<<param-tiddler>> 
+      stateIndex="selected-journal" 
+      type="nomatch" 
+      text="None" 
+      default="None"
+    >
+
+<h2>Related Entries</h2>
   {{JournalManagementRelatedEntries}}
 <hr>
+
+<h2>Unrelated Entries</h2>
   {{JournalManagementUnrelatedEntries}}
 
-</$list>
+</$reveal>
+
+<!-- </$list> -->
 
 </$set> <!-- parent -->
 </$set> <!-- parent-filter-infix -->

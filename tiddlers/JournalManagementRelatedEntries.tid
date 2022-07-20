@@ -1,31 +1,64 @@
 created: 20220719204804866
-modified: 20220719205814420
+modified: 20220719235142609
 tags: 
 title: JournalManagementRelatedEntries
 type: text/vnd.tiddlywiki
 
+\define param-tiddler()
+<<qualify "$:/temp/JournalManagementRelatedEntries/params">>
+\end
+
+\define unrelated-table-header()
+<tr><th>Unrelated Entries</th><th colspan="$(unrelated-column-span)$">Actions</th></tr>
+\end
+
+<!--
 parent: <<parent>><br>
 param-tiddler: <<param-tiddler>><br>
-
-<$checkbox tiddler="TestParams" index="disable-related-delete" checked="no" unchecked="yes" default="yes" > Enable Delete</$checkbox>
-<!--
-<$set name="disable-delete" tiddler=<<param-tiddler>> index="disable-related-delete" >
-
 -->
 
+<$checkbox 
+  tiddler=<<param-tiddler>> 
+  index="disable-related-delete" 
+  checked="no" 
+  unchecked="yes" 
+  default="yes" 
+> Enable Delete</$checkbox>
+
+<$set name="disable-delete" tiddler=<<param-tiddler>> index="disable-related-delete" >
+
+<!--
+disable-delete: <<disable-delete>><br>
+-->
+
+<$set name="unrelated-column-span" 
+    filter="[<disable-delete>compare:string:eq[no]then[2]else[1]]" >
+
+<!--
+unrelated-column-span: <<unrelated-column-span>><br>
+-->
 
 <table>
-<tr><th colspan:3>Related Entries</th></tr>
+<<unrelated-table-header>>
 
-<$list filter="[<parent>tagging[]]" emptyMessage="<tr><td colspan:3>Parent Has No Related Entries</td></tr>">
+<$list filter="[<parent>tagging[]]" 
+    emptyMessage="<tr><td>Parent Has No Related Entries</td></tr>" >
 <$set name="child" value=<<currentTiddler>> >
   <tr>
     <td><$link/></td>
     <td>{{$:/kmr/DetachEntryButton}}</td>
-<!--    <td>{{$:/kmr/DeleteEntryButton}}</td> -->
-<!-- It's too easy to hit delete by mistake -->
+    <$reveal stateTitle=<<param-tiddler>> 
+      stateIndex="disable-related-delete" 
+      type="match" 
+      text="no" 
+      default="yes"
+    >
+   <td>{{$:/kmr/DeleteEntryButton}}</td>
+    </$reveal>
   </tr>
 </$set> <!-- child -->
 
 </$list>
 </table>
+</$set>
+</$set>
