@@ -1,5 +1,5 @@
 created: 20220716031252200
-modified: 20220719235925104
+modified: 20220720034351956
 title: Journal Management
 type: text/vnd.tiddlywiki
 
@@ -60,6 +60,15 @@ full-parent-filter: <<full-parent-filter>><br>
 </table>
 
 <$set name="parent" tiddler=<<param-tiddler>> index="selected-journal" >
+
+<$reveal 
+  stateTitle=<<param-tiddler>> 
+  stateIndex="selected-journal" 
+  type="nomatch"
+  text="None"
+  default="None" 
+>{{$:/kmr/DeleteJournalButton}}
+</$reveal>
 
 <!--
 parent: <<parent>><br>
