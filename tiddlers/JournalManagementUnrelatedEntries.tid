@@ -1,13 +1,14 @@
 created: 20220712210906926
-modified: 20220719015708328
+modified: 20220720032326537
 title: JournalManagementUnrelatedEntries
 type: text/vnd.tiddlywiki
 
 \define param-tiddler()
-$:/temp/JournalManagementUnrelatedEntries/params
+<<qualify "$:/temp/JournalManagementUnrelatedEntries/params" >>
 \end
+
 \define unrelated-filter-prefix()
-[!tag[$(parent)$]!tag[Journals]is[tiddler]!prefix[$:/]!is[draft]]
+[!tag[$(parent)$]!tag[Journals]is[tiddler]!prefix[$:/]!is[draft]!compare:type:search[json]]
 \end
 
 \define unrelated-filter-suffix()
@@ -34,7 +35,15 @@ $(unrelated-filter-prefix)$ +$(unrelated-filter-infix)$ +$(unrelated-filter-suff
 </td></tr>
 </table>
 
-<$set name="unrelated-filter-infix" tiddler=<<param-tiddler>> index="unrelated-user-filter" >
+<$set name="unrelated-filter-infix" 
+  tiddler=<<param-tiddler>> 
+  index="unrelated-user-filter" 
+  emptyValue="[search[]]"ff
+>
+
+<!--
+unrelated-filter-infix: <<unrelated-filter-infix>><br>
+-->
 
 |! Full Filter Used|
 |<<full-unrelated-filter>>|

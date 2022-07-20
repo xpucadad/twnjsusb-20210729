@@ -1,7 +1,7 @@
 created: 20220716042819680
-modified: 20220716043157793
+modified: 20220720032911844
 tags: [[2022-07-14 Journal Management Journal]]
-title: 2022-07-15T21:28:19
+title: 2022-07-15T21:28:19 Improve Journal Selection
 type: text/vnd.tiddlywiki
 
 We really need to implement a better way to select the journal. probably a table with radio buttons to select the journal.

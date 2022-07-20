@@ -1,0 +1,14 @@
+created: 20220720031319717
+modified: 20220720031818991
+tags: [[2022-07-14 Journal Management Journal]]
+title: 2022-07-19T20:13:19 Some Solved Problems
+type: text/vnd.tiddlywiki
+
+* The issue of lost focus went away when explicit files were specified for each tidder:
+```
+\define param-tiddler()
+<<qualify "$:/temp/<tiddler name without spaced>/params" >>
+\end
+```
+
+* Added code to implement proposal in [[2022-07-15T21:28:19]].
