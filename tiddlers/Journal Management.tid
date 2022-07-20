@@ -1,5 +1,5 @@
 created: 20220716031252200
-modified: 20220720034351956
+modified: 20220720192354694
 title: Journal Management
 type: text/vnd.tiddlywiki
 
@@ -67,21 +67,31 @@ full-parent-filter: <<full-parent-filter>><br>
   type="nomatch"
   text="None"
   default="None" 
->{{$:/kmr/DeleteJournalButton}}
+>
+  <$checkbox tiddler=<<param-tiddler>> index="journal-delete-enabled"
+    checked="yes" unchecked="no" default="no"
+    > Enable Journal Delete</$checkbox>
+  <$reveal 
+    stateTitle=<<param-tiddler>>
+    stateIndex="journal-delete-enabled"
+    type="match"
+    text="yes"
+    default="no"
+><$button>Dummy Button</$button>
+  </$reveal>
 </$reveal>
 
 <!--
 parent: <<parent>><br>
 -->
 
-<!-- <$list filter="[<parent>!prefix[+]first[]]" emptyMessage="Empty" > -->
 <hr>
-    <$reveal stateTitle=<<param-tiddler>> 
-      stateIndex="selected-journal" 
-      type="nomatch" 
-      text="None" 
-      default="None"
-    >
+<$reveal stateTitle=<<param-tiddler>> 
+    stateIndex="selected-journal" 
+    type="nomatch" 
+    text="None" 
+    default="None"
+>
 
 <h2>Related Entries</h2>
   {{JournalManagementRelatedEntries}}
@@ -91,8 +101,6 @@ parent: <<parent>><br>
   {{JournalManagementUnrelatedEntries}}
 
 </$reveal>
-
-<!-- </$list> -->
 
 </$set> <!-- parent -->
 </$set> <!-- parent-filter-infix -->

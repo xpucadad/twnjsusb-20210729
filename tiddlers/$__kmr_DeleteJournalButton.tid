@@ -1,11 +1,18 @@
 created: 20220715164009867
-modified: 20220719030532023
+modified: 20220720183757554
 tags: Buttons
 title: $:/kmr/DeleteJournalButton
 type: text/vnd.tiddlywiki
 
-journal: <<journal>><br> <!-- the journal to delete -->
-entry: <<entry>><br> <!-- Is this needed in this case. Don't think it is. -->
+\define delete-journal-button-actions()
+<$action-log $$message="Delete Journal Button" $$filter="[[parent]]" />
+<!--
+<$action-deletetiddler $tiddler=<<parent>> />
+-->
+\end
+
+parent: <<parent>><br> <!-- the journal to delete -->
+child: <<child>><br> <!-- Is this needed in this case. Don't think it is. -->
 param-tiddler: <<param-tiddler>><br> <!-- containing radio button index if journal is in a radio button scenario -->
 index: <<index>><br> <!-- index that's store the selected radio button -->
 
@@ -15,4 +22,4 @@ index: <<index>><br> <!-- index that's store the selected radio button -->
 3. Delete Journal
 
 -->
-<$button>Delete Journal and Attached Entries</$button> @@color:red;<== Dummy Button@@
+<$button actions=<<delete-journal-button-actions>>>Delete Journal and Attached Entries</$button> 

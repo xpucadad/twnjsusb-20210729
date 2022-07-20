@@ -1,5 +1,5 @@
 created: 20220719204804866
-modified: 20220719235142609
+modified: 20220720192501656
 tags: 
 title: JournalManagementRelatedEntries
 type: text/vnd.tiddlywiki
@@ -23,7 +23,7 @@ param-tiddler: <<param-tiddler>><br>
   checked="no" 
   unchecked="yes" 
   default="yes" 
-> Enable Delete</$checkbox>
+> Enable Entry Delete</$checkbox>
 
 <$set name="disable-delete" tiddler=<<param-tiddler>> index="disable-related-delete" >
 
