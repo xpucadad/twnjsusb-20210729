@@ -1,4 +1,4 @@
 {
     "unrelated-user-filter": "[prefix[2022]]",
-    "show-full-unrelated-filter": "yes"
+    "show-full-unrelated-filter": "no"
 }

@@ -1,5 +1,6 @@
 created: 20220712210906926
-modified: 20220721050549818
+modified: 20220721204236242
+tags: JournalManagementProject
 title: JournalManagementUnrelatedEntries
 type: text/vnd.tiddlywiki
 
@@ -51,7 +52,7 @@ unrelated-filter-infix: <<unrelated-filter-infix>><br>
 <$reveal stateTitle=<<param-tiddler>> stateIndex="show-full-unrelated-filter"
   type="match" text="yes" default="no">
 <table>
- <tr><th>Full Filter</th></tr>
+ <tr><th style="text-align:left;">Full Filter</th></tr>
   <tr><td><<full-unrelated-filter>></td></tr>
 </table>
 </$reveal>

@@ -1,27 +1,20 @@
 created: 20220715164009867
-modified: 20220721041538215
-tags: Buttons
+modified: 20220721204803452
+tags: Buttons JournalManagementProject
 title: $:/kmr/DeleteJournalButton
 type: text/vnd.tiddlywiki
 
 \define delete-journal-button-actions()
 <$action-log $$message="Delete Journal Button" $$filter="[[parent]]" />
-<!--
-<$action-deletetiddler $tiddler=<<parent>> />
--->
+<$action-setfield $tiddler=<<stateTitle>> $index=<<stateIndex>> $value="None" />
+
+<$action-deletetiddler $filter="[<parent>tagging[]]" $tiddler=<<parent>> />
+
 \end
 
-<!--
 parent: <<parent>><br> 
 child: <<child>><br> 
-param-tiddler: <<param-tiddler>><br> 
-index: <<index>><br>
--->
+stateTitle: <<stateTitle>><br> 
+stateIndex: <<stateIndex>><br>
 
-<!-- Button Actions
-1. If journal, delete all related-entries
-2. ?? check index in param-tiddler. If it matches journal title, then set it back to "None"
-3. Delete Journal
-
--->
 <$button actions=<<delete-journal-button-actions>>>Delete Journal and Attached Entries</$button> 

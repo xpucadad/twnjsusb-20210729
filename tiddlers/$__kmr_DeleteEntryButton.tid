@@ -1,6 +1,6 @@
 created: 20220706190648759
-modified: 20220720183023453
-tags: Buttons
+modified: 20220721195730907
+tags: Buttons JournalManagementProject
 title: $:/kmr/DeleteEntryButton
 type: text/vnd.tiddlywiki
 
@@ -11,14 +11,8 @@ type: text/vnd.tiddlywiki
 
 <!--
 child: <<child>><br>
-
 disabled-delete: <<disabled-delete>><br>
--->
-
-<!--
-tc-tiddlylink
   class="tc-btn-invisible tc-tiddlylink"
-
 -->
 
 <$button

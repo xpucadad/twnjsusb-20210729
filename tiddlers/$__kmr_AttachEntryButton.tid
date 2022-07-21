@@ -1,9 +1,12 @@
 created: 20220709150612472
-modified: 20220719030509748
-tags: Buttons
+modified: 20220721192142994
+tags: Buttons JournalManagementProject
 title: $:/kmr/AttachEntryButton
 type: text/vnd.tiddlywiki
 
+<!--
+Attaches child to parent by tagging child with parent name
+-->
 \define attach-button-actions()
 <$fieldmangler tiddler="$(child)$">
 <$action-sendmessage $message="tm-add-tag" $param="$(parent)$" />
@@ -11,6 +14,8 @@ type: text/vnd.tiddlywiki
 \end
 
 <!--
+-- this class will remove the button look if included in the button
+-- tag.
 class="tc-btn-invisible tc-tiddlylink"
 -->
 
