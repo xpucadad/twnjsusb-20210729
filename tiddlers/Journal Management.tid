@@ -1,5 +1,5 @@
 created: 20220716031252200
-modified: 20220720192354694
+modified: 20220721050417602
 title: Journal Management
 type: text/vnd.tiddlywiki
 
@@ -23,26 +23,57 @@ $(parent-filter-prefix)$ +$(parent-filter-infix)$ +$(parent-filter-suffix)$
 <$action-setfield $tiddler=<<param-tiddler>> $index="selected-journal" $value="None"/>
 \end
 
+<!--
+This section selects the journal to manipulate
+-->
 <h2>Journal Selection</h2>
 
 <!--
 param-tiddler: <<param-tiddler>><br>
 -->
 
+<!--
+This edit-text as where the user can edit a filter to narrow down the
+list of journals that can be selected.
+-->
 <table>
 <tr><th>Enter Filter to Reduce Journal List</th></tr>
 <tr><td><$edit-text tag="input" size="50" tiddler=<<param-tiddler>> index="parent-user-filter" default="[search[]]" inputActions=<<parent-filter-input-actions>> /></td></tr>
 </table>
 
+<!--
+Use the information from the edit-text to create the infix for the final
+filter that will be used to filter the list of journal files.
+-->
 <$set name="parent-filter-infix" tiddler=<<param-tiddler>> index="parent-user-filter" emptyValue="[search[]]">
 
 <!--
 parent-filter-infix: <<parent-filter-infix>><br>
-full-parent-filter: <<full-parent-filter>><br>
 -->
 
+<!--
+Show the full filter in the user wants to see it.
+-->
+<$checkbox tiddler=<<param-tiddler>> index="show-full-parent-filter"
+  checked="yes" unchecked="no" default="no"> Show Full Filter</$checkbox>
+
+<$reveal stateTitle=<<param-tiddler>> stateIndex="show-full-parent-filter"
+  type="match" text="yes" default="no">
+<table>
+  <tr><th>Full Filter</th></tr>
+  <tr><td><<full-parent-filter>></td></tr>
+</table>
+</$reveal>
+
+<!--
+This table displays a list of journals which match the full filter
+-->
 <table>
 <tr><th>Choose a Journal</th></tr>
+<!-- 
+This is the filtered list of journal files. The user can select one using the
+radio buttons. The first is always the dummy entry "None".
+-->
 <tr><td><$radio
   tiddler=<<param-tiddler>>
   index="selected-journal"
@@ -59,8 +90,15 @@ full-parent-filter: <<full-parent-filter>><br>
 </$list>
 </table>
 
+<!--
+This sets "parent" to be the name of the selected journal.
+-->
 <$set name="parent" tiddler=<<param-tiddler>> index="selected-journal" >
 
+<!-- 
+This reveal hides or shows the checkbox to select whether to show
+the delete button based on whether or not a journal has been chosen.
+-->
 <$reveal 
   stateTitle=<<param-tiddler>> 
   stateIndex="selected-journal" 
@@ -68,6 +106,10 @@ full-parent-filter: <<full-parent-filter>><br>
   text="None"
   default="None" 
 >
+<!--
+Checkbox for the user to decide if the journal delete button should
+be enabled. If so, the reveal then shoes the delete journal button.
+-->
   <$checkbox tiddler=<<param-tiddler>> index="journal-delete-enabled"
     checked="yes" unchecked="no" default="no"
     > Enable Journal Delete</$checkbox>
@@ -77,7 +119,8 @@ full-parent-filter: <<full-parent-filter>><br>
     type="match"
     text="yes"
     default="no"
-><$button>Dummy Button</$button>
+><br>
+{{$:/kmr/DeleteJournalButton}}
   </$reveal>
 </$reveal>
 
@@ -86,6 +129,10 @@ parent: <<parent>><br>
 -->
 
 <hr>
+<!--
+This reveal can show or hide the related and unrelated lists when
+an existing journal has been selected.
+-->
 <$reveal stateTitle=<<param-tiddler>> 
     stateIndex="selected-journal" 
     type="nomatch" 

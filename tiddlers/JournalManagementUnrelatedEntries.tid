@@ -1,5 +1,5 @@
 created: 20220712210906926
-modified: 20220720032326537
+modified: 20220721050549818
 title: JournalManagementUnrelatedEntries
 type: text/vnd.tiddlywiki
 
@@ -22,7 +22,7 @@ $(unrelated-filter-prefix)$ +$(unrelated-filter-infix)$ +$(unrelated-filter-suff
 <!-- parent: <<parent>><br> -->
 
 <table>
-<tr><th style="text-align:left;font-size:1.5em;">Refine Filter for Unrelated Entries:</th></tr>
+<tr><th style="text-align:left;">Filter to Reduce Entry List</th></tr>
 <tr><td>
 <$edit-text 
   tiddler=<<param-tiddler>>
@@ -45,8 +45,16 @@ $(unrelated-filter-prefix)$ +$(unrelated-filter-infix)$ +$(unrelated-filter-suff
 unrelated-filter-infix: <<unrelated-filter-infix>><br>
 -->
 
-|! Full Filter Used|
-|<<full-unrelated-filter>>|
+<$checkbox tiddler=<<param-tiddler>> index="show-full-unrelated-filter"
+  checked="yes" unchecked="no" default="no"> Show Full 
+  Filter</$checkbox>
+<$reveal stateTitle=<<param-tiddler>> stateIndex="show-full-unrelated-filter"
+  type="match" text="yes" default="no">
+<table>
+ <tr><th>Full Filter</th></tr>
+  <tr><td><<full-unrelated-filter>></td></tr>
+</table>
+</$reveal>
 
 <table>
 <tr><th colspan:2>Unrelated Entries</th></tr>

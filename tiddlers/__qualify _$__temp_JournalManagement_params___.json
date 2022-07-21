@@ -1,4 +1,6 @@
 {
     "selected-journal": "2022-07-11 Monday",
-    "journal-delete-enabled": "no"
+    "journal-delete-enabled": "no",
+    "parent-user-filter": "[search[]]",
+    "show-full-parent-filter": "yes"
 }
