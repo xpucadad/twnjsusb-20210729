@@ -1,5 +1,5 @@
 created: 20220721190546264
-modified: 20220721191540912
+modified: 20220723025132473
 tags: 
 title: JournalManagementProject
 type: text/vnd.tiddlywiki
@@ -8,7 +8,7 @@ This list is created using the following filter:
 
 <$set name="f" value="[[JournalManagementProject]] [[JournalManagementProject]tagging[]]" >
 
-<<f>>
+<$text text=<<f>> /><br>
 
 To export all of them, plus this overview, copy the filter to the Advanced Search `filter` tab and click the export icon. It's best to use the `JSON` format.
 
