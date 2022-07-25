@@ -1,0 +1,12 @@
+created: 20220725162556453
+modified: 20220725171031199
+tags: Buttons
+title: $:/kmr/CloseJournalManagementButton
+type: text/vnd.tiddlywiki
+
+\define button-actions() 
+<$action-log $$message="CloseJournalManagementButton" $$filter="[[parent]]" />
+<$action-setfield $tiddler=<<param-tiddler>> $index="journal-to-manage" $value="" />
+\end
+
+<$button actions=<<button-actions>> >Close Journal Management</$button>

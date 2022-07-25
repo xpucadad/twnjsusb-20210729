@@ -1,24 +1,21 @@
-created: 20220705185831603
-modified: 20220725181318057
+created: 20220725171405009
+modified: 20220725171416791
 tags: 
-title: RecordRetention
+title: RecordRetention 4 - backup
 type: text/vnd.tiddlywiki
 
 \define param-tiddler()
 <<qualify "$:/kmr/RecordRetention/params">>
 \end
 
-<!--
 <<param-tiddler>>
--->
 
 !! Expired
 <table>
 <tr><th>Tiddler</th><th>Expired</th><th>Action</th></tr>
 <$list filter="[has[delete-date]!is[draft]!days:delete-date[-1]sort[delete-date]]">
 <$set name="parent" value=<<currentTiddler>> >
-<$set name="button" 
-   filter="[<parent>tagging[]first[]then[{{$:/kmr/ManageJournalButton}}]else[{{$:/kmr/DeleteEntryButton}}]]" >
+<$set name="button" filter="[all[current]tag[Journals]then[{{$:/kmr/ManageJournalButton}}]]" >
 <tr><td><$link/></td><td>@@color:red;{{!!delete-date}}@@</td><td><<button>></td></tr>
 </$set>
 </$set>
@@ -30,7 +27,7 @@ type: text/vnd.tiddlywiki
 <tr><th>Tiddler</th><th>Expires</th><th>Action</th></tr>
 <$list filter="[has[delete-date]sort[delete-date]]">
 <$set name="parent" value=<<currentTiddler>> >
-<$set name="button" filter="[<parent>tagging[]first[]then[{{$:/kmr/ManageJournalButton}}]else[{{$:/kmr/DeleteEntryButton}}]]" >
+<$set name="button" filter="[all[current]tag[Journals]then[{{$:/kmr/ManageJournalButton}}]]" >
 <tr><td><$link/></td><td>{{!!delete-date}}</td><td><<button>></td></tr>
 </$set>
 </$set>
@@ -45,7 +42,7 @@ type: text/vnd.tiddlywiki
 <hr>
 <$set name="parent" tiddler=<<param-tiddler>> index="journal-to-manage" >
 
-<h2>Journal Management for <<parent>></h2>
+!! Journal Management for <<parent>>
 {{$:/kmr/CloseJournalManagementButton}}
 
 <!-- 
@@ -74,28 +71,21 @@ be enabled. If so, the reveal then shows the delete journal button.
     default="no"
 >
 <$set name="stateTitle" value=<<param-tiddler>> >
-<$set name="stateIndex" value="journal-to-manage" >
-<$set name="stateValue" value="" >
+<$set name="stateIndex" value="selected-journal" >
 
 {{$:/kmr/DeleteJournalButton}}
-</$set>
 </$set>
 </$set>
   </$reveal>
 </$reveal>
 
-<$set name="parent" tiddler=<<param-tiddler>> index="journal-to-manage" >
 <hr>
 
-<h2>Related Entries</h2>
-
-{{JournalManagementRelatedEntries}}
+!! Related Entries
 <hr>
 
-<h2>Unrelated Entries</h2>
+!! Unrelated Entries
 
-{{JournalManagementUnrelatedEntries}}
-</$set>
 </$set>
 
 </$reveal>

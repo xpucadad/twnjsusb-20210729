@@ -1,6 +1,5 @@
 {
-    "selected-journal": "None",
-    "journal-delete-enabled": "no",
-    "parent-user-filter": "[search[x]]",
+    "journal-delete-enabled": "yes",
+    "parent-user-filter": "[search[]]",
     "show-full-parent-filter": "no"
 }

@@ -1,7 +1,7 @@
-created: 20220716031252200
-modified: 20220725172933244
+created: 20220725173101522
+modified: 20220725173111546
 tags: JournalManagementProject
-title: Journal Management
+title: Journal Management 1 - backup
 type: text/vnd.tiddlywiki
 
 \define param-tiddler()
