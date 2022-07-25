@@ -1,21 +1,50 @@
 created: 20220705185831603
-modified: 20220717203249423
+modified: 20220725012006745
 tags: 
 title: RecordRetention
 type: text/vnd.tiddlywiki
 
+\define params-tiddler()
+<<qualify "$:/kmr/RecordRetention/params">>
+\end
+
+<<params-tiddler>>
+
 !! Expired
 <table>
-<tr><th>Tiddler</th><th>Expired</th></tr>
-<$list filter="[has[delete-date]!days:delete-date[-1]sort[delete-date]]">
-<tr><td><$link/></td><td>@@color:red;{{!!delete-date}}@@</td></tr>
+<tr><th>Tiddler</th><th>Expired</th><th>Action</th></tr>
+<$list filter="[has[delete-date]!is[draft]!days:delete-date[-1]sort[delete-date]]">
+<$set name="parent" value=<<currentTiddler>> >
+<$set name="button" filter="[all[current]tag[Journals]then[{{$:/kmr/ManageJournalButton}}]]" >
+<tr><td><$link/></td><td>@@color:red;{{!!delete-date}}@@</td><td><<button>></td></tr>
+</$set>
+</$set>
 </$list>
 </table>
 
 !! Retained
 <table>
-<tr><th>Tiddler</th><th>Expires</th></tr>
+<tr><th>Tiddler</th><th>Expires</th><th>Action</th></tr>
 <$list filter="[has[delete-date]sort[delete-date]]">
-<tr><td><$link/></td><td>{{!!delete-date}}</td></tr>
+<$set name="parent" value=<<currentTiddler>> >
+<$set name="button" filter="[all[current]tag[Journals]then[{{$:/kmr/ManageJournalButton}}]]" >
+<tr><td><$link/></td><td>{{!!delete-date}}</td><td><<button>></td></tr>
+</$set>
+</$set>
 </$list>
 </table>
+
+<$reveal 
+  stateTitle=<<params-tiddler>> 
+  stateIndex="journal-to-manage" 
+  type="nomatch"
+  text="" >
+<hr>
+<$set name="parent" tiddler=<<params-tiddler>> index="journal-to-manage" >
+parent: <<parent>><br>
+</$set>
+<hr>
+!! Related Entries
+<hr>
+!! Unrelated Entries
+</$reveal>

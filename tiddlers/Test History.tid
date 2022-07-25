@@ -1,0 +1,11 @@
+created: 20220724192310755
+modified: 20220724192725551
+tags: 
+title: Test History
+type: text/vnd.tiddlywiki
+
+\define button-actions()
+<$action-navigate $to="Playing with history" />
+\end
+
+<$button actions=<<button-actions>> >Go!</$button>

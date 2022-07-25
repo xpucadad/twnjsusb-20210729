@@ -1,0 +1,22 @@
+created: 20220724235328132
+delete-date: 20220803
+modified: 20220724235530581
+tags: 
+title: 2022-07-24T16:54 RecordRetention Backup
+type: text/vnd.tiddlywiki
+
+!! Expired
+<table>
+<tr><th>Tiddler</th><th>Expired</th></tr>
+<$list filter="[has[delete-date]!days:delete-date[-1]sort[delete-date]]">
+<tr><td><$link/></td><td>@@color:red;{{!!delete-date}}@@</td></tr>
+</$list>
+</table>
+
+!! Retained
+<table>
+<tr><th>Tiddler</th><th>Expires</th></tr>
+<$list filter="[has[delete-date]sort[delete-date]]">
+<tr><td><$link/></td><td>{{!!delete-date}}</td></tr>
+</$list>
+</table>

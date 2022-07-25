@@ -1,0 +1,12 @@
+created: 20220724235811048
+modified: 20220725011007117
+tags: 
+title: $:/kmr/ManageJournalButton
+type: text/vnd.tiddlywiki
+
+\define button-actions() 
+<$action-log $$message="Manage Journal Button" $$filter="[[parent]]" />
+<$action-setfield $tiddler=<<params-tiddler>> $index="journal-to-manage" $value=<<parent>> />
+\end
+
+<$button actions=<<button-actions>> >Manage</$button>

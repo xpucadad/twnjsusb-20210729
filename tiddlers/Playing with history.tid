@@ -1,0 +1,17 @@
+created: 20220724183743752
+modified: 20220724192839770
+tags: 
+title: Playing with history
+type: text/vnd.tiddlywiki
+
+Eventually I want to be able to check the last tiddler so I can do something different if it's a specific one.
+
+
+<$navigator story="$:/StoryList" history="$:/HistoryList">
+<$let currentTiddler={{{ [[$:/HistoryList]get[current-tiddler]] }}} beforeTiddler={{{ [list[$:/StoryList]before<currentTiddler>] ~[list[$:/StoryList]last[]] }}}>
+current: <<currentTiddler>><br>
+before: <<beforeTiddler>><br>
+<$action-navigate $to=<<beforeTiddler>>/>
+</$let>
+</$navigator>
+
