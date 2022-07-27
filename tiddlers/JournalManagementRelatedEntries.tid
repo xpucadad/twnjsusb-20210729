@@ -1,12 +1,14 @@
 created: 20220719204804866
-modified: 20220725181349573
+modified: 20220727165100344
 tags: JournalManagementProject
 title: JournalManagementRelatedEntries
 type: text/vnd.tiddlywiki
 
+<!--
 \define param-tiddler()
 <<qualify "$:/temp/JournalManagementRelatedEntries/params">>
 \end
+-->
 
 \define unrelated-table-header()
 <tr><th>Unrelated Entries</th><th colspan="$(unrelated-column-span)$">Actions</th></tr>
@@ -14,8 +16,11 @@ type: text/vnd.tiddlywiki
 
 <!--
 parent: <<parent>><br>
-param-tiddler: <<param-tiddler>><br>
+
+<$set name="param-tiddler" name=<<qualify "$:/temp/JournalManagementRelatedEntries/params">> >
 -->
+
+param-tiddler: <<param-tiddler>><br>
 
 <$checkbox 
   tiddler=<<param-tiddler>> 
@@ -62,3 +67,4 @@ unrelated-column-span: <<unrelated-column-span>><br>
 </table>
 </$set>
 </$set>
+</$set> <!-- param-tiddler -->

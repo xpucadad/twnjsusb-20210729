@@ -1,18 +1,20 @@
 created: 20220705185831603
-modified: 20220725181318057
+modified: 20220727164143258
 tags: 
 title: RecordRetention
 type: text/vnd.tiddlywiki
 
-\define param-tiddler()
-<<qualify "$:/kmr/RecordRetention/params">>
-\end
-
 <!--
-<<param-tiddler>>
+\define param-tiddler()
+<<qualify "$:/temp/RecordRetention/params">>
+\end
 -->
 
-!! Expired
+<$set name="param-tiddler" value=<<qualify "$:/temp/RecordRetention/params">> >
+<<param-tiddler>>
+
+<h2>Expired</h2>
+
 <table>
 <tr><th>Tiddler</th><th>Expired</th><th>Action</th></tr>
 <$list filter="[has[delete-date]!is[draft]!days:delete-date[-1]sort[delete-date]]">
@@ -25,7 +27,8 @@ type: text/vnd.tiddlywiki
 </$list>
 </table>
 
-!! Retained
+<h2>Retained</h2>
+
 <table>
 <tr><th>Tiddler</th><th>Expires</th><th>Action</th></tr>
 <$list filter="[has[delete-date]sort[delete-date]]">
@@ -99,3 +102,4 @@ be enabled. If so, the reveal then shows the delete journal button.
 </$set>
 
 </$reveal>
+</$set>

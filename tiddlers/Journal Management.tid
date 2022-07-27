@@ -1,12 +1,14 @@
 created: 20220716031252200
-modified: 20220725172933244
+modified: 20220727164409368
 tags: JournalManagementProject
 title: Journal Management
 type: text/vnd.tiddlywiki
 
+<!--
 \define param-tiddler()
 <<qualify "$:/temp/JournalManagement/params">>
 \end
+-->
 
 \define parent-filter-prefix()
 [tag[Journals]!is[draft]]
@@ -23,6 +25,8 @@ $(parent-filter-prefix)$ +$(parent-filter-infix)$ +$(parent-filter-suffix)$
 \define parent-filter-input-actions()
 <$action-setfield $tiddler=<<param-tiddler>> $index="selected-journal" $value="None"/>
 \end
+
+<$set name="param-tiddler" value=<<qualify "$:/temp/JournalManagement/params">> >
 
 <!--
 This section selects the journal to manipulate
@@ -158,3 +162,4 @@ an existing journal has been selected.
 
 </$set> <!-- parent -->
 </$set> <!-- parent-filter-infix -->
+</$set> <!-- param-tiddlen -->
