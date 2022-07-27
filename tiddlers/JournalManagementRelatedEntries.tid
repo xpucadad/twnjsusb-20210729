@@ -1,6 +1,6 @@
 created: 20220719204804866
-modified: 20220727165100344
-tags: JournalManagementProject
+modified: 20220727175928245
+tags: JournalManagementProject Checked
 title: JournalManagementRelatedEntries
 type: text/vnd.tiddlywiki
 
@@ -16,9 +16,9 @@ type: text/vnd.tiddlywiki
 
 <!--
 parent: <<parent>><br>
-
-<$set name="param-tiddler" name=<<qualify "$:/temp/JournalManagementRelatedEntries/params">> >
 -->
+
+<$set name="param-tiddler" value=<<qualify "$:/temp/JournalManagementRelatedEntries/params">> >
 
 param-tiddler: <<param-tiddler>><br>
 
@@ -67,4 +67,4 @@ unrelated-column-span: <<unrelated-column-span>><br>
 </table>
 </$set>
 </$set>
-</$set> <!-- param-tiddler -->
+</$set> <!-- param-tiddlers -->

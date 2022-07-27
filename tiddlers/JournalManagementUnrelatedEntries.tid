@@ -1,12 +1,14 @@
 created: 20220712210906926
-modified: 20220721204236242
-tags: JournalManagementProject
+modified: 20220727180030644
+tags: JournalManagementProject Checked
 title: JournalManagementUnrelatedEntries
 type: text/vnd.tiddlywiki
 
+<!--
 \define param-tiddler()
 <<qualify "$:/temp/JournalManagementUnrelatedEntries/params" >>
 \end
+-->
 
 \define unrelated-filter-prefix()
 [!tag[$(parent)$]!tag[Journals]is[tiddler]!prefix[$:/]!is[draft]!compare:type:search[json]]
@@ -20,6 +22,8 @@ type: text/vnd.tiddlywiki
 $(unrelated-filter-prefix)$ +$(unrelated-filter-infix)$ +$(unrelated-filter-suffix)$
 \end
 
+<$set name="param-tiddler" value=<<qualify "$:/temp/JournalManagementUnrelatedEntries/params" >> >
+param-tiddler: <<param-tiddler>><br>
 <!-- parent: <<parent>><br> -->
 
 <table>
@@ -71,3 +75,4 @@ unrelated-filter-infix: <<unrelated-filter-infix>><br>
 </$list> <!-- unrelated child list -->
 </table>
 </$set> <!-- unrelated-filter-infix -->
+</$set>
