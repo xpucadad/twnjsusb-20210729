@@ -1,5 +1,5 @@
 created: 20220716031252200
-modified: 20220727175001876
+modified: 20220728194154312
 tags: JournalManagementProject Checked
 title: Journal Management
 type: text/vnd.tiddlywiki
@@ -26,7 +26,7 @@ $(parent-filter-prefix)$ +$(parent-filter-infix)$ +$(parent-filter-suffix)$
 <$action-setfield $tiddler=<<param-tiddler>> $index="selected-journal" $value="None"/>
 \end
 
-<$set name="param-tiddler" value=<<qualify "$:/temp/JournalManagement/params">> >
+<$let param-tiddler=<<qualify "$:/temp/JournalManagement/params">> >
 
 <!--
 This section selects the journal to manipulate
@@ -41,23 +41,28 @@ param-tiddler: <<param-tiddler>><br>
 This edit-text as where the user can edit a filter to narrow down the
 list of journals that can be selected.
 -->
+<$set name="default-infix" value="[search[]]" >
+
+default-infix: <<default-infix>><br>
+
+
 <table>
 <tr><th style="text-align:left;">Enter Filter to Reduce Journal List</th></tr>
-<tr><td><$edit-text tag="input" size="50" tiddler=<<param-tiddler>> index="parent-user-filter" default="[search[]]" inputActions=<<parent-filter-input-actions>> /></td></tr>
+<tr><td><$edit-text tag="input" size="50" tiddler=<<param-tiddler>> index="parent-user-filter" default=<<default-infix>> inputActions=<<parent-filter-input-actions>> /></td></tr>
 </table>
 
 <!--
 Use the information from the edit-text to create the infix for the final
 filter that will be used to filter the list of journal files.
 -->
-<$set name="parent-filter-infix" tiddler=<<param-tiddler>> index="parent-user-filter" emptyValue="[search[]]">
+<$set name="parent-filter-infix" tiddler=<<param-tiddler>> index="parent-user-filter" emptyValue=<<default-infix>> >
 
-<!--
+
 parent-filter-infix: <<parent-filter-infix>><br>
--->
+
 
 <!--
-Show the full filter in the user wants to see it.
+Show the full filter if the user wants to see it.
 -->
 <$checkbox tiddler=<<param-tiddler>> index="show-full-parent-filter"
   checked="yes" unchecked="no" default="no"> Show Full Filter</$checkbox>
@@ -66,7 +71,7 @@ Show the full filter in the user wants to see it.
   type="match" text="yes" default="no">
 <table>
   <tr><th style="text-align:left;">Full Filter</th></tr>
-  <tr><td><<full-parent-filter>></td></tr>
+  <tr><td><$text text=<<full-parent-filter>> /></td></tr>
 </table>
 </$reveal>
 
@@ -89,7 +94,7 @@ radio buttons. The first is always the dummy entry "None".
 <$radio
   tiddler=<<param-tiddler>>
   index="selected-journal"
-  default=""
+  default="None"
   value=<<currentTiddler>> > <$link/>
 </$radio></td></tr>
 </$list>
@@ -162,4 +167,5 @@ an existing journal has been selected.
 
 </$set> <!-- parent -->
 </$set> <!-- parent-filter-infix -->
-</$set> <!-- param-tiddlen -->
+</$set> <!-- default-infix -->
+</$let> <!-- param-tiddlen -->

@@ -1,5 +1,5 @@
 created: 20220712210906926
-modified: 20220727180030644
+modified: 20220728172857722
 tags: JournalManagementProject Checked
 title: JournalManagementUnrelatedEntries
 type: text/vnd.tiddlywiki
@@ -43,7 +43,7 @@ param-tiddler: <<param-tiddler>><br>
 <$set name="unrelated-filter-infix" 
   tiddler=<<param-tiddler>> 
   index="unrelated-user-filter" 
-  emptyValue="[search[]]"ff
+  emptyValue="[search[]]"
 >
 
 <!--

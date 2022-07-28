@@ -1,5 +1,5 @@
 created: 20220724235811048
-modified: 20220727172730476
+modified: 20220728202834446
 tags: Buttons Checked
 title: $:/kmr/ManageJournalButton
 type: text/vnd.tiddlywiki
@@ -8,5 +8,10 @@ type: text/vnd.tiddlywiki
 <$action-log $$message="Manage Journal Button" $$filter="[[parent]]" />
 <$action-setfield $tiddler=<<param-tiddler>> $index="journal-to-manage" $value=<<parent>> />
 \end
+
+<!--
+child: <<child>><br>
+parent: <<parent>><br>
+-->
 
 <$button actions=<<button-actions>> >Manage</$button>
