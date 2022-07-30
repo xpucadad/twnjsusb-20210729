@@ -1,0 +1,26 @@
+created: 20220730031230971
+modified: 20220730050033006
+tags: 
+title: Tabs Master
+type: text/vnd.tiddlywiki
+
+\define tab-change-actions()
+<$action-log $$message="tab-changed" $$all="yes" />
+<$action-setfield $tiddler=<<stateTitle>> $index=<<stateIndex>> $value=<<stateValue>> />
+\end
+
+<$let
+  stateTitle="$:/temp/TabsMaster/params"
+  stateIndex="current-tab"
+>
+
+<$macrocall
+  $name="tabs"
+  tabsList="[[left]] [[right]]"
+  default="[[left]]"
+  template ="TabsTemplate"
+  state = "$:/kmr/tab"
+  actions=<<tab-change-actions>>
+  />
+
+</$let>
