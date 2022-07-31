@@ -1,56 +1,31 @@
 created: 20220705185831603
-modified: 20220728211530274
+modified: 20220731000559262
 tags: Checked
 title: RecordRetention
 type: text/vnd.tiddlywiki
 
-<!--
-\define param-tiddler()
-<<qualify "$:/temp/RecordRetention/params">>
+<h1>Under Construction!! Not working!! Don't use!</h1>
+\define record-retention-tab-change-actions()
+<$action-log $$message="Record Retention Tab Changed" $$filter="current-tab" />
 \end
--->
 
-<$set name="param-tiddler" value=<<qualify "$:/temp/RecordRetention/params">> >
-<<param-tiddler>>
+<$let param-tiddler=<<qualify "$:/temp/RecordRetentionParams">> >
+param-tiddler: <<param-tiddler>><br>
 
-<h2>Expired</h2>
-
-<table>
-<tr><th>Tiddler</th><th>Expired</th><th>Action</th></tr>
-<$list filter="[has[delete-date]!is[draft]!days:delete-date[-1]sort[delete-date]]">
-<$set name="parent" value=<<currentTiddler>> >
-<$let child=<<currentTiddler>> >
 <!--
-child: <<child>><br>
-parent: <<parent>><br>
+[[RecordRetentionExpired]]<br>
+[[RecordRetentionRetained]]<br>
 -->
-<$set name="button" 
-   filter="[<parent>tagging[]first[]then[{{$:/kmr/ManageJournalButton}}]else[{{$:/kmr/DeleteEntryButton}}]]" >
-<tr><td><$link/></td><td>@@color:red;{{!!delete-date}}@@</td><td><<button>></td></tr>
-</$set> <!-- button -->
-</$let> <!-- child -->
-</$set> <!-- parent -->
-</$list>
-</table>
 
-<h2>Retained</h2>
-
-<table>
-<tr><th>Tiddler</th><th>Expires</th><th>Action</th></tr>
-<$list filter="[has[delete-date]sort[delete-date]]">
-<$set name="parent" value=<<currentTiddler>> >
-<$let child=<<currentTiddler>> >
-<!--
-child: <<child>><br>
-parent: <<parent>><br>
--->
-<$set name="button" filter="[<parent>tagging[]first[]then[{{$:/kmr/ManageJournalButton}}]else[{{$:/kmr/DeleteEntryButton}}]]" >
-<tr><td><$link/></td><td>{{!!delete-date}}</td><td><<button>></td></tr>
-</$set> <!-- button -->
-</$let>  <!-- child -->
-</$set> <!-- parent -->
-</$list>
-</table>
+<$macrocall
+  $name="tabs"
+  tabsList="Expired Retained"
+  default="Expired"
+  state=<<param-tiddler>>
+  template="RecordRetentionViewTemplate"
+  retain="yes"
+  actions=<<record-retention-tab-change-actions>>
+/>
 
 <$reveal 
   stateTitle=<<param-tiddler>> 
@@ -114,4 +89,4 @@ be enabled. If so, the reveal then shows the delete journal button.
 </$set>
 
 </$reveal>
-</$set>
+</$let>

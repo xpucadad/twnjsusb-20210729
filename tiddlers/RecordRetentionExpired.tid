@@ -1,0 +1,27 @@
+created: 20220730231558439
+delete-date: 20220806
+modified: 20220730232347026
+tags: 
+title: RecordRetentionExpired
+type: text/vnd.tiddlywiki
+
+<h2>Expired</h2>
+
+<table>
+<tr><th>Tiddler</th><th>Expired</th><th>Action</th></tr>
+<$list filter="[has[delete-date]!is[draft]!days:delete-date[-1]sort[delete-date]]">
+<$set name="parent" value=<<currentTiddler>> >
+<$let child=<<currentTiddler>> >
+<!--
+child: <<child>><br>
+parent: <<parent>><br>
+-->
+<$set name="button" 
+   filter="[<parent>tagging[]first[]then[{{$:/kmr/ManageJournalButton}}]else[{{$:/kmr/DeleteEntryButton}}]]" >
+<tr><td><$link/></td><td>@@color:red;{{!!delete-date}}@@</td><td><<button>></td></tr>
+</$set> <!-- button -->
+</$let> <!-- child -->
+</$set> <!-- parent -->
+</$list>
+</table>
+
