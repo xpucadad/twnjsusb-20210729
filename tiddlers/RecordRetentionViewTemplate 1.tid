@@ -1,32 +1,47 @@
-created: 20220730232058778
-modified: 20220731190643337
+created: 20220731190219269
+modified: 20220731190221156
 tags: Templates
-title: RecordRetentionViewTemplate
+title: RecordRetentionViewTemplate 1
 type: text/vnd.tiddlywiki
 
 <!--
+\define retained-filter()
+[has[delete-date]sort[delete-date]]
+\end
+
+\define expired-filter()
+[has[delete-date]!is[draft]!days:delete-date[-1]sort[delete-date]]
+\end
+-->
 param-tiddler: <<param-tiddler>><br>
 currentTab: <<currentTab>><br>
--->
+
 
 <$set name="tab-filter" tiddler="$:/kmr/data/RecordRetentionListFilters" index=<<currentTab>> >
 
 <!--
-tab-filter: <<tab-filter>><br>
-currentTiddler: <<currentTiddler>><br>
+<$set name="tab-filter" 
+  value={{{ [<currentTab>match[Expired]then<expired-filter>else<retained-filter>] }}} >
 -->
 
+tab-filter: <<tab-filter>><br>
+currentTiddler: <<currentTiddler>><br>
 <table>
 <tr><th>Tiddler</th><th>Expired</th><th>Action</th></tr>
+
 <$list filter=<<tab-filter>> >
+<!--
+<$list filter="[has[delete-date]sort[delete-date]]" >
+-->
+currentTiddler: <<currentTiddler>> <br>
 <$let 
   parent=<<currentTiddler>> 
   child=<<currentTiddler>> 
 >
-<!--
+
 child: <<child>><br>
 parent: <<parent>><br>
--->
+
 <tr><td><$link/></td><td>{{!!delete-date}}</td><td>No Buttons</td></tr>
 <!--
 <$set name="expires-column-style" filter="""[<currrentTab>equals[Expired]then[style="color:red;"]]""" >
@@ -39,6 +54,7 @@ expires-column-style: <<expires-column-style>><br>
 -->
 </$let> <!-- child & parent -->
 </$list>
+currentTiddler: <<currentTiddler>><br>
 </table>
 </$set> <!-- list-filter -->
 

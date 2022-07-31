@@ -1,0 +1,4 @@
+Expired: [has[delete-date]!is[draft]!days:delete-date[-1]sort[delete-date]]
+
+Retained:[has[delete-date]sort[delete-date]]
+

@@ -1,0 +1,92 @@
+created: 20220731190259407
+modified: 20220731190302474
+tags: Checked
+title: RecordRetention 1
+type: text/vnd.tiddlywiki
+
+<h1>Under Construction!! Not working!! Don't use!</h1>
+\define record-retention-tab-change-actions()
+<$action-log $$message="Record Retention Tab Changed" $$filter="current-tab" />
+\end
+
+<$let param-tiddler=<<qualify "$:/temp/RecordRetentionParams">> >
+param-tiddler: <<param-tiddler>><br>
+
+<!--
+[[RecordRetentionExpired]]<br>
+[[RecordRetentionRetained]]<br>
+-->
+
+<$macrocall
+  $name="tabs"
+  tabsList="Expired Retained"
+  default="Expired"
+  state=<<param-tiddler>>
+  template="RecordRetentionViewTemplate"
+  retain="yes"
+  actions=<<record-retention-tab-change-actions>>
+/>
+
+<$reveal 
+  stateTitle=<<param-tiddler>> 
+  stateIndex="journal-to-manage" 
+  type="nomatch"
+  text="" >
+<hr>
+<$set name="parent" tiddler=<<param-tiddler>> index="journal-to-manage" >
+
+<h2>Journal Management for <<parent>></h2>
+{{$:/kmr/CloseJournalManagementButton}}
+
+<!-- 
+This reveal hides or shows the checkbox to select whether to show
+the delete button based on whether or not a journal has been chosen.
+-->
+<$reveal 
+  stateTitle=<<param-tiddler>> 
+  stateIndex="journal-to-manage" 
+  type="nomatch"
+  text="None"
+  default="None" 
+>
+<!--
+Checkbox for the user to decide if the journal delete button should
+be enabled. If so, the reveal then shows the delete journal button.
+-->
+  <$checkbox tiddler=<<param-tiddler>> index="journal-delete-enabled"
+    checked="yes" unchecked="no" default="no"
+    > Enable Journal Delete</$checkbox>
+  <$reveal 
+    stateTitle=<<param-tiddler>>
+    stateIndex="journal-delete-enabled"
+    type="match"
+    text="yes"
+    default="no"
+>
+<$set name="stateTitle" value=<<param-tiddler>> >
+<$set name="stateIndex" value="journal-to-manage" >
+<$set name="stateValue" value="" >
+
+{{$:/kmr/DeleteJournalButton}}
+</$set>
+</$set>
+</$set>
+  </$reveal>
+</$reveal>
+
+<$set name="parent" tiddler=<<param-tiddler>> index="journal-to-manage" >
+<hr>
+
+<h2>Related Entries</h2>
+
+{{JournalManagementRelatedEntries}}
+<hr>
+
+<h2>Unrelated Entries</h2>
+
+{{JournalManagementUnrelatedEntries}}
+</$set>
+</$set>
+
+</$reveal>
+</$let>
