@@ -1,33 +1,62 @@
 created: 20220730232058778
-modified: 20220731000358966
-tags: 
+modified: 20220731172832547
+tags: Templates
 title: RecordRetentionViewTemplate
 type: text/vnd.tiddlywiki
 
-<$set name="list-filter" tiddle=<<param-tidder>> index=<<currentTab>> >
-<h2>Expired</h2>
+\define retained-filter()
+[has[delete-date]sort[delete-date]]
+\end
 
+\define expired-filter()
+[has[delete-date]!is[draft]!days:delete-date[-1]sort[delete-date]]
+\end
+
+param-tiddler: <<param-tiddler>><br>
+currentTab: <<currentTab>><br>
+
+
+<!--
+<$set name="tab-filter" tiddler="$:/kmr/RecordRetentionViewFilters" index=<<currentTab>> >
+-->
+<$set name="tab-filter" 
+  value={{{ [<currentTab>match[Expired]then<expired-filter>else<retained-filter>] }}} >
+
+tab-filter: <<tab-filter>><br>
+currentTiddler: <<currentTiddler>><br>
 <table>
 <tr><th>Tiddler</th><th>Expired</th><th>Action</th></tr>
+
+<$list filter=<<tab-filter>> >
 <!--
-<$list filter="[has[delete-date]!is[draft]!days:delete-date[-1]sort[delete-date]]">
+<$list filter="[has[delete-date]sort[delete-date]]" >
 -->
-<$list filter=<<list-filter>> >
-<$set name="parent" value=<<currentTiddler>> >
-<$let child=<<currentTiddler>> >
+currentTiddler: <<currentTiddler>> <br>
+<$let 
+  parent=<<currentTiddler>> 
+  child=<<currentTiddler>> 
+>
 
 child: <<child>><br>
 parent: <<parent>><br>
 
+<tr><td><$link/></td><td>{{!!delete-date}}</td><td>No Buttons</td></tr>
+<!--
+<$set name="expires-column-style" filter="""[<currrentTab>equals[Expired]then[style="color:red;"]]""" >
+expires-column-style: <<expires-column-style>><br>
 <$set name="button" 
    filter="[<parent>tagging[]first[]then[{{$:/kmr/ManageJournalButton}}]else[{{$:/kmr/DeleteEntryButton}}]]" >
-<tr><td><$link/></td><td>@@color:red;{{!!delete-date}}@@</td><td><<button>></td></tr>
-</$set> <!-- button -->
-</$let> <!-- child -->
-</$set> <!-- parent -->
+<tr><td><$link/></td><td <<expires-column-style>> >{{!!delete-date}}</td><td><<button>></td></tr>
+</$set> // button 
+</$set> // expires-column-style
+-->
+</$let> <!-- child & parent -->
 </$list>
+currentTiddler: <<currentTiddler>><br>
 </table>
+</$set> <!-- list-filter -->
 
+<!--
 <h2>Retained</h2>
 
 <table>
@@ -35,14 +64,15 @@ parent: <<parent>><br>
 <$list filter="[has[delete-date]sort[delete-date]]">
 <$set name="parent" value=<<currentTiddler>> >
 <$let child=<<currentTiddler>> >
-<!--
+
 child: <<child>><br>
 parent: <<parent>><br>
--->
+
 <$set name="button" filter="[<parent>tagging[]first[]then[{{$:/kmr/ManageJournalButton}}]else[{{$:/kmr/DeleteEntryButton}}]]" >
 <tr><td><$link/></td><td>{{!!delete-date}}</td><td><<button>></td></tr>
-</$set> <!-- button -->
-</$let>  <!-- child -->
-</$set> <!-- parent -->
+</$set> // button
+</$let>  // child 
+</$set> // parent 
 </$list>
 </table>
+-->
