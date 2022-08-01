@@ -1,5 +1,5 @@
 created: 20220705185831603
-modified: 20220801215852648
+modified: 20220801221738960
 tags: Checked
 title: RecordRetention
 type: text/vnd.tiddlywiki
@@ -8,8 +8,6 @@ type: text/vnd.tiddlywiki
 <$action-log $$message="Record Retention Tab Changed" $$filter="currentTab param-tiddler" />
 <$action-setfield $tiddler=<<param-tiddler>> $index="journal-to-manage" />
 \end
-
-<h1>Under Construction!! Not working!! Don't use!</h1>
 
 <$let  param-tiddler=<<qualify "$:/temp/RecordRetentionParams">> >
 
