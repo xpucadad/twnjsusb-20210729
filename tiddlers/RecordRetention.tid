@@ -1,23 +1,26 @@
 created: 20220705185831603
-modified: 20220801191335621
+modified: 20220801215852648
 tags: Checked
 title: RecordRetention
 type: text/vnd.tiddlywiki
 
 \define record-retention-tab-change-actions()
-<$action-log $$message="Record Retention Tab Changed" $$filter="current-tab" />
+<$action-log $$message="Record Retention Tab Changed" $$filter="currentTab param-tiddler" />
+<$action-setfield $tiddler=<<param-tiddler>> $index="journal-to-manage" />
 \end
 
 <h1>Under Construction!! Not working!! Don't use!</h1>
 
 <$let  param-tiddler=<<qualify "$:/temp/RecordRetentionParams">> >
+
+<!--
 param-tiddler: <<param-tiddler>><br>
+-->
 
 <$macrocall
   $name="tabs"
   tabsList="Expired Retained"
   default="Expired"
-  state=<<param-tiddler>>
   template="RecordRetentionViewTemplate"
   retain="yes"
   actions=<<record-retention-tab-change-actions>>

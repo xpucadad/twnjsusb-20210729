@@ -1,5 +1,5 @@
 created: 20220730232058778
-modified: 20220801191219242
+modified: 20220801220005624
 tags: Templates
 title: RecordRetentionViewTemplate
 type: text/vnd.tiddlywiki
@@ -50,7 +50,9 @@ tab-table-data: <<tab-table-data>><br>
 <!--
 child: <<child>><br>
 parent: <<parent>><br>
+param-tiddler: <<param-tiddler>><br>
 -->
+
 <$set name="buttons" filter="[<currentTiddler>tagging[]first[]then[{{$:/kmr/ManageJournalButton}}]else[{{$:/kmr/DeleteEntryButton}}]]" >
 <<tab-table-data>>
 </$set> <!-- buttons -->
