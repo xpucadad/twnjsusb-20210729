@@ -1,8 +1,20 @@
 created: 20220730232058778
-modified: 20220731190643337
+modified: 20220801000430756
 tags: Templates
 title: RecordRetentionViewTemplate
 type: text/vnd.tiddlywiki
+
+\define table-header()
+{{{ [<currentTab>match[Expired]then[Expired]else[Expires]] }}}
+\end
+
+\define delete-date-column()
+{{{ [<currentTab>match[Expired]then{!!delete-date}else{!!delete-date}] }}}
+\end
+
+\define button-column()
+No buttons
+\end
 
 <!--
 param-tiddler: <<param-tiddler>><br>
@@ -17,7 +29,7 @@ currentTiddler: <<currentTiddler>><br>
 -->
 
 <table>
-<tr><th>Tiddler</th><th>Expired</th><th>Action</th></tr>
+<tr><th>Tiddler</th><th><<table-header>></th><th>Action</th></tr>
 <$list filter=<<tab-filter>> >
 <$let 
   parent=<<currentTiddler>> 
@@ -27,20 +39,16 @@ currentTiddler: <<currentTiddler>><br>
 child: <<child>><br>
 parent: <<parent>><br>
 -->
-<tr><td><$link/></td><td>{{!!delete-date}}</td><td>No Buttons</td></tr>
-<!--
-<$set name="expires-column-style" filter="""[<currrentTab>equals[Expired]then[style="color:red;"]]""" >
-expires-column-style: <<expires-column-style>><br>
-<$set name="button" 
-   filter="[<parent>tagging[]first[]then[{{$:/kmr/ManageJournalButton}}]else[{{$:/kmr/DeleteEntryButton}}]]" >
-<tr><td><$link/></td><td <<expires-column-style>> >{{!!delete-date}}</td><td><<button>></td></tr>
-</$set> // button 
-</$set> // expires-column-style
--->
+
+<$set name="button" value="No Buttons" >
+<tr><td><$link/></td><td><<delete-date-column>></td><td><<button-column>></td></tr>
+</$set> <!-- button -->
+
+
 </$let> <!-- child & parent -->
 </$list>
 </table>
-</$set> <!-- list-filter -->
+</$set> <!-- tab-filter -->
 
 <!--
 <h2>Retained</h2>
