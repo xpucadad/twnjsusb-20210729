@@ -1,21 +1,17 @@
 created: 20220705185831603
-modified: 20220731160612319
+modified: 20220801191335621
 tags: Checked
 title: RecordRetention
 type: text/vnd.tiddlywiki
 
-<h1>Under Construction!! Not working!! Don't use!</h1>
 \define record-retention-tab-change-actions()
 <$action-log $$message="Record Retention Tab Changed" $$filter="current-tab" />
 \end
 
-<$let param-tiddler=<<qualify "$:/temp/RecordRetentionParams">> >
-param-tiddler: <<param-tiddler>><br>
+<h1>Under Construction!! Not working!! Don't use!</h1>
 
-<!--
-[[RecordRetentionExpired]]<br>
-[[RecordRetentionRetained]]<br>
--->
+<$let  param-tiddler=<<qualify "$:/temp/RecordRetentionParams">> >
+param-tiddler: <<param-tiddler>><br>
 
 <$macrocall
   $name="tabs"
@@ -68,13 +64,16 @@ be enabled. If so, the reveal then shows the delete journal button.
 <$set name="stateValue" value="" >
 
 {{$:/kmr/DeleteJournalButton}}
-</$set>
-</$set>
-</$set>
-  </$reveal>
-</$reveal>
+</$set> <!-- stateValue -->
+</$set> <!-- stateIndex -->
+</$set> <!-- stateTitle -->
+  </$reveal> <!-- journal delete enabled -->
+</$reveal> <!-- journal to manage -->
 
+<!--
 <$set name="parent" tiddler=<<param-tiddler>> index="journal-to-manage" >
+-->
+
 <hr>
 
 <h2>Related Entries</h2>
@@ -85,8 +84,12 @@ be enabled. If so, the reveal then shows the delete journal button.
 <h2>Unrelated Entries</h2>
 
 {{JournalManagementUnrelatedEntries}}
-</$set>
-</$set>
 
-</$reveal>
-</$let>
+<!--
+</$set>
+-->
+
+</$set> <!-- parent -->
+
+</$reveal> <!-- journal to manage -->
+</$let> <!-- param-tiddler -->

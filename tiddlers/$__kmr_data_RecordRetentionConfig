@@ -1,0 +1,11 @@
+Expired-filter: [has[delete-date]!is[draft]!days:delete-date[-1]sort[delete-date]]
+
+Retained-filter: [has[delete-date]sort[delete-date]]
+
+Expired-table-header: <tr><th>Tiddler</th><th>Expired</th><th>Actions</th></tr>
+
+Retained-table-header: <tr><th>Tiddler</th><th>Expires</th><th>Actions</th></tr>
+
+Expired-table-data: <tr><td><$link/></td><td style="color:red;"><$view field="delete-date" format="date" template="YYYY-0MM-0DD"/></td><td><<buttons>></td></tr>
+
+Retained-table-data: <tr><td><$link/></td><td><$view field="delete-date" format="date" template="YYYY-0MM-0DD"/></td><td><<buttons>></td></tr>

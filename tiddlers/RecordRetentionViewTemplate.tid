@@ -1,35 +1,47 @@
 created: 20220730232058778
-modified: 20220801000430756
+modified: 20220801191219242
 tags: Templates
 title: RecordRetentionViewTemplate
 type: text/vnd.tiddlywiki
 
-\define table-header()
-{{{ [<currentTab>match[Expired]then[Expired]else[Expires]] }}}
+\define tab-filter-index()
+$(currentTab)$-filter
 \end
 
-\define delete-date-column()
-{{{ [<currentTab>match[Expired]then{!!delete-date}else{!!delete-date}] }}}
+\define tab-table-header-index()
+$(currentTab)$-table-header
 \end
 
-\define button-column()
-No buttons
+\define tab-table-data-index()
+$(currentTab)$-table-data
 \end
 
 <!--
 param-tiddler: <<param-tiddler>><br>
+-->
+<$let config-tiddler="$:/kmr/data/RecordRetentionConfig" >
+<!--
+config-tiddler: <<config-tiddler>><br>
 currentTab: <<currentTab>><br>
+
+tab-table-header-index: <<tab-table-header-index>><br>
+tab-filter-index: <<tab-filter-index>><br>
+tab-table-data-index: <<tab-table-data-index>><br>
 -->
 
-<$set name="tab-filter" tiddler="$:/kmr/data/RecordRetentionListFilters" index=<<currentTab>> >
+<$set name="tab-table-header" tiddler=<<config-tiddler>> index=<<tab-table-header-index>> >
+<$set name="tab-filter" tiddler=<<config-tiddler>> index=<<tab-filter-index>> >
+<$set name="tab-table-data" tiddler=<<config-tiddler>> index=<<tab-table-data-index>> >
 
 <!--
-tab-filter: <<tab-filter>><br>
 currentTiddler: <<currentTiddler>><br>
+tab-table-header: <<tab-table-header>><br>
+tab-filter: <<tab-filter>><br>
+tab-table-data: <<tab-table-data>><br>
 -->
 
 <table>
-<tr><th>Tiddler</th><th><<table-header>></th><th>Action</th></tr>
+<<tab-table-header>>
 <$list filter=<<tab-filter>> >
 <$let 
   parent=<<currentTiddler>> 
@@ -39,34 +51,13 @@ currentTiddler: <<currentTiddler>><br>
 child: <<child>><br>
 parent: <<parent>><br>
 -->
-
-<$set name="button" value="No Buttons" >
-<tr><td><$link/></td><td><<delete-date-column>></td><td><<button-column>></td></tr>
-</$set> <!-- button -->
-
-
+<$set name="buttons" filter="[<currentTiddler>tagging[]first[]then[{{$:/kmr/ManageJournalButton}}]else[{{$:/kmr/DeleteEntryButton}}]]" >
+<<tab-table-data>>
+</$set> <!-- buttons -->
 </$let> <!-- child & parent -->
 </$list>
 </table>
+</$set> <!-- tab-table-data -->
 </$set> <!-- tab-filter -->
-
-<!--
-<h2>Retained</h2>
-
-<table>
-<tr><th>Tiddler</th><th>Expires</th><th>Action</th></tr>
-<$list filter="[has[delete-date]sort[delete-date]]">
-<$set name="parent" value=<<currentTiddler>> >
-<$let child=<<currentTiddler>> >
-
-child: <<child>><br>
-parent: <<parent>><br>
-
-<$set name="button" filter="[<parent>tagging[]first[]then[{{$:/kmr/ManageJournalButton}}]else[{{$:/kmr/DeleteEntryButton}}]]" >
-<tr><td><$link/></td><td>{{!!delete-date}}</td><td><<button>></td></tr>
-</$set> // button
-</$let>  // child 
-</$set> // parent 
-</$list>
-</table>
--->
+</$set> <!-- tab-table-header -->
+</$let> <!-- config-tiddler -->
