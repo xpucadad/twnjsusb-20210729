@@ -1,14 +1,8 @@
 created: 20220716031252200
-modified: 20220728194154312
+modified: 20220802191307920
 tags: JournalManagementProject Checked
 title: Journal Management
 type: text/vnd.tiddlywiki
-
-<!--
-\define param-tiddler()
-<<qualify "$:/temp/JournalManagement/params">>
-\end
--->
 
 \define parent-filter-prefix()
 [tag[Journals]!is[draft]]

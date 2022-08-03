@@ -1,14 +1,8 @@
 created: 20220712210906926
-modified: 20220728172857722
+modified: 20220803200209056
 tags: JournalManagementProject Checked
 title: JournalManagementUnrelatedEntries
 type: text/vnd.tiddlywiki
-
-<!--
-\define param-tiddler()
-<<qualify "$:/temp/JournalManagementUnrelatedEntries/params" >>
-\end
--->
 
 \define unrelated-filter-prefix()
 [!tag[$(parent)$]!tag[Journals]is[tiddler]!prefix[$:/]!is[draft]!compare:type:search[json]]
@@ -23,8 +17,11 @@ $(unrelated-filter-prefix)$ +$(unrelated-filter-infix)$ +$(unrelated-filter-suff
 \end
 
 <$set name="param-tiddler" value=<<qualify "$:/temp/JournalManagementUnrelatedEntries/params" >> >
+
+<!--
 param-tiddler: <<param-tiddler>><br>
-<!-- parent: <<parent>><br> -->
+parent: <<parent>><br>
+-->
 
 <table>
 <tr><th style="text-align:left;">Filter to Reduce Entry List</th></tr>

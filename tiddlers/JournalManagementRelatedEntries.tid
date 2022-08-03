@@ -1,5 +1,5 @@
 created: 20220719204804866
-modified: 20220728175354064
+modified: 20220803200239368
 tags: JournalManagementProject Checked
 title: JournalManagementRelatedEntries
 type: text/vnd.tiddlywiki
@@ -20,7 +20,9 @@ parent: <<parent>><br>
 
 <$set name="param-tiddler" value=<<qualify "$:/temp/JournalManagementRelatedEntries/params">> >
 
+<!--
 param-tiddler: <<param-tiddler>><br>
+-->
 
 <$checkbox 
   tiddler=<<param-tiddler>> 
