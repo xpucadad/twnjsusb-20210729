@@ -1,5 +1,5 @@
 created: 20220716031252200
-modified: 20220804162649792
+modified: 20220804180057752
 tags: JournalManagementProject Checked
 title: Journal Management
 type: text/vnd.tiddlywiki
@@ -94,12 +94,6 @@ radio buttons. The first is always the dummy entry "None".
 </$list>
 </table>
 
-<!--
-This sets "parent" to be the name of the selected journal. Is this needed??
--->
-<!--
-<$set name="parent" tiddler=<<param-tiddler>> index="selected-journal" >
--->
 <!-- 
 This reveal hides or shows the journal management code 
 based on whether or not a journal has been chosen.
@@ -112,8 +106,16 @@ based on whether or not a journal has been chosen.
   default="None" 
 >
 
+<!--
+We don't want to show the close button here. We want the user to select another
+journal or none explicitly. (Only because of the complication of changing the selection
+to none when the user closes the management part. Need to think about this.)
+-->
+<$let show-close-button="no">
+
 {{ManageAJournal}}
 
+</$let> <!-- show-close-button -->
 </$reveal> <!-- hide/show journal management for chosen journal -->
 
 </$set> <!-- parent-filter-infix -->

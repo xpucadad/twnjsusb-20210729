@@ -1,5 +1,5 @@
 created: 20220804160737073
-modified: 20220804162529072
+modified: 20220804190817073
 tags: 
 title: ManageAJournal
 type: text/vnd.tiddlywiki
@@ -7,7 +7,24 @@ type: text/vnd.tiddlywiki
 <!-- Input
 param-tiddler - the param tiddler that tells us which journal to manage at the index
 journal-to-manage. Other indexes are used by this code to store state.
+show-close-button - yes, show the close button; no, don't show it.
 -->
+
+<!-- 
+parent is used by the tiddlers that show related and unrelated tiddlers as well
+as the DeleteJournalButton
+-->
+<$set name="parent" tiddler=<<param-tiddler>> index="journal-to-manage" >
+
+<h2>Journal Management for: <<parent>></h2>
+
+<!-- Show close management button? -->
+<$reveal 
+  type="match"
+  text="yes"
+  default=<<show-close-button>> >
+{{$:/kmr/CloseJournalManagementButton}}
+</$reveal>
 
 <!--
 Checkbox for the user to decide if the journal delete button should
@@ -24,14 +41,14 @@ be enabled. If so, the reveal then shows the delete journal button.
     default="no"
 >
 <$set name="stateTitle" value=<<param-tiddler>> >
-<$set name="stateIndex" value="selected-journal" >
+<$set name="stateIndex" value="journal-to-manage" >
 <$set name="stateValke" value="None" >
 
 {{$:/kmr/DeleteJournalButton}}
+
 </$set>
 </$set>
 </$set>
-  </$reveal>
 </$reveal>
 
 <!--
@@ -45,10 +62,6 @@ an existing journal has been selected.
     default="None"
 >
 
-<!-- 
-parent is used by the tiddlers that show related and unrelated tiddlers.
--->
-<$set name="parent" tiddler=<<param-tiddler>> index="journal-to-manage" >
 <hr>
 <h2>Related Entries</h2>
 {{JournalManagementRelatedEntries}}
@@ -57,4 +70,5 @@ parent is used by the tiddlers that show related and unrelated tiddlers.
 <h2>Unrelated Entries</h2>
 {{JournalManagementUnrelatedEntries}}
 
+</$reveal> <!-- related & unrelated list reveas -->
 </$set> <!-- parent -->
