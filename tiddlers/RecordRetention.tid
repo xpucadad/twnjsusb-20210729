@@ -1,5 +1,5 @@
 created: 20220705185831603
-modified: 20220801221738960
+modified: 20220804163329435
 tags: Checked
 title: RecordRetention
 type: text/vnd.tiddlywiki
@@ -30,6 +30,12 @@ param-tiddler: <<param-tiddler>><br>
   type="nomatch"
   text="" >
 <hr>
+
+<!-- 
+parent is used to tell the buttons what journal they're working on what the
+journal tiddler is.
+-->
+
 <$set name="parent" tiddler=<<param-tiddler>> index="journal-to-manage" >
 
 <h2>Journal Management for <<parent>></h2>

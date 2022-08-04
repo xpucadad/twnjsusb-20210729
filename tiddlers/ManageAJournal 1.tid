@@ -1,0 +1,53 @@
+created: 20220804160841522
+delete-date: 20220904
+modified: 20220804163600814
+tags: 
+title: ManageAJournal 1
+type: text/vnd.tiddlywiki
+
+<!--
+Checkbox for the user to decide if the journal delete button should
+be enabled. If so, the reveal then shows the delete journal button.
+-->
+  <$checkbox tiddler=<<param-tiddler>> index="journal-delete-enabled"
+    checked="yes" unchecked="no" default="no"
+    > Enable Journal Delete</$checkbox>
+  <$reveal 
+    stateTitle=<<param-tiddler>>
+    stateIndex="journal-delete-enabled"
+    type="match"
+    text="yes"
+    default="no"
+>
+<$set name="stateTitle" value=<<param-tiddler>> >
+<$set name="stateIndex" value="selected-journal" >
+<$set name="stateValke" value="None" >
+
+{{$:/kmr/DeleteJournalButton}}
+</$set>
+</$set>
+</$set>
+  </$reveal>
+</$reveal>
+
+<!--
+parent: <<parent>><br>
+-->
+
+<!--
+This reveal can show or hide the related and unrelated lists when
+an existing journal has been selected.
+-->
+<$reveal stateTitle=<<param-tiddler>> 
+    stateIndex="selected-journal" 
+    type="nomatch" 
+    text="None" 
+    default="None"
+>
+<hr>
+<h2>Related Entries</h2>
+{{JournalManagementRelatedEntries}}
+
+<hr>
+<h2>Unrelated Entries</h2>
+{{JournalManagementUnrelatedEntries}}

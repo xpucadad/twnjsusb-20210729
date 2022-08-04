@@ -1,7 +1,8 @@
-created: 20220716031252200
-modified: 20220804162649792
+created: 20220804155338336
+delete-date: 20220904
+modified: 20220804163606371
 tags: JournalManagementProject Checked
-title: Journal Management
+title: Journal Management 1
 type: text/vnd.tiddlywiki
 
 \define parent-filter-prefix()
@@ -80,14 +81,14 @@ radio buttons. The first is always the dummy entry "None".
 -->
 <tr><td><$radio
   tiddler=<<param-tiddler>>
-  index="journal-to-manage"
+  index="selected-journal"
   default="None"
   value="None" >None</$radio></td></tr>
 <$list filter=<<full-parent-filter>> emptyMessage="No Matching Tiddlers Found">
 <tr><td>
 <$radio
   tiddler=<<param-tiddler>>
-  index="journal-to-manage"
+  index="selected-journal"
   default="None"
   value=<<currentTiddler>> > <$link/>
 </$radio></td></tr>
@@ -95,27 +96,71 @@ radio buttons. The first is always the dummy entry "None".
 </table>
 
 <!--
-This sets "parent" to be the name of the selected journal. Is this needed??
+This sets "parent" to be the name of the selected journal.
 -->
-<!--
 <$set name="parent" tiddler=<<param-tiddler>> index="selected-journal" >
--->
+
 <!-- 
-This reveal hides or shows the journal management code 
-based on whether or not a journal has been chosen.
+This reveal hides or shows the checkbox to select whether to show
+the delete button based on whether or not a journal has been chosen.
 -->
 <$reveal 
   stateTitle=<<param-tiddler>> 
-  stateIndex="journal-to-manage" 
+  stateIndex="selected-journal" 
   type="nomatch"
   text="None"
   default="None" 
 >
+<!--
+Checkbox for the user to decide if the journal delete button should
+be enabled. If so, the reveal then shows the delete journal button.
+-->
+  <$checkbox tiddler=<<param-tiddler>> index="journal-delete-enabled"
+    checked="yes" unchecked="no" default="no"
+    > Enable Journal Delete</$checkbox>
+  <$reveal 
+    stateTitle=<<param-tiddler>>
+    stateIndex="journal-delete-enabled"
+    type="match"
+    text="yes"
+    default="no"
+>
+<$set name="stateTitle" value=<<param-tiddler>> >
+<$set name="stateIndex" value="selected-journal" >
+<$set name="stateValke" value="None" >
 
-{{ManageAJournal}}
+{{$:/kmr/DeleteJournalButton}}
+</$set>
+</$set>
+</$set>
+  </$reveal>
+</$reveal>
 
-</$reveal> <!-- hide/show journal management for chosen journal -->
+<!--
+parent: <<parent>><br>
+-->
 
+<!--
+This reveal can show or hide the related and unrelated lists when
+an existing journal has been selected.
+-->
+<$reveal stateTitle=<<param-tiddler>> 
+    stateIndex="selected-journal" 
+    type="nomatch" 
+    text="None" 
+    default="None"
+>
+<hr>
+<h2>Related Entries</h2>
+{{JournalManagementRelatedEntries}}
+
+<hr>
+<h2>Unrelated Entries</h2>
+{{JournalManagementUnrelatedEntries}}
+
+</$reveal>
+
+</$set> <!-- parent -->
 </$set> <!-- parent-filter-infix -->
 </$set> <!-- default-infix -->
-</$let> <!-- param-tiddler -->
+</$let> <!-- param-tiddlen -->
