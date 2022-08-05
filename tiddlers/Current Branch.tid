@@ -1,15 +1,8 @@
-branch: master
-created: 20220805200756882
-modified: 20220805202103066
+branch: WorkflowPlay
+created: 20220805184059320
+modified: 20220805185026956
 tags: 
 title: Current Branch
 type: text/vnd.tiddlywiki
 
-<$reveal
-  state="!!branch"
-  type="nomatch"
-  text=""
->
-<h2>You are working on the @@color:red;font-size:1.5em;{{!!branch}}@@ branch!</h2>
-</$reveal>
-
+!! @@color:red;You are working on branch {{!!branch}}!@@
