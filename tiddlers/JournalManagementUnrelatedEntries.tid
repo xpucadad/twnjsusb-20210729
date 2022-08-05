@@ -1,5 +1,5 @@
 created: 20220712210906926
-modified: 20220803200209056
+modified: 20220804202134970
 tags: JournalManagementProject Checked
 title: JournalManagementUnrelatedEntries
 type: text/vnd.tiddlywiki
@@ -16,6 +16,11 @@ type: text/vnd.tiddlywiki
 $(unrelated-filter-prefix)$ +$(unrelated-filter-infix)$ +$(unrelated-filter-suffix)$
 \end
 
+\define default-unrelated-filter-infix()
+[prefix[$(date-filter)$]]
+\end
+
+
 <$set name="param-tiddler" value=<<qualify "$:/temp/JournalManagementUnrelatedEntries/params" >> >
 
 <!--
@@ -23,6 +28,7 @@ param-tiddler: <<param-tiddler>><br>
 parent: <<parent>><br>
 -->
 
+<$let date-filter=<<now YYYY-0MM>> >
 <table>
 <tr><th style="text-align:left;">Filter to Reduce Entry List</th></tr>
 <tr><td>
@@ -31,8 +37,8 @@ parent: <<parent>><br>
   index="unrelated-user-filter"
   size=50
   tag="input"
-  default="[search[]]"
-  placeholder="[search[]]"
+  default=<<default-unrelated-filter-infix>>
+  placeholder=<<default-unrelated-filter-infix>>
 />
 </td></tr>
 </table>
@@ -40,8 +46,9 @@ parent: <<parent>><br>
 <$set name="unrelated-filter-infix" 
   tiddler=<<param-tiddler>> 
   index="unrelated-user-filter" 
-  emptyValue="[search[]]"
+  emptyValue=<<default-unrelated-filter-infix>>
 >
+
 
 <!--
 unrelated-filter-infix: <<unrelated-filter-infix>><br>
@@ -72,4 +79,6 @@ unrelated-filter-infix: <<unrelated-filter-infix>><br>
 </$list> <!-- unrelated child list -->
 </table>
 </$set> <!-- unrelated-filter-infix -->
+</$let> <!-- date-filter -->
+
 </$set>
