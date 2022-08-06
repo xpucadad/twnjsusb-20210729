@@ -1,8 +1,0 @@
-branch: WorkflowPlay
-created: 20220805184059320
-modified: 20220805185026956
-tags: 
-title: Current Branch
-type: text/vnd.tiddlywiki
-
-!! @@color:red;You are working on branch {{!!branch}}!@@

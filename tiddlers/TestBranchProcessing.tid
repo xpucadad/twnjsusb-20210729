@@ -1,0 +1,17 @@
+created: 20220806185611635
+modified: 20220806191259448
+tags: 
+title: TestBranchProcessing
+type: text/vnd.tiddlywiki
+
+\define button-actions()
+<$action-log $$message="Make It Temp activated" />
+<$action-sendmessage
+  $message="tm-rename-tiddler"
+  from="GitBranchRef"
+  to="$:/temp/GitBranchRef"
+/>
+\end
+
+
+<$button actions=<<button-actions>> >Make It Temp</$button>
