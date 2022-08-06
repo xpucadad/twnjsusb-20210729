@@ -1,0 +1,15 @@
+created: 20220805190309391
+modified: 20220806003449178
+tags: 
+title: CurrentBranch
+type: text/vnd.tiddlywiki
+
+<$reveal
+  state="GitBranchRef!!ref"
+  type="nomatch"
+  text=""
+>
+<$set name="branch" filter="[[GitBranchRef]get[ref]split[/]last[]]" >
+<h2>Current Branch:  @@color:red;font-size:1.5em;<<branch>>@@</h2>
+</$set>
+</$reveal>

@@ -1,9 +1,9 @@
 created: 20210621164720465
-modified: 20220805200716109
+modified: 20220806003118248
 title: $:/DefaultTiddlers
 type: text/vnd.tiddlywiki
 
-[[Current Branch]has[branch]]
+[[GitBranchRef]has[ref]then[Current Branch]]
 [[Contents]]
 [[RecordRetention]]
 [[Journal Management]]
