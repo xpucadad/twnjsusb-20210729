@@ -1,8 +1,9 @@
 created: 20210621164720465
-modified: 20220806185521859
+modified: 20220806203519841
 title: $:/DefaultTiddlers
 type: text/vnd.tiddlywiki
 
-[[Contents]]
-[[RecordRetention]]
-[[Journal Management]]
+[[TestBranchProcessing]]
+[[GitBranchRef]]
+[[$:/temp/GitBranchRef]]
+[[$:/temp/GitBranch]]

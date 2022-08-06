@@ -1,16 +1,36 @@
 created: 20220806185611635
-modified: 20220806191259448
+modified: 20220806211740642
 tags: 
 title: TestBranchProcessing
 type: text/vnd.tiddlywiki
 
+\define git-branch-phrase()
+ on Git branch: $(branch)$
+\end
+
 \define button-actions()
+<$list filter="[[GitBranchRef]]" >
 <$action-log $$message="Make It Temp activated" />
 <$action-sendmessage
   $message="tm-rename-tiddler"
   from="GitBranchRef"
   to="$:/temp/GitBranchRef"
 />
+</$list>
+
+<$list filter="[[$:/temp/GitBranchRef]]" >
+<$wikify 
+  name="branch" 
+  text={{{ [[$:/temp/GitBranchRef]get[ref]split[/]last[]] }}}
+  mode="inline"
+  output="text" >
+<$action-log $$message="Extracting branch" $$filter="branch"/>
+<$action-createtiddler
+  $basetitle="$:/temp/GitBranch"
+  text=<<git-branch-phrase>>
+/>
+</$wikify>
+</$list>
 \end
 
 
