@@ -1,37 +1,23 @@
 created: 20220806185611635
-modified: 20220806211740642
+modified: 20220807185509492
 tags: 
 title: TestBranchProcessing
 type: text/vnd.tiddlywiki
 
-\define git-branch-phrase()
- on Git branch: $(branch)$
-\end
-
 \define button-actions()
-<$list filter="[[GitBranchRef]]" >
-<$action-log $$message="Make It Temp activated" />
+
+<$let branch={{{ [[GitBranchInfo]get[ref]split[/]last[]!match[master]!match[main]] }}}>
+<$action-message $$message="Extracted branch from ref" filter="branch" />
+<$action-setfield $tiddler="GitBranchInfo" $field="branch" $value=<<branch>> />
 <$action-sendmessage
   $message="tm-rename-tiddler"
-  from="GitBranchRef"
-  to="$:/temp/GitBranchRef"
-/>
-</$list>
-
-<$list filter="[[$:/temp/GitBranchRef]]" >
-<$wikify 
-  name="branch" 
-  text={{{ [[$:/temp/GitBranchRef]get[ref]split[/]last[]] }}}
-  mode="inline"
-  output="text" >
-<$action-log $$message="Extracting branch" $$filter="branch"/>
-<$action-createtiddler
-  $basetitle="$:/temp/GitBranch"
-  text=<<git-branch-phrase>>
-/>
-</$wikify>
-</$list>
+  from="GitBranchInfo"
+  to="$:/temp/GitBranchInfo" />
+<$action-message $$message="Branch processed" $$filter="branch" />
+</$let>
 \end
 
 
-<$button actions=<<button-actions>> >Make It Temp</$button>
+<$button actions=<<button-actions>> >Process Git Branch
+</$button>
+

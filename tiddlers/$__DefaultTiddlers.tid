@@ -1,9 +1,6 @@
 created: 20210621164720465
-modified: 20220806203519841
+modified: 20220807171141612
 title: $:/DefaultTiddlers
 type: text/vnd.tiddlywiki
 
 [[TestBranchProcessing]]
-[[GitBranchRef]]
-[[$:/temp/GitBranchRef]]
-[[$:/temp/GitBranch]]

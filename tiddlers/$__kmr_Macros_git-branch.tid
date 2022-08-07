@@ -1,0 +1,17 @@
+created: 20220807164953914
+modified: 20220807185517567
+tags: Macros $:/tags/Macro
+title: $:/kmr/Macros/git-branch
+type: text/vnd.tiddlywiki
+
+\define get-git-branch()
+<$list filter="[[$:/temp/GitBranchInfo]get[branch]]" >
+{{$:/temp/GitBranchInfo!!branch}}
+</$list>
+\end
+
+\define display-git-branch(m)
+<$reveal state="$:/temp/GitBranchInfo!!branch" type="nomatch" text="" >
+$m$ @@color:red;<<get-git-branch>>@@
+</$reveal>
+\end

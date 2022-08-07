@@ -1,6 +1,6 @@
 created: 20210623144322625
-modified: 20220806195954018
+modified: 20220807171120552
 title: $:/SiteSubtitle
 type: text/vnd.tiddlywiki
 
-Sandbox Wiki {{$:/temp/GitBranch}}
+Sandbox Wiki <br><<display-git-branch "Current Git Branch:">>
