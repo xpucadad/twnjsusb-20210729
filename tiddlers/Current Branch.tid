@@ -1,0 +1,9 @@
+created: 20220808002853833
+modified: 20220808003041707
+tags: 
+title: Current Branch
+type: text/vnd.tiddlywiki
+
+<<display-git-branch "You are currently on branch: ">>
+
+If no branch is shown, you are on the `main` or `master` branch.
