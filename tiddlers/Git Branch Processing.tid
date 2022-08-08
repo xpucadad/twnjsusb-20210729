@@ -1,0 +1,26 @@
+created: 20220807195836790
+modified: 20220807202823112
+tags: 
+title: Git Branch Processing
+type: text/vnd.tiddlywiki
+
+This set of changes provides access to the current git branch without actually storing it in the wiki. This is to allow this code to work correctly without creating unique check ins for each branch.
+
+Here is the process:
+
+* import the file `./.git/HEAD` into a tiddler named `GitBranchInfo`. (I would have preferred to import it directly to $:/temp/GitBranchInfo, but the import command apparently doesn't like importing to system files, so I have to rename the file later in the process.) This is done when the tiddlywiki `listen` command is run by adding the import command followed by the source file, the type it import it as, and the new tiddler title to import it no:
+
+```
+tiddlywiki . --listen host=0.0.0.0 port=8100 --import ./.git/HEAD application/x-tiddler GitBranchInfo
+```
+The format of the `HEAD` file causes a field named `ref` to be created with a value of a path ending in the branch name.
+
+* A startup action file is created with the tag `$:/tags/StartupAction/PostRender`. Any action command in this tiddler will be executed immediately after the wiki is rendered. The actions
+*# Parce the branch name from the `ref` field in GitBranchInfo and store it in the `branch` field in the same tiddler.
+*# Renames the tiddler from `GitBranchInfo` to `$:/temp/GitBranchInf`. This file will not appear in git's index of changed files and is deleted whenever the wiki is restarted.
+
+* We now have a temporary tiddler which contains a `ref` field (directly from git's `HEAD` file) and a `branch` field which contains the current branch. Note: the current code will not create the branch field for the `main` or `master` branches. You can change this in the startup file [[SetupGitBranch]].
+
+* Global macros for accessing the branch are provided in [[$:/kmr/Macros/git-branch]]. By default these are used in the subtitle for this wiki: `Sandbox Wiki <br><<display-git-branch "Current Git Branch:">>`. This change will not show up in your own wiki unless you load a copy of this wiki from GitHub, so if you want to see the branch somewhere in you wiki, you will need to use the provided macros (or generate your own). Check out the 2 macros provided to you can see what kinds of things you can do to show the branch in your wiki.
+
+

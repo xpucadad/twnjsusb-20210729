@@ -1,0 +1,15 @@
+created: 20220807194657760
+modified: 20220807202146170
+tags: $:/tags/StartupAction/PostRender
+title: SetupGitBranch
+type: text/vnd.tiddlywiki
+
+<$let branch={{{ [[GitBranchInfo]get[ref]split[/]last[]!match[master]!match[main]] }}}>
+<$action-log $$message="Extracted branch from ref" filter="branch" />
+<$action-setfield $tiddler="GitBranchInfo" $field="branch" $value=<<branch>> />
+<$action-sendmessage
+  $message="tm-rename-tiddler"
+  from="GitBranchInfo"
+  to="$:/temp/GitBranchInfo" />
+<$action-log $$message="Branch processed" $$filter="branch" />
+</$let>
