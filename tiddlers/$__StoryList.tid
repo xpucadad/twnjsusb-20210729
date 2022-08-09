@@ -1,3 +1,5 @@
-list: [[Current Branch]] RecordRetention [[Journal Management]]
+created: 20220808165851498
+list: [[Git Branch Processing]] $:/kmr/Macros/git-branch SetupGitBranch
+modified: 20220808171518515
 title: $:/StoryList
 type: text/vnd.tiddlywiki
