@@ -1,0 +1,38 @@
+created: 20220809143801863
+modified: 20220809143805614
+tags: 
+title: Check Box Play 1
+type: text/vnd.tiddlywiki
+
+\define param-tiddler()
+[[Check Box Play/Params]]
+\end
+
+<$checkbox
+  tiddler=<<param-tiddler>>
+  index="1stCB"
+  checked="reveal"
+  unchecked="hide"
+  default="hide" 
+>Show Segment
+</$checkbox>
+
+<$set name="result" tiddler=<<param-tiddler>> index="1stCB" >
+result: <<result>><br>
+</$set>
+
+<$let result={{{ [<param-tiddler>getindex[1stCB]]  }}}>
+result: <<result>><br>
+</$let>
+
+<$reveal
+  stateTitle=<<param-tiddler>>
+  stateIndex="1stCB"
+  type="match"
+  text="reveal"
+  default="hide"
+  retain="yes" >
+I have been REVEALED!
+</#reveal>
+
+  
