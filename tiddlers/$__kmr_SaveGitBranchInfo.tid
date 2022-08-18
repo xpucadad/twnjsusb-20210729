@@ -1,0 +1,32 @@
+created: 20220814102857000
+modified: 20220816212230818
+tags: $:/tags/StartupAction/PostRender
+title: $:/kmr/SaveGitBranchInfo
+type: text/vnd.tiddlywiki
+
+<$action-log $$message="ActionsToTest" />
+<$let 
+  tempHead = "$:/temp/HEAD"
+  kmrHead="$:/kmr/HEAD" 
+  have-temp={{{ [<tempHead>is[missing]then[no]else[yes]] }}}
+  have-kmr={{{ [<kmrHead>is[missing]then[no]else[yes]] }}}
+>
+<!--
+tempHead: <<tempHead>><br>
+kmrHead: <<kmrHead>><br>
+have-temp: <<have-temp>><br>
+have-kmr: <<have-kmr>><br>
+-->
+<$action-log $$message="Ready!" $$filter="tempHead kmrHead have-temp have-kmr" />
+<$list filter="[<have-temp>compare:string:eq[yes]]" >
+<$action-createtiddler 
+  $basetitle=<<kmrHead>>
+  $template=<<tempHead>>
+  $overwrite=<<have-kmr>>
+>
+<$set name="branch" filter="[<kmrHead>get[ref]split[/]last[]!match[main]!match[master]]" emptyValue="">
+<$action-setfield $tiddler=<<kmrHead>> $field="branch" $value=<<branch>> />
+</$set>
+</$action-createtiddler>
+</$list>
+</$let>
