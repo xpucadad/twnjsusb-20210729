@@ -1,0 +1,22 @@
+created: 20220818202330136
+modified: 20220819033202192
+tags: 
+title: 2022-08-18T13:23:30 filter play
+type: text/vnd.tiddlywiki
+
+
+
+<table>
+<tr><th>Title</th><th>Expires</th></tr>
+<$let filter1="[has[delete-date]!is[draft]!days:delete-date[-1]sort[delete-date]]">
+<$list filter=<<filter1>> >
+<tr><td><$link/></td><td style="white-space:nowrap;">@@color:red;<$view tiddler=<<currentTiddler>> field="delete-date" format="date" template="YYYY-0MM-0DD" />@@</td></tr>
+</$list>
+</$let>
+<$let filter2="[has[delete-date]!is[draft]!days:delete-date[+0]sort[delete-date]]">
+<$list filter=<<filter2>> >
+<tr><td><$link/></td><td style="white-space:nowrap;">@@color:orange;<$view tiddler=<<currentTiddler>> field="delete-date" format="date" template="YYYY-0MM-0DD"/>@@</td></tr>
+</$list>
+</$let>
+</table>
+
