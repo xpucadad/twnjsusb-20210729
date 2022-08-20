@@ -1,65 +1,28 @@
 created: 20220730232058778
-modified: 20220801220005624
+modified: 20220820171348115
 tags: Templates
 title: RecordRetentionViewTemplate
 type: text/vnd.tiddlywiki
 
-\define tab-filter-index()
-$(currentTab)$-filter
-\end
-
-\define tab-table-header-index()
-$(currentTab)$-table-header
-\end
-
-\define tab-table-data-index()
-$(currentTab)$-table-data
+\define tab-tiddler-index()
+$(currentTab)$-tiddler
 \end
 
 <!--
 param-tiddler: <<param-tiddler>><br>
 -->
+
 <$let config-tiddler="$:/kmr/data/RecordRetentionConfig" >
+
 <!--
 config-tiddler: <<config-tiddler>><br>
 currentTab: <<currentTab>><br>
-
-tab-table-header-index: <<tab-table-header-index>><br>
-tab-filter-index: <<tab-filter-index>><br>
-tab-table-data-index: <<tab-table-data-index>><br>
 -->
 
-<$set name="tab-table-header" tiddler=<<config-tiddler>> index=<<tab-table-header-index>> >
-<$set name="tab-filter" tiddler=<<config-tiddler>> index=<<tab-filter-index>> >
-<$set name="tab-table-data" tiddler=<<config-tiddler>> index=<<tab-table-data-index>> >
+<h1> NEW </h1>
+<$set name="tab-tiddler" tiddler=<<config-tiddler>>  index=<<tab-tiddler-index>> >
+<$transclude tiddler=<<tab-tiddler>> />
+</$set>
+<h1> END OF NEW </h1>
 
-<!--
-currentTiddler: <<currentTiddler>><br>
-tab-table-header: <<tab-table-header>><br>
-tab-filter: <<tab-filter>><br>
-tab-table-data: <<tab-table-data>><br>
--->
-
-<table>
-<<tab-table-header>>
-<$list filter=<<tab-filter>> >
-<$let 
-  parent=<<currentTiddler>> 
-  child=<<currentTiddler>> 
->
-<!--
-child: <<child>><br>
-parent: <<parent>><br>
-param-tiddler: <<param-tiddler>><br>
--->
-
-<$set name="buttons" filter="[<currentTiddler>tagging[]first[]then[{{$:/kmr/ManageJournalButton}}]else[{{$:/kmr/DeleteEntryButton}}]]" >
-<<tab-table-data>>
-</$set> <!-- buttons -->
-</$let> <!-- child & parent -->
-</$list>
-</table>
-</$set> <!-- tab-table-data -->
-</$set> <!-- tab-filter -->
-</$set> <!-- tab-table-header -->
 </$let> <!-- config-tiddler -->
