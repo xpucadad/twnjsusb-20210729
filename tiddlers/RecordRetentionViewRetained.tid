@@ -1,0 +1,28 @@
+created: 20220820163202575
+modified: 20220820204015502
+tags: Templates
+title: RecordRetentionViewRetained
+type: text/vnd.tiddlywiki
+
+<!--
+param-tiddler: <<param-tiddler>><br>
+-->
+<$let config-tiddler="$:/kmr/data/RecordRetentionConfig" >
+
+<!--
+config-tiddler: <<config-tiddler>><br>
+currentTab: <<currentTab>><br>
+-->
+
+<$set name="tab-table-header" tiddler=<<config-tiddler>> index="Retained-table-header" >
+<$set name="tab-filter" tiddler=<<config-tiddler>> index="Retained-filter" >
+<$set name="tab-table-data" tiddler=<<config-tiddler>> index="Retained-table-data" >
+
+<table>
+<<tab-table-header>>
+{{RecordRetentionImminentViewSegment}}
+</table>
+</$set> <!-- tab-table-data -->
+</$set> <!-- tab-filter -->
+</$set> <!-- tab-table-header -->
+</$let> <!-- config-tiddler -->

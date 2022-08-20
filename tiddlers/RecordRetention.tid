@@ -1,5 +1,5 @@
 created: 20220705185831603
-modified: 20220804174909543
+modified: 20220820165613812
 tags: Checked
 title: RecordRetention
 type: text/vnd.tiddlywiki
@@ -17,8 +17,8 @@ param-tiddler: <<param-tiddler>><br>
 
 <$macrocall
   $name="tabs"
-  tabsList="Expired Retained"
-  default="Expired"
+  tabsList="Imminent Retained"
+  default="Imminent"
   template="RecordRetentionViewTemplate"
   retain="yes"
   actions=<<record-retention-tab-change-actions>>

@@ -1,0 +1,60 @@
+created: 20220818202330136
+delete-date: 20220825
+modified: 20220820194230589
+tags: 
+title: Filter Play
+type: text/vnd.tiddlywiki
+
+\define today-and-before()
+[has[delete-date]!is[draft]!days:delete-date[-1]sort[delete-date]]
+\end
+
+\define tomorrow()
+[has[delete-date]days:delete-date[0]sort[delete-date]]
+\end
+
+\define after-tomorrow-less-than-x-days(x)
+[has[delete-date]!is[draft]days:delete-date[+$x$]!days:delete-date[+1]sort[delete-date]]
+\end
+
+|!Sense|!D|!Meaning|
+|normal|0|?|
+|normal|+|Those Ts in which F is D days in the future or anytime before|
+|normal|-|Those Ts in which F is D days in the past or anytime after|
+|inverse|0|?|
+|inverse|+|Those Ts in which F is at least D days in the future|
+|inverse|-|Those Ts in which F is at least D days in the past|
+
+!! Retained
+
+<table>
+<tr><th>Title</th><th>Expires</th></tr>
+<$list filter="[has[delete-date]sort[delete-date]]" >
+<tr><td><$link/></td><td>{{!!delete-date}}</td></tr>
+</$list>
+</table>
+
+!! Expired or Expiring
+
+<table>
+<!-- Today and before  -->
+<tr><th>Title</th><th>Expires</th></tr>
+filter: <<today-and-before>><br>
+<$list filter=<<today-and-before>> >
+<tr><td><$link/></td><td style="white-space:nowrap;">@@color:red;{{!!delete-date}}@@</td></tr>
+</$list>
+
+<!-- expires tomorrow -->
+<$list filter=<<tomorrow>> >
+<tr><td><$link/></td><td>@@color:orange;{{!!delete-date}}@@</td></tr>
+</$list>
+
+<!-- Expires after tomorrow, but within 7 days -->
+<$list filter=<<after-tomorrow-less-than-x-days 6>> >
+<tr><td><$link/></td><td style="white-space:nowrap;">@@color:orange;{{!!delete-date}}@@</td></tr>
+</$list>
+</table>
+
+<$list filter="[has[delete-date]!is[draft]days:delete-date[0]sort[delete-date]]" >
+<$link/><br>
+</$list>
