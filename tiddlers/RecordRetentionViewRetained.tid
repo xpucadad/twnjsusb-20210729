@@ -1,20 +1,8 @@
 created: 20220820163202575
-modified: 20220820171311262
+modified: 20220820204015502
 tags: Templates
 title: RecordRetentionViewRetained
 type: text/vnd.tiddlywiki
-
-\define tab-filter-index()
-$(currentTab)$-filter
-\end
-
-\define tab-table-header-index()
-$(currentTab)$-table-header
-\end
-
-\define tab-table-data-index()
-$(currentTab)$-table-data
-\end
 
 <!--
 param-tiddler: <<param-tiddler>><br>
@@ -24,41 +12,15 @@ param-tiddler: <<param-tiddler>><br>
 <!--
 config-tiddler: <<config-tiddler>><br>
 currentTab: <<currentTab>><br>
-
-tab-table-header-index: <<tab-table-header-index>><br>
-tab-filter-index: <<tab-filter-index>><br>
-tab-table-data-index: <<tab-table-data-index>><br>
 -->
 
-<$set name="tab-table-header" tiddler=<<config-tiddler>> index=<<tab-table-header-index>> >
-<$set name="tab-filter" tiddler=<<config-tiddler>> index=<<tab-filter-index>> >
-<$set name="tab-table-data" tiddler=<<config-tiddler>> index=<<tab-table-data-index>> >
-
-<!--
-currentTiddler: <<currentTiddler>><br>
-tab-table-header: <<tab-table-header>><br>
-tab-filter: <<tab-filter>><br>
-tab-table-data: <<tab-table-data>><br>
--->
+<$set name="tab-table-header" tiddler=<<config-tiddler>> index="Retained-table-header" >
+<$set name="tab-filter" tiddler=<<config-tiddler>> index="Retained-filter" >
+<$set name="tab-table-data" tiddler=<<config-tiddler>> index="Retained-table-data" >
 
 <table>
 <<tab-table-header>>
-<$list filter=<<tab-filter>> >
-<$let 
-  parent=<<currentTiddler>> 
-  child=<<currentTiddler>> 
->
-<!--
-child: <<child>><br>
-parent: <<parent>><br>
-param-tiddler: <<param-tiddler>><br>
--->
-
-<$set name="buttons" filter="[<currentTiddler>tagging[]first[]then[{{$:/kmr/ManageJournalButton}}]else[{{$:/kmr/DeleteEntryButton}}]]" >
-<<tab-table-data>>
-</$set> <!-- buttons -->
-</$let> <!-- child & parent -->
-</$list>
+{{RecordRetentionImminentViewSegment}}
 </table>
 </$set> <!-- tab-table-data -->
 </$set> <!-- tab-filter -->

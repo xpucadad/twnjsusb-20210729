@@ -1,65 +1,41 @@
 created: 20220820162844150
-modified: 20220820171736538
+modified: 20220820200853735
 tags: Templates
 title: RecordRetentionViewImminent
 type: text/vnd.tiddlywiki
-
-\define tab-filter-index()
-$(currentTab)$-filter
-\end
-
-\define tab-table-header-index()
-$(currentTab)$-table-header
-\end
-
-\define tab-table-data-index()
-$(currentTab)$-table-data
-\end
 
 <!--
 param-tiddler: <<param-tiddler>><br>
 -->
 <$let config-tiddler="$:/kmr/data/RecordRetentionConfig" >
 
-
+<!--
 config-tiddler: <<config-tiddler>><br>
 currentTab: <<currentTab>><br>
+-->
 
-tab-table-header-index: <<tab-table-header-index>><br>
-tab-filter-index: <<tab-filter-index>><br>
-tab-table-data-index: <<tab-table-data-index>><br>
-
-
-<$set name="tab-table-header" tiddler=<<config-tiddler>> index=<<tab-table-header-index>> >
-<$set name="tab-filter" tiddler=<<config-tiddler>> index=<<tab-filter-index>> >
-<$set name="tab-table-data" tiddler=<<config-tiddler>> index=<<tab-table-data-index>> >
-
-
-currentTiddler: <<currentTiddler>><br>
-tab-table-header: <<tab-table-header>><br>
-tab-filter: <<tab-filter>><br>
-tab-table-data: <<tab-table-data>><br>
-
+<$set name="tab-table-header" tiddler=<<config-tiddler>> index="Imminent-table-header" >
 
 <table>
 <<tab-table-header>>
-<$list filter=<<tab-filter>> >
-<$let 
-  parent=<<currentTiddler>> 
-  child=<<currentTiddler>> 
->
-<!--
-child: <<child>><br>
-parent: <<parent>><br>
-param-tiddler: <<param-tiddler>><br>
--->
-<$set name="buttons" filter="[<currentTiddler>tagging[]first[]then[{{$:/kmr/ManageJournalButton}}]else[{{$:/kmr/DeleteEntryButton}}]]" >
-<<tab-table-data>>
-</$set> <!-- buttons -->
-</$let> <!-- child & parent -->
-</$list>
-</table>
-</$set> <!-- tab-table-data -->
+<!-- Red dates, today and past -->
+<$set name="tab-table-data" tiddler=<<config-tiddler>> index="Imminent-table-data-red" >
+<$set name="tab-filter" tiddler=<<config-tiddler>> index="Imminent-filter-today-and-past" >
+{{RecordRetentionImminentViewSegment}}
 </$set> <!-- tab-filter -->
+</$set> <!-- tab-table-data -->
+
+<!-- yellow date tomorrow -->
+<$set name="tab-table-data" tiddler=<<config-tiddler>> index="Imminent-table-data-yellow" >
+<$set name="tab-filter" tiddler=<<config-tiddler>> index="Imminent-filter-tomorrow" >
+{{RecordRetentionImminentViewSegment}}
+</$set> <!-- tab-filter -->
+
+<!-- yellow date, future-->
+<$set name="tab-filter" tiddler=<<config-tiddler>> index="Imminent-filter-six-days-after-tomorrow" >
+{{RecordRetentionImminentViewSegment}}
+</$set> <!-- tab-filter -->
+</$set> <!-- tab-table-data -->
+</table>
 </$set> <!-- tab-table-header -->
 </$let> <!-- config-tiddler -->

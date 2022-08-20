@@ -1,5 +1,6 @@
 created: 20220818202330136
-modified: 20220820011118349
+delete-date: 20220825
+modified: 20220820194230589
 tags: 
 title: Filter Play
 type: text/vnd.tiddlywiki
@@ -53,3 +54,7 @@ filter: <<today-and-before>><br>
 <tr><td><$link/></td><td style="white-space:nowrap;">@@color:orange;{{!!delete-date}}@@</td></tr>
 </$list>
 </table>
+
+<$list filter="[has[delete-date]!is[draft]days:delete-date[0]sort[delete-date]]" >
+<$link/><br>
+</$list>

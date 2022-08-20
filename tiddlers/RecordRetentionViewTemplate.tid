@@ -1,5 +1,5 @@
 created: 20220730232058778
-modified: 20220820171348115
+modified: 20220820201129155
 tags: Templates
 title: RecordRetentionViewTemplate
 type: text/vnd.tiddlywiki
@@ -14,15 +14,8 @@ param-tiddler: <<param-tiddler>><br>
 
 <$let config-tiddler="$:/kmr/data/RecordRetentionConfig" >
 
-<!--
-config-tiddler: <<config-tiddler>><br>
-currentTab: <<currentTab>><br>
--->
-
-<h1> NEW </h1>
 <$set name="tab-tiddler" tiddler=<<config-tiddler>>  index=<<tab-tiddler-index>> >
 <$transclude tiddler=<<tab-tiddler>> />
 </$set>
-<h1> END OF NEW </h1>
 
 </$let> <!-- config-tiddler -->
