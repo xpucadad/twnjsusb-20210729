@@ -1,0 +1,9 @@
+created: 20220821162610664
+modified: 20220821162938189
+tags: Macros $:/tags/Macro
+title: $:/kmr/Macros/record-retention
+type: text/vnd.tiddlywiki
+
+\define format-delete-date()
+<$view field="delete-date" format="date" template="[UTC]YYYY-0MM-0DD" />
+\end
