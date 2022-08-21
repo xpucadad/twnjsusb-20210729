@@ -14,8 +14,8 @@ Imminent-table-header: <tr><th>Tiddler</th><th>Imminent</th><th>Actions</th></tr
 
 Retained-table-header: <tr><th>Tiddler</th><th>Expires</th><th>Actions</th></tr>
 
-Imminent-table-data-red: <tr><td><$link/></td><td style="white-space:nowrap; color:red;">{{!!delete-date}}</td><td><<buttons>></td></tr>
+Imminent-table-data-red: <tr><td><$link/></td><td style="white-space:nowrap; color:red;"><<format-delete-date>></td><td><<buttons>></td></tr>
 
-Imminent-table-data-yellow: <tr><td><$link/></td><td style="white-space:nowrap; color:yellow;">{{!!delete-date}}</td><td><<buttons>></td></tr>
+Imminent-table-data-yellow: <tr><td><$link/></td><td style="white-space:nowrap; color:yellow;"><<format-delete-date>></td><td><<buttons>></td></tr>
 
-Retained-table-data: <tr><td><$link/></td><td style="white-space:nowrap;">{{!!delete-date}}</td><td><<buttons>></td></tr>
+Retained-table-data: <tr><td><$link/></td><td style="white-space:nowrap;"><<format-delete-date>></td><td><<buttons>></td></tr>
