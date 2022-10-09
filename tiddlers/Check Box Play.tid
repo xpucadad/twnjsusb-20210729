@@ -1,11 +1,11 @@
 created: 20220809141734596
-modified: 20220809143828719
+modified: 20221009163327386
 tags: 
 title: Check Box Play
 type: text/vnd.tiddlywiki
 
 \define param-tiddler()
-[[Check Box Play/Params]]
+Check Box Play/Params
 \end
 
 <$checkbox

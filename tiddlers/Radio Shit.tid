@@ -1,12 +1,8 @@
 created: 20220717162007829
-modified: 20220727180710480
+modified: 20221009165028050
 tags: 
 title: Radio Shit
 type: text/vnd.tiddlywiki
-
-\define param-tiddler()
-<<qualify "$:/temp/RadioShit/params">>
-\end
 
 \define parent-input-actions()
 <$action-setfield $tiddler=<<param-tiddler>> $index="selected-child" $value="None"/>
@@ -16,7 +12,9 @@ type: text/vnd.tiddlywiki
 <tr><th>Attached Entries</th><th colspan:$(title-colspan)$>Actions</th></tr>
 \end
 
-param-tiddler: <<param-tiddler>><br>
+<$let param-tiddler=<<qualify "$:/temp/RadioShit/params" >> >
+
+rs-param-tiddler: <<param-tiddler>><br>
 
 {{RadioSubShit}}
 
@@ -109,3 +107,5 @@ th[colspan="2"] {
 </$set>
 </$set>
 </$set>
+</$set>
+</$let> <!-- param-tiddler -->
