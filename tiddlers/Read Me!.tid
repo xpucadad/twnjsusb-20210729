@@ -1,0 +1,9 @@
+created: 20230404195841920
+modified: 20230404200201995
+tags: 
+title: Read Me!
+type: text/vnd.tiddlywiki
+
+This tiddlywiki was used as the original location for developing the Record Retention and Journal Management tiddlers. The versions of these that exist in the "production" wikis is much more developed. 
+
+So, if you're thinking of implementing either of these features in a "real" tiddlywiki, you should be looking at the `Common Place` or `Health Tracking` wikis.
