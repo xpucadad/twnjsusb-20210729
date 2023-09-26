@@ -1,0 +1,32 @@
+caption: File Server Anchors
+created: 20230902180013631
+creator: Ken
+modified: 20230924185154871
+modifier: ken
+retainable: no
+tags: Meta
+title: FileServer/Anchors
+type: text/vnd.tiddlywiki
+
+\procedure td-date-view(field)
+<td style="white-space: nowrap;"><$view field=<<field>> format=date template=YYYY-0MM-0DD /></td>
+\end td-date-view
+
+\procedure list-anchors(fileserver)
+<$set name=anchor filter="[<fileserver>addsuffix[-anchor]]" >
+<table>
+<tr><th>Tiddler</th><th>Created</th><th>Modified</th></tr>
+
+<$list filter="[search:text<anchor>!prefix[FileServer/]!is[draft]!match<currentTiddler>]" >
+<tr><td><$link/></td><<td-date-view created>><<td-date-view modified>></tr>
+</$list>
+</table>
+</$set>
+\end list-anchors
+
+<$list filter="[[FileServer/Ports]indexes[]]" variable=fs >
+
+!! File Server for: <<fs>>
+
+<$transclude $variable="list-anchors" fileserver=<<fs>> />
+</$list>

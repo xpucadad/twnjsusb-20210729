@@ -4,4 +4,8 @@ type: text/vnd.tiddlywiki
 
 The following tiddlers were imported:
 
-# [[$:/kmr/Macros/anchors]]
+# [[FileServer/Anchors]]
+# [[FileServer/Init]]
+# [[FileServer/Ports]]
+# [[FileServer/Procedures]]
+# [[FileServer/Test]]

@@ -1,0 +1,46 @@
+created: 20230831191950221
+creator: Ken
+modified: 20230916163716161
+modifier: dev
+retainable: no
+tags: 
+title: FileServer/Test
+type: text/vnd.tiddlywiki
+
+!! Using transclude to call procedure with arguments defined by variables
+<$let
+  f1="./Amica/2023-08-23 CA Auto Coverage Summary.pdf"
+  t1="2023-08-23 CA Auto Coverage Summary"
+>
+<$transclude $variable=statements-anchor filename=<<f1>> title=<<t1>> />
+<br>
+</$let>
+
+!! Using transclude to call boxsync-anchor with constant arguments.
+<$transclude $variable=boxsync-anchor filename="./Manuals/Elite%20Gourmet/AutomaticEasyEggCookerManual.pdf"
+title="Automatic Easy Egg Cooker Manual" /><br>
+
+!! Call boxsync-anchor using boxsync-async procedure direnctly
+<<boxsync-anchor filename:"./Manuals/Elite%20Gourmet/AutomaticEasyEggCookerManual.pdf"
+title:"Automatic Easy Egg Cooker Manual">>
+
+!! Use transclude to call dropbox-anchor
+
+<$transclude $variable=dropbox-anchor filename="./Personal/Bill History.ods" title="Bill History" /> 
+ (Delete the file from Downloads if you click this link.)<br>
+
+!! Call dropbox-anchor directly as variable
+
+<<dropbox-anchor "./Personal/Bill History.ods" "Bill History" >> 
+ (Delete the file from Downloads if you click this link.)<br>
+
+!! Using boxsync-anchor - greek key pattern
+
+<<boxsync-anchor "./Crafts/Greek Key Pattern.pdf" "Greek Key Pattern" >>
+
+!! Using statements-anchor
+<<statements-anchor  filename:"./Amica/2023-08-23 CA Auto Coverage Summary.pdf"
+  title:"2023-08-23 CA Auto Coverage Summary">>
+
+!! Using dropbox link in hard-coded anchor directly to definitive copy of the file
+<a target="_blank" href="https://www.dropbox.com/scl/fi/mb41wnd7d2vjn10ikjxyj/2023-08-23-CA-Auto-Coverage-Summary.pdf?rlkey=phxspvh5ahhs7bi1wkaksn403&dl=0">2023-08-23 CA Auto Coverage Summary</a><br>

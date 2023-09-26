@@ -1,0 +1,29 @@
+created: 20230831184853053
+creator: Ken
+modified: 20230917124330115
+modifier: dev
+retainable: no
+tags: Procedures $:/tags/Global
+title: FileServer/Procedures
+type: text/vnd.tiddlywiki
+
+\procedure fs-anchor(filesystem filename title)
+<$set name="uri" filter="[[$:/kmr/FileServer/Uris]getindex<filesystem>addsuffix<filename>]" select="0" ><a target="_blank" href=<<uri>> ><<title>></a>
+</$set>
+\end fs-anchor
+
+\procedure box-anchor(filename title)
+@@color:yellow;The `box-anchor` procedue has been replaced with `boxsync-anchor`. Please update your code.@@
+\end box-anchor
+
+\procedure boxsync-anchor(filename title)
+<$transclude $variable="fs-anchor" filesystem="boxsync" filename=<<filename>> title=<<title>> />
+\end boxsync-anchor
+
+\procedure dropbox-anchor(filename title)
+<$transclude $variable="fs-anchor" filesystem="dropbox" filename=<<filename>> title=<<title>> />
+\end dropbox-anchor
+
+\procedure statements-anchor(filename title)
+<$transclude $variable="fs-anchor" filesystem="statements" filename=<<filename>> title=<<title>> />
+\end statements-anchor

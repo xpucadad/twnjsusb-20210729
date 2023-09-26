@@ -1,0 +1,60 @@
+created: 20230901194152723
+creator: Ken
+modified: 20230921233245040
+modifier: Ken
+retainable: no
+tags: $:/tags/StartupAction
+title: FileServer/Init
+type: text/vnd.tiddlywiki
+
+\procedure add-file-server-port(fs-prefix fs-name fs-port)
+<$set name=file-server-root filter="[<fs-prefix>addsuffix[:]addsuffix<fs-port>addsuffix[/]]" >
+<!--
+<$action-log $$message="FileServer/Init adding port to file server" $$filter="fs-prefix fs-name fs-port createTiddler-title file-server-root" />
+-->
+<$action-setfield $tiddler=<<createTiddler-title>> $index=<<fs-name>> $value=<<file-server-root>> />
+</$set>
+\end add-file-server-port
+
+<!--
+Main code starts here
+-->
+<$set name=port-suffix value={{$:/temp/FileServer/Host!!port-suffix}} emptyValue={{{[{$:/info/url/port}split[]last[2]join[]]}}} >
+
+<$set name="hostname" value={{$:/temp/FileServer/Host!!hostname}} emptyValue={{$:/info/url/hostname}} >
+
+<$set name="file-server-prefix" filter="[{$:/info/url/protocol}addsuffix[//]addsuffix<hostname>]" select="0" >
+
+<!--
+<$action-log $$message="FileServer/Init: Shared values for defining file servers" $$filter="port-suffix hostname file-server-prefix" />
+-->
+
+<!--
+NOTE: I could net get this to work using a non-system file name. In that case,
+no file is created.  I have no idea why.
+-->
+<$action-createtiddler
+$basetitle="$:/kmr/FileServer/Uris"
+$overwrite="yes">
+<!--
+<$action-log $$message="FileServer/Init created file server uri file" $$filter="createTiddler-title" />
+-->
+
+<!-- 
+Here is the list processing for each file server pont. This is repeated for each
+-->
+<$list filter="[[FileServer/Ports]indexes[]]" variable="server">
+<$set name=port-prefix filter="[[FileServer/Ports]getindex<server>]" >
+
+<$set name="port" filter="[<port-prefix>addsuffix<port-suffix>]">
+  
+<$transclude $variable="add-file-server-port" fs-prefix=<<file-server-prefix>> fs-name=<<server>> fs-port=<<port>> />
+
+</$set> <!-- port -->
+</$set> <!-- port-prefix -->
+
+</$list>
+</$action-createtiddler>
+</$set> <!-- file-server-prefix -->
+</$set> <!-- url-suffix -->
+</$set> <!-- port-suffix -->
