@@ -1,0 +1,4 @@
+# Force to use production servers 
+# There are no dev servers for this repositories
+hostname: 192.168.4.201
+port-suffix: 83
