@@ -1,5 +1,5 @@
 created: 20230404195841920
-modified: 20230926225108943
+modified: 20231209221319534
 tags: 
 title: Read Me!
 type: text/vnd.tiddlywiki
@@ -15,7 +15,7 @@ Adding FileServer support to use the procedures shown in the table below to acce
 
 <table>
 <tr><th>Procedure</th><th>URL root</th></tr>
-<tr><td>`anchor-boxsync`</td><td>Users/Ken/Library/CloudStorage/Box-Box/Documents</td></tr>
-<tr><td>`anchor-dropbox`</td><td>/Users/Ken/Library/CloudStorage/Dropbox</td></tr>
-<tr><td style="white-space:nowrap;">`anchor-statements`</td><td>/Users/Ken/Library/CloudStorage/Dropbox/Personal/Statements, Confirmations, Receipts<td></tr>
+<tr><td>`boxsync-anchor`</td><td>Users/Ken/Library/CloudStorage/Box-Box/Documents</td></tr>
+<tr><td>`dropbox-anchor`</td><td>/Users/Ken/Library/CloudStorage/Dropbox</td></tr>
+<tr><td style="white-space:nowrap;">`statements-anchor`</td><td>/Users/Ken/Library/CloudStorage/Dropbox/Personal/Statements, Confirmations, Receipts<td></tr>
 </table>
