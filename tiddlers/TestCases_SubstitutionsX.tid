@@ -1,0 +1,19 @@
+created: 20241128183021339
+creator: Ken
+description: Substitutions
+modified: 20241128190812595
+modifier: Ken
+tags: $:/tags/wiki-test-spec
+title: TestCases/SubstitutionsX
+type: text/vnd.tiddlywiki-multiple
+
+title: Output
+
+\whitespace trim
+<$let name="Paddy">
+<$text text=`Hello, $(name)$!` />
+</$let>
++
+title: ExpectedResult
+
+<p>Hello, Paddy!</p>
